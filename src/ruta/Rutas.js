@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
@@ -26,6 +25,7 @@ const Rutas = () => {
 
       </div> */}
       <Switch>
+        
         <Route path="/login">
           <Login />
         </Route>
@@ -33,7 +33,6 @@ const Rutas = () => {
           <Signup />
         </Route>
         <Route path="/">
-
         </Route>
       </Switch>
     </div>
