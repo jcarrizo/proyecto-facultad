@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login.css'
 import img from '../../images/login.jpg'
+import { useForm } from "react-hook-form";
+import { db } from "../../DB/firebase";
+import { toast } from 'react-toastify'
 
 const Login = () => {
+
+  const { register, handleSubmit, reset } = useForm();
+  const [datos, setDatos] = useState([]);
+
+  const GetUser = async () => {
+    db.collection("users").onSnapshot((querySnapshot) => {
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setDatos(docs);
+    });
+
+  };
+
+  const onSubmit = data => {
+
+    GetUser()
+    console.log(datos);
+    console.log(data)
+  };
 
   return (
     <div className="d-flex align-items-center min-vh-100 py-3 py-md-0">
@@ -18,14 +42,14 @@ const Login = () => {
                   <a href="index.html"><img src="Images/logo.svg" alt="First Job" className="logo"></img></a>
                 </div>
                 <p className="login-card-description">Loguearse</p>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input type="email" name="email" className="form-control"
-                      placeholder="Email"></input>
+                      placeholder="Email" {...register("email")}></input>
                   </div>
                   <div className="form-group mb-4">
                     <input type="password" name="password" className="form-control"
-                      placeholder="Contraseña"></input>
+                      placeholder="Contraseña" {...register("password")}></input>
                   </div>
 
                   <input className="btn btn-block login-btn mb-4" type="submit"
