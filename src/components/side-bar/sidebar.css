@@ -1,16 +1,15 @@
-body
-{
-    background-color: white;
-}
-
 .img
 {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
 }
 
-.container-sidebar
+.border
 {
-    margin: 15px 15px 15px 15px;
     border-right: 1px orangered solid;
+}
+
+.container
+{
+  margin: 15px 15px 15px 0;
 }
