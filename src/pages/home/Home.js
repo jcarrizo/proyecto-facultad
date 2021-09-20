@@ -4,12 +4,12 @@ import "../home/home.css"
 
 const Home = () => {
     return (<div>
-        <div class="row">
-            <div class="col-2">
+        <div className="row">
+            <div className="col-2">
                 <SideBar></SideBar>
             </div>
 
-            <div class="col-10">
+            <div className="col-10">
 
             </div>
         </div>
