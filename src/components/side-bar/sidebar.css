@@ -8,3 +8,9 @@ body
   height: 35px;
   width: 35px;
 }
+
+.container-sidebar
+{
+    margin: 15px 15px 15px 15px;
+    border-right: 1px orangered solid;
+}

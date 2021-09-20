@@ -8,48 +8,48 @@ import UserImageDefault from '../../images/user_2x.png';
 
 const SideBar = () => {
     return (
-        <div>
-            <div class="row">
-                <div class="col-auto text-center">
-                    <img class="img-profile" src={UserImageDefault} alt="user" />
+        <div className="container-sidebar">
+            <div className="row">
+                <div className="col-auto text-center">
+                    <img className="img-profile" src={UserImageDefault} alt="user" />
                 </div>
-                <div class="col">
-                    <h2 class="mt-2">
+                <div className="col">
+                    <h2 className="mt-2">
                         <h2><strong>nombre de usuario</strong></h2>
                     </h2>
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col">
+            <div className="row mt-5">
+                <div className="col">
                     <a >
-                    <p class="text-gray">
-                            <span><img class="img" src={Profile} alt="" />
+                    <p className="text-gray">
+                            <span><img className="img" src={Profile} alt="" />
                         </span>
                             
                         &nbsp;
-                        <span class="ml-1">Mi perfil</span>
+                        <span className="ml-1">Mi perfil</span>
                     </p>
                 </a>
                 <hr />
                 <a >
-                <p class="text-gray mt-4">
-                    <span><img class="img" src={List} alt="" /></span>
+                <p className="text-gray mt-4">
+                    <span><img className="img" src={List} alt="" /></span>
                     &nbsp;
                     <span>Mis Pacientes</span>
                 </p>
             </a>
             <hr />
             <a >
-            <p class="text-gray mt-4">
-                <span><img class="img" src={Home} alt="" /></span>
+            <p className="text-gray mt-4">
+                <span><img className="img" src={Home} alt="" /></span>
                 &nbsp;
                 <span>Mis Direcciones</span>
                         </p>
                         <hr />
                     </a>
-  </div>
-</div>
+            </div>
+          </div>
         </div >)
 }
 
