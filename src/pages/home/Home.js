@@ -6,9 +6,9 @@ const Home = () => {
     return (<div>
         <div class="row">
             <div class="col-2">
-        <SideBar></SideBar>
+                <SideBar></SideBar>
             </div>
-            
+
             <div class="col-10">
 
             </div>
