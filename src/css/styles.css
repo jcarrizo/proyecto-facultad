@@ -19,6 +19,11 @@ body
     --blue: rgb(62, 131, 209);
   }
 
-  text-blue{
+  .text-blue{
       color: var(--blue);
+  }
+
+  .pointer
+  {
+      cursor: pointer;
   }
