@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -4009,6 +4010,11 @@ label {
     width: 48%;
     margin-bottom: 10px;
   }
+=======
+.img {
+  height: 25px;
+  width: 25px;
+>>>>>>> 5e054b3fcf2e732cb07ee2dc2dcfb02dbfe7b7ba
 }
 
 @media (max-width: 575.98px) {
@@ -4047,6 +4053,7 @@ label {
   }
 }
 
+<<<<<<< HEAD
 @media (max-width: 480.98px) {
   .main-title {
     font-size: 20px;
@@ -4069,4 +4076,8 @@ label {
     -ms-flex-direction: column;
     flex-direction: column;
   }
+=======
+.container-sidebar {
+  margin: 15px 15px 15px 20px;
+>>>>>>> 5e054b3fcf2e732cb07ee2dc2dcfb02dbfe7b7ba
 }

@@ -8,6 +8,7 @@ import UserImageDefault from '../../images/user_2x.png';
 
 const SideBar = () => {
     return (
+<<<<<<< HEAD
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
@@ -23,6 +24,17 @@ const SideBar = () => {
                         <span class="sr-only">Toggle menu</span>
                         <span class="icon menu-toggle" aria-hidden="true"></span>
                     </button>
+=======
+        <div className="border">
+            <div className="container-sidebar">
+                <div className="row">
+                    <div className="col-auto text-center">
+                        <img src={UserImageDefault} alt="user" />
+                    </div>
+                    <div className="col">
+                        <h4 className="mt-2"><strong>nombre de usuario</strong></h4>
+                    </div>
+>>>>>>> 5e054b3fcf2e732cb07ee2dc2dcfb02dbfe7b7ba
                 </div>
                 <div class="sidebar-body">
                     <ul class="sidebar-body-menu">
