@@ -12,6 +12,8 @@ const SideBar = () => {
         <div className="sidebar">
             <div className="container-sidebar">
 
+                <h2>Odontología Carrizo XD</h2>
+
                 <div className="row ">
                     <div className="col">
                         <a className="pointer">
