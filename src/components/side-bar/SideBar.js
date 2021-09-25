@@ -12,7 +12,7 @@ const SideBar = () => {
             <div className="container-sidebar">
                 <div className="row">
                     <div className="col-auto text-center">
-                        <img className="img-profile" src={UserImageDefault} alt="user" />
+                        <img src={UserImageDefault} alt="user" />
                     </div>
                     <div className="col">
                         <h4 className="mt-2"><strong>nombre de usuario</strong></h4>
