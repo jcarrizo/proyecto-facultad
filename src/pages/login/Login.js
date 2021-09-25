@@ -10,21 +10,15 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const [datos, setDatos] = useState([]);
 
-
-  const GetUser = async () => {
-    db.collection("users").onSnapshot((querySnapshot) => {
-      const docs = [];
-      querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data(), id: doc.id });
-      });
-      setDatos(docs);
+  db.collection("users").onSnapshot((querySnapshot) => {
+    const docs = [];
+    querySnapshot.forEach((doc) => {
+      docs.push({ ...doc.data(), id: doc.id });
     });
-
-  };
+    setDatos(docs);
+  });
 
   const onSubmit = data => {
-
-    GetUser()
 
     let flag = false;
 
@@ -33,12 +27,12 @@ const Login = () => {
       console.log(datoss)
 
       if (datoss.email === data.email && datoss.password === data.password) {
-        toast('El usuario ingresado es correcto', { type: 'success', autoClose: 3000 })
+
         flag = true;
         localStorage.setItem('userSeccion', datoss.user);
-        setTimeout(() => {
-          window.location = "/"
-        }, 1000);
+
+        window.location = "/"
+
       }
     })
 
