@@ -2,7 +2,12 @@ import React from 'react'
 import "../side-bar/sidebar.css"
 
 
+
+
 const SideBar = () => {
+
+    let nameUser = localStorage.getItem('userSeccion');
+
     return (
         <div className="sidebar">
             <div className="container-sidebar">
@@ -34,12 +39,14 @@ const SideBar = () => {
                 </div>
 
 
-                <div className="row fixed-bottom container-sidebar">
+
+                <div className="row bottom">
+                    <hr></hr>
                     <div className="col-auto text-center">
                         <i className="bi-person-circle text-blue" />
                     </div>
                     <div className="col">
-                        <p className="mt-2"><strong>Nombre de Usuario</strong></p>
+                        <p className="mt-2"><strong>{nameUser}</strong></p>
                     </div>
                 </div>
             </div>

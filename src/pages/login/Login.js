@@ -35,6 +35,7 @@ const Login = () => {
       if (datoss.email === data.email && datoss.password === data.password) {
         toast('El usuario ingresado es correcto', { type: 'success', autoClose: 3000 })
         flag = true;
+        localStorage.setItem('userSeccion', datoss.user);
         setTimeout(() => {
           window.location = "/"
         }, 1000);
