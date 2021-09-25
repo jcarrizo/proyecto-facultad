@@ -16,11 +16,11 @@ const SideBar = () => {
 
                 <div className="row ">
                     <div className="col">
-                        <a className="pointer">
+                        <a className="pointer" href="/perfil">
                             <p className="text-gray mt-5 ml-1">
                                 <span><i className="bi-person" />
                                 </span>
-                                <span className="ml-3 text-grey">Mi perfil</span>
+                                <span className="ml-3 text-grey" >Mi perfil</span>
                             </p>
                         </a>
                         <a className="pointer">

@@ -1,9 +1,13 @@
 i {
   font-size: 25px;
-  color: var(--grey)
+  color: var(--grey);
 }
-hr{
+hr {
   width: 80%;
+}
+
+.pointer {
+  text-decoration: none;
 }
 
 .sidebar {
@@ -12,24 +16,25 @@ hr{
   position: fixed;
   height: 100%;
   width: 230px;
-  -webkit-box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 23px 25px 15px -2px rgba(0,0,0,0); 
-  box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 23px 25px 15px -2px rgba(0,0,0,0);
+  -webkit-box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff,
+    20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff, 23px 25px 15px -2px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff,
+    20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff, 23px 25px 15px -2px rgba(0, 0, 0, 0);
 }
 
 .container-sidebar {
   margin: 20px 15px 15px 20px;
 }
 
-a:hover{
+a:hover {
   text-shadow: 0px 0px 20px var(--blue);
 }
 
-.fixed-bottom
-{
+.fixed-bottom {
   padding-right: 1600px;
 }
 
-.bottom{
+.bottom {
   position: absolute;
-    bottom: 10px;
+  bottom: 10px;
 }
