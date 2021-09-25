@@ -1,8 +1,3 @@
-.img-profile
-{
-  font-size: 50px;
-}
-
 i {
   font-size: 25px;
   color: var(--grey)
@@ -12,12 +7,20 @@ i {
   border-right: 1px var(--light-grey) solid;
   position: fixed;
   height: 100%;
-  width: 250px;
-  box-shadow: yellowgreen 1px solid;
+  width: 230px;
   -webkit-box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 23px 25px 15px -2px rgba(0,0,0,0); 
   box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 23px 25px 15px -2px rgba(0,0,0,0);
 }
 
 .container-sidebar {
-  margin: 15px 15px 15px 20px;
+  margin: 20px 15px 15px 20px;
+}
+
+a:hover{
+  text-shadow: 0px 0px 20px var(--blue);
+}
+
+.fixed-bottom
+{
+  padding-right: 1600px;
 }

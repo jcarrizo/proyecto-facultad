@@ -6,15 +6,6 @@ const SideBar = () => {
     return (
         <div className="sidebar">
             <div className="container-sidebar">
-                <div className="row">
-                    <div className="col-auto text-center">
-                        <i className="bi-person-circle text-blue img-profile" />
-                    </div>
-                    <div className="col">
-                        <h4 className="mt-2"><strong>Nombre de Usuario</strong></h4>
-                    </div>
-                </div>
-
 
                 <div className="row ">
                     <div className="col">
@@ -39,6 +30,16 @@ const SideBar = () => {
                                 <span className="ml-3 text-grey">Turnos</span>
                             </p>
                         </a>
+                    </div>
+                </div>
+
+
+                <div className="row fixed-bottom container-sidebar">
+                    <div className="col-auto text-center">
+                        <i className="bi-person-circle text-blue" />
+                    </div>
+                    <div className="col">
+                        <p className="mt-2"><strong>Nombre de Usuario</strong></p>
                     </div>
                 </div>
             </div>
