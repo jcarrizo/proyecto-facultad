@@ -10,9 +10,9 @@ body
     --orange: #ff5b01;
     --light-orange: #FFB088;
     --light-light-orange: #FFE9DE;
-    --light-gray: #D0D0D0;
-    --dark-gray: #919191;
-    --gray: #848484;
+    --light-grey: #D0D0D0;
+    --dark-grey: #919191;
+    --grey: #848484;
     --green: #29CD1E;
     --success: #23C76F;
     --light-success: #D1FFCE;
@@ -22,6 +22,9 @@ body
   .text-blue{
       color: var(--blue);
   }
+  .text-grey{
+    color: var(--grey);
+    }
 
   .pointer
   {

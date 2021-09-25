@@ -5,10 +5,11 @@
 
 i {
   font-size: 25px;
+  color: var(--grey)
 }
 
 .sidebar {
-  border-right: 1px var(--blue) solid;
+  border-right: 1px var(--light-grey) solid;
   position: fixed;
   height: 100%;
   width: 250px;

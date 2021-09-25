@@ -11,36 +11,33 @@ const SideBar = () => {
                         <i className="bi-person-circle text-blue img-profile" />
                     </div>
                     <div className="col">
-                        <h4 className="mt-2"><strong>nombre de usuario</strong></h4>
+                        <h4 className="mt-2"><strong>Nombre de Usuario</strong></h4>
                     </div>
                 </div>
 
 
-                <div className="row mt-5">
+                <div className="row ">
                     <div className="col">
                         <a className="pointer">
-                            <p className="text-gray ml-1">
-                                <span><i class="bi-person text-blue" />
+                            <p className="text-gray mt-5 ml-1">
+                                <span><i class="bi-person" />
                                 </span>
-                                <span className="ml-3 text-center">Mi perfil</span>
+                                <span className="ml-3 text-grey">Mi perfil</span>
                             </p>
                         </a>
-                        <hr />
                         <a className="pointer">
-                            <p className="text-gray mt-4 ml-1">
-                                <span><i class="bi-people text-blue" />
+                            <p className="text-gray mt-5 ml-1">
+                                <span><i class="bi-people" />
                                 </span>
-                                <span className="ml-3">Mis Pacientes</span>
+                                <span className="ml-3 text-grey">Mis Pacientes</span>
                             </p>
                         </a>
-                        <hr />
                         <a className="pointer">
-                            <p className="text-gray mt-4 ml-1">
-                                <span><i class="bi-table text-blue" />
+                            <p className="text-gray mt-5 ml-1">
+                                <span><i class="bi-table" />
                                 </span>
-                                <span className="ml-3">Turnos</span>
+                                <span className="ml-3 text-grey">Turnos</span>
                             </p>
-                            <hr />
                         </a>
                     </div>
                 </div>
