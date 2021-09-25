@@ -4,6 +4,7 @@ i {
 }
 
 .sidebar {
+  position: relative;
   border-right: 1px var(--light-grey) solid;
   position: fixed;
   height: 100%;
@@ -23,4 +24,9 @@ a:hover{
 .fixed-bottom
 {
   padding-right: 1600px;
+}
+
+.bottom{
+  position: absolute;
+    bottom: 0;
 }
