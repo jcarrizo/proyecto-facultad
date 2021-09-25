@@ -9,6 +9,7 @@ const Signup = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const [datos, setDatos] = useState([]);
+
   const GetUser = async () => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -17,29 +18,35 @@ const Signup = () => {
       });
       setDatos(docs);
     });
-
   };
 
   const onSubmit = data => {
     GetUser()
     console.log(datos);
-    datos.map(dato => {
 
-      //To do Las contraseñas primero
-      if (dato.email !== data.email) {
 
-        if (data.password !== "" && data.passwordConfirm !== "" && data.password === data.passwordConfirm) {
-          db.collection("users").doc().set(data);
-          toast('Nuevo usuario agregado', { type: 'success', autoClose: 3000 })
+    //To do Las contraseñas primero
 
-        } else {
-          toast('Las contraseñas no son iguales', { type: 'error', autoClose: 3000 })
-        }
 
-      } else {
-        toast('El email ya se encuentra registrado', { type: 'error', autoClose: 3000 })
+    if (data.password !== "" && data.passwordConfirm !== "" && data.password === data.passwordConfirm) {
+      const info = {
+        email: data.email,
+        password: data.password,
+        user: data.usuario,
+        state: true
       }
-    })
+      db.collection("users").doc().set(info);
+      toast('Nuevo usuario agregado', { type: 'success', autoClose: 2000 })
+      setTimeout(() => {
+        window.location = "/"
+      }, 1000);
+
+    } else {
+      toast('Las contraseñas no son iguales', { type: 'error', autoClose: 3000 })
+    }
+
+
+
   };
 
   return (

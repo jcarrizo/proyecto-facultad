@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 const Login = () => {
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
   const [datos, setDatos] = useState([]);
 
   const GetUser = async () => {
@@ -24,8 +24,14 @@ const Login = () => {
   const onSubmit = data => {
 
     GetUser()
-    console.log(datos);
-    console.log(data)
+
+    datos.map(datoss => {
+
+      if (datoss.email === data.email && datoss.password === data.password) {
+        toast('El usuario ingresado es correcto', { type: 'success', autoClose: 3000 })
+      }
+    })
+
   };
 
   return (
