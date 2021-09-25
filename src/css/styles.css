@@ -1,6 +1,7 @@
 body
 {
     font-family: 'Roboto', sans-serif;
+    color: var(--black);
 }
 
 :root {
@@ -17,6 +18,7 @@ body
     --success: #23C76F;
     --light-success: #D1FFCE;
     --blue: rgb(62, 131, 209);
+    --blue-trans: rgba(62, 131, 209, 0.76);
   }
 
   .text-blue{
