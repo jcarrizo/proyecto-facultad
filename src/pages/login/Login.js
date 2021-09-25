@@ -10,6 +10,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const [datos, setDatos] = useState([]);
 
+
   const GetUser = async () => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -25,12 +26,26 @@ const Login = () => {
 
     GetUser()
 
+    let flag = false;
+
     datos.map(datoss => {
+
+      console.log(datoss)
 
       if (datoss.email === data.email && datoss.password === data.password) {
         toast('El usuario ingresado es correcto', { type: 'success', autoClose: 3000 })
+        flag = true;
+        setTimeout(() => {
+          window.location = "/"
+        }, 1000);
       }
     })
+
+    if (flag === false) {
+      toast('El usuario ingresado NO correcto', { type: 'error', autoClose: 3000 })
+    }
+
+
 
   };
 
@@ -51,11 +66,11 @@ const Login = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input type="email" name="email" className="form-control"
-                      placeholder="Email" {...register("email")}></input>
+                      placeholder="Email" {...register("email")} required></input>
                   </div>
                   <div className="form-group mb-4">
                     <input type="password" name="password" className="form-control"
-                      placeholder="Contraseña" {...register("password")}></input>
+                      placeholder="Contraseña" {...register("password")} required></input>
                   </div>
 
                   <input className="btn btn-block login-btn mb-4" type="submit"
