@@ -3,3 +3,22 @@ body
     font-family: 'Roboto', sans-serif;
 }
 
+:root {
+    --black: #373737;
+    --danger: #FF0000;
+    --light-danger: #FFCECE;
+    --orange: #ff5b01;
+    --light-orange: #FFB088;
+    --light-light-orange: #FFE9DE;
+    --light-gray: #D0D0D0;
+    --dark-gray: #919191;
+    --gray: #848484;
+    --green: #29CD1E;
+    --success: #23C76F;
+    --light-success: #D1FFCE;
+    --blue: rgb(62, 131, 209);
+  }
+
+  text-blue{
+      color: var(--blue);
+  }

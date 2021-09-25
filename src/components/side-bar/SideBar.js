@@ -8,7 +8,7 @@ import UserImageDefault from '../../images/user_2x.png';
 
 const SideBar = () => {
     return (
-        <div className="border">
+        <div className="sidebar">
             <div className="container-sidebar">
                 <div className="row">
                     <div className="col-auto text-center">
@@ -19,30 +19,30 @@ const SideBar = () => {
                     </div>
                 </div>
 
+
                 <div className="row mt-5">
                     <div className="col">
                         <a>
                             <p className="text-gray">
-                                <span><img className="img" src={Profile} alt="" />
+                                <span><i class="bi-alarm" />
                                 </span>
 
-                                &nbsp;
                                 <span className="ml-1 text-center">Mi perfil</span>
                             </p>
                         </a>
                         <hr />
                         <a>
                             <p className="text-gray mt-4">
-                                <span><img className="img" src={List} alt="" /></span>
-                                &nbsp;
+                                <span><i class="bi-alarm" />
+                                </span>
                                 <span className="ml-1">Mis Pacientes</span>
                             </p>
                         </a>
                         <hr />
                         <a >
                             <p className="text-gray mt-4">
-                                <span><img className="img" src={Home} alt="" /></span>
-                                &nbsp;
+                                <span><i class="bi-alarm" />
+                                </span>
                                 <span className="ml-1">Mis Direcciones</span>
                             </p>
                             <hr />
