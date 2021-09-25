@@ -18,21 +18,21 @@ const SideBar = () => {
                     <div className="col">
                         <a className="pointer">
                             <p className="text-gray mt-5 ml-1">
-                                <span><i class="bi-person" />
+                                <span><i className="bi-person" />
                                 </span>
                                 <span className="ml-3 text-grey">Mi perfil</span>
                             </p>
                         </a>
                         <a className="pointer">
                             <p className="text-gray mt-5 ml-1">
-                                <span><i class="bi-people" />
+                                <span><i className="bi-people" />
                                 </span>
                                 <span className="ml-3 text-grey">Mis Pacientes</span>
                             </p>
                         </a>
                         <a className="pointer">
                             <p className="text-gray mt-5 ml-1">
-                                <span><i class="bi-table" />
+                                <span><i className="bi-table" />
                                 </span>
                                 <span className="ml-3 text-grey">Turnos</span>
                             </p>
@@ -42,13 +42,23 @@ const SideBar = () => {
 
 
 
-                <div className="row bottom">
+
+
+                <div className="row bottom dropup">
                     <hr></hr>
-                    <div className="col-auto text-center">
-                        <i className="bi-person-circle text-blue" />
-                    </div>
-                    <div className="col">
-                        <p className="mt-2"><strong>{nameUser}</strong></p>
+                    <div class="btn-group dropup">
+                        <div className="col-auto text-center dropup">
+                            <i className="bi-person-circle text-blue" />
+                        </div>
+                        <div type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            {nameUser}
+                        </div>
+
+                        <ul className="dropdown-menu pointer">
+                            <li className="dropdown-item">
+                                Salir
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
