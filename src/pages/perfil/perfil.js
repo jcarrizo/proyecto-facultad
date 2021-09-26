@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
+import "./perfil.css"
 
 const Perfil = () => {
 
@@ -34,6 +35,7 @@ const Perfil = () => {
 
         <div classNameName="col-10" >
           <div className="container mt-5">
+            <h2 className="tituloPerfil">Perfil</h2>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3">
                 <div className="card">

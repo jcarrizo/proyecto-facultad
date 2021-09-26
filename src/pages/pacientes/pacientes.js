@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
+import "./pacientes.css"
 
 
 const Pacientes = () => {
@@ -34,7 +35,7 @@ const Pacientes = () => {
 
         <div classNameName="col-10" >
           <div className="container mt-5">
-            <h2>Pacientes</h2>
+            <h2 className="tituloPerfil">Pacientes</h2>
           </div>
 
         </div>
