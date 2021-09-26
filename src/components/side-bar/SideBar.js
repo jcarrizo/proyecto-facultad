@@ -1,9 +1,6 @@
 import React from 'react'
 import "../side-bar/sidebar.css"
 
-
-
-
 const SideBar = () => {
 
     let nameUser = localStorage.getItem('userSeccion');
@@ -42,15 +39,13 @@ const SideBar = () => {
 
 
 
-
-
                 <div className="row bottom dropup">
                     <hr></hr>
-                    <div class="btn-group dropup">
-                        <div className="col-auto text-center dropup">
+                    <div class="btn-group dropup row">
+                        <div className="col-auto text-center dropup ml-2">
                             <i className="bi-person-circle text-blue" />
                         </div>
-                        <div type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div type="button" className="btn dropdown-toggle col-auto mr-3" data-bs-toggle="dropdown" aria-expanded="false">
                             {nameUser}
                         </div>
 
