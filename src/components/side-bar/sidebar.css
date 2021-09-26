@@ -3,7 +3,7 @@ i {
   color: var(--grey);
 }
 hr {
-  width: 80%;
+  width: 80% !important;
 }
 
 .pointer {
@@ -27,7 +27,7 @@ hr {
 }
 
 a:hover {
-  text-shadow: 0px 0px 20px var(--blue);
+  text-decoration: underline var(--blue-trans) 2px;
 }
 
 .fixed-bottom {
