@@ -23,7 +23,7 @@ const SideBar = () => {
                                 <span className="ml-3 text-grey" >Mi perfil</span>
                             </p>
                         </a>
-                        <a className="pointer">
+                        <a className="pointer" href="/pacientes">
                             <p className="text-gray mt-5 ml-1">
                                 <span><i className="bi-people" />
                                 </span>

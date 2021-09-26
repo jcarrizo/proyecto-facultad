@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
+import Pacientes from "../pages/pacientes/pacientes";
 import Perfil from "../pages/perfil/perfil";
 import Signup from "../pages/signup/Signup";
 
@@ -36,6 +37,9 @@ const Rutas = () => {
         </Route>
         <Route path="/perfil">
           <Perfil />
+        </Route>
+        <Route path="/pacientes">
+          <Pacientes />
         </Route>
         <Route path="/">
           <Home></Home>
