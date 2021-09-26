@@ -26,17 +26,17 @@ const Pacientes = () => {
 
 
   return (
-    <div>
-      <div className="row">
-        <div className="col-2">
-          <SideBar></SideBar>
-        </div>
 
-        <div classNameName="col-10" >
-          <h1>Pacientes</h1>
-        </div>
+    <div className="row">
+      <div className="col-2">
+        <SideBar></SideBar>
       </div>
-    </div>)
+
+      <div classNameName="col-10" >
+        <h1>Pacientes</h1>
+      </div>
+    </div>
+  )
 }
 
 export default Pacientes;
