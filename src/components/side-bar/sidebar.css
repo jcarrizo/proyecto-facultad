@@ -6,6 +6,10 @@ hr {
   width: 80% !important;
 }
 
+.img-profile
+{
+  font-size: 40px;
+}
 .pointer {
   text-decoration: none;
 }

@@ -42,10 +42,10 @@ const SideBar = () => {
                 <div className="row bottom dropup">
                     <hr></hr>
                     <div class="btn-group dropup row">
-                        <div className="col-auto text-center dropup ml-2">
-                            <i className="bi-person-circle text-blue" />
+                        <div className="col-auto text-center dropup">
+                            <i className="bi-person-circle text-blue img-profile" />
                         </div>
-                        <div type="button" className="btn dropdown-toggle col-auto mr-3" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div type="button" className="btn dropdown-toggle col-auto mt-2" data-bs-toggle="dropdown" aria-expanded="false">
                             {nameUser}
                         </div>
 
