@@ -26,16 +26,20 @@ const Pacientes = () => {
 
 
   return (
+    <div>
+      <div className="row">
+        <div className="col-2">
+          <SideBar></SideBar>
+        </div>
 
-    <div className="row">
-      <div className="col-2">
-        <SideBar></SideBar>
-      </div>
+        <div classNameName="col-10" >
+          <div className="container mt-5">
+            <h2>Pacientes</h2>
+          </div>
 
-      <div classNameName="col-10" >
-        <h1>Pacientes</h1>
-      </div>
-    </div>
+        </div>
+      </div></div>
+
   )
 }
 
