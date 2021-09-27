@@ -1,5 +1,6 @@
 import React from 'react'
 import "../side-bar/sidebar.css"
+import banner from './../../images/bannerodonto.png'; // Tell webpack this JS file uses this image
 
 const SideBar = () => {
 
@@ -9,9 +10,9 @@ const SideBar = () => {
         <div className="sidebar">
             <div className="container-sidebar">
 
-                <h2>Odontología Carrizo XD</h2>
+                <img className="mt-2" src={banner} width="175"></img>
 
-                <div className="row ">
+                <div className="row mt-4">
 
                     <div className="col">
 
