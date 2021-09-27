@@ -5,7 +5,9 @@ i {
 hr {
   width: 80% !important;
 }
-
+p{
+  margin-bottom: 0;
+}
 span:active {
   color: var(--black);
 }

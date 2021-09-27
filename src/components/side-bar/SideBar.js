@@ -12,27 +12,37 @@ const SideBar = () => {
                 <h2>Odontología Carrizo XD</h2>
 
                 <div className="row ">
+
                     <div className="col">
-                        <a className="pointer" href="/perfil">
-                            <p className="text-gray mt-5 ml-1">
-                                <span><i className="bi-person" />
-                                </span>
-                                <span className="ml-3 text-grey" >Mi perfil</span>
-                            </p>
+
+                        <a className="mt-4" href="/perfil">
+                            <button variant="outline-primary" className="btn pointer" >
+                                <p className="text-gray">
+                                    <span><i className="bi-person" />
+                                    </span>
+                                    <span className="ml-3 text-grey" >Mi perfil</span>
+                                </p>
+                            </button>
                         </a>
-                        <a className="pointer" href="/pacientes">
-                            <p className="text-gray mt-5 ml-1">
-                                <span><i className="bi-people" />
-                                </span>
-                                <span className="ml-3 text-grey">Mis Pacientes</span>
-                            </p>
+
+                        <a className="mt-4" href="/pacientes">
+                            <button variant="outline-primary" className="btn pointer" >
+                                <p className="text-gray">
+                                    <span><i className="bi-people" />
+                                    </span>
+                                    <span className="ml-3 text-grey">Mis Pacientes</span>
+                                </p>
+                            </button>
                         </a>
-                        <a className="pointer">
-                            <p className="text-gray mt-5 ml-1">
-                                <span><i className="bi-table" />
-                                </span>
-                                <span className="ml-3 text-grey">Turnos</span>
-                            </p>
+
+                        <a className="mt-4" href="">
+                            <button variant="outline-primary" className="btn pointer">
+                                <p className="text-gray">
+                                    <span><i className="bi-table" />
+                                    </span>
+                                    <span className="ml-3 text-grey">Turnos</span>
+                                </p>
+                            </button>
                         </a>
                     </div>
                 </div>
