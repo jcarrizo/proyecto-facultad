@@ -19,13 +19,6 @@ const Perfil = () => {
   }, [])
 
 
-
-
-
-
-
-
-
   return (
     <div>
       <div className="row">

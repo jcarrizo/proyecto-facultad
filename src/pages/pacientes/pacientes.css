@@ -1,3 +1,7 @@
 .tituloPerfil {
   margin-bottom: 50px;
 }
+
+.tabla {
+  width: 100% !important;
+}
