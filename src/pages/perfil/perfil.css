@@ -48,3 +48,8 @@
 .shadow-none {
   box-shadow: none !important;
 }
+
+.rounded-circle
+{
+  border: var(--blue) 6px outset;
+}

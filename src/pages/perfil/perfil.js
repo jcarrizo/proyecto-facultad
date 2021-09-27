@@ -53,11 +53,12 @@ const Perfil = () => {
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150"></img>
                             <div className="mt-3 ">
                               <h4>{datoss.nombre + " " + datoss.apellido}</h4>
-                              <p className="text-secondary mb-1">Profesion</p>
+                              <p className="text-secondary mb-1">Profesión</p>
 
                               <div className="mt-4">
-                                <button class="btn btn-primary">Remplazar Foto</button>
-                                <button class="btn btn-outline-primary">Cambiar Contraseña</button></div>
+                                <button class="btn btn-primary">Reemplazar Foto</button>
+                                <br></br>
+                                <button class="btn btn-outline-danger mt-4">Cambiar Contraseña</button></div>
 
 
                             </div>
@@ -71,13 +72,13 @@ const Perfil = () => {
                         <div className="card-body">
                           <div className="row">
                             <div className="col-sm-3">
-                              <h6 className="mb-0">Name</h6>
+                              <h6 className="mb-0">Nombre</h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
                               {datoss.nombre}
                             </div>
                           </div>
-                          <hr></hr>
+                          <hr className="mb-4"></hr>
                           <div className="row">
                             <div className="col-sm-3">
                               <h6 className="mb-0">Apellido</h6>
@@ -86,7 +87,7 @@ const Perfil = () => {
                               {datoss.apellido}
                             </div>
                           </div>
-                          <hr></hr>
+                          <hr className="mb-4"></hr>
                           <div className="row">
                             <div className="col-sm-3">
                               <h6 className="mb-0">Email</h6>
@@ -95,28 +96,28 @@ const Perfil = () => {
                               {datoss.email}
                             </div>
                           </div>
-                          <hr></hr>
+                          <hr className="mb-4"></hr>
                           <div className="row">
                             <div className="col-sm-3">
-                              <h6 className="mb-0">Phone</h6>
+                              <h6 className="mb-0">Teléfono</h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
                               {datoss.telefono}
                             </div>
                           </div>
-                          <hr></hr>
+                          <hr className="mb-4"></hr>
                           <div className="row">
                             <div className="col-sm-3">
-                              <h6 className="mb-0">Address</h6>
+                              <h6 className="mb-0">Domicilio</h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
                               {datoss.direccion}
                             </div>
                           </div>
-                          <hr></hr>
+                          <hr className="mb-4"></hr>
                           <div className="row">
                             <div className="col-sm-12">
-                              <a className="btn btn-warning " href="">Edit</a>
+                              <a className="btn btn-warning " href="">Editar</a>
                             </div>
                           </div>
                         </div>
