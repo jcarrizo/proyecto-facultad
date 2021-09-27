@@ -9,7 +9,7 @@ const Pacientes = () => {
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
-    db.collection("users").onSnapshot((querySnapshot) => {
+    db.collection("pacientes").onSnapshot((querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
@@ -19,11 +19,7 @@ const Pacientes = () => {
   }, [])
 
 
-  datos.map(datoss => {
 
-    console.log(datoss)
-
-  })
 
 
 
@@ -39,7 +35,7 @@ const Pacientes = () => {
         <div classNameName="col-10 " >
           <div className="container mt-5">
             <h2 className="tituloPerfil ">Pacientes</h2>
-            <div className="row gutters-sm  ">
+            <div className="row gutters-sm">
               <div className="col-md-4 mb-3 tabla">
                 <div className="card">
                   <div className="card-body">
@@ -65,21 +61,17 @@ const Pacientes = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Jesus</td>
-                            <td>39478994</td>
-                            <td>@gmail</td>
-                            <td>3816536701</td>
-                            <td>Subsidio</td>
-                          </tr>
-                          <tr>
-                            <td>Mauricio</td>
-                            <td>45454545</td>
-                            <td>@gmail</td>
-                            <td>381656565</td>
-                            <td>Subsidio</td>
-                          </tr>
+                          {datos.map(datoss => {
 
+                            return (<tr>
+                              <td>{datoss.nombre + " " + datoss.apellido}</td>
+                              <td>{datoss.dni}</td>
+                              <td>{datoss.email}</td>
+                              <td>{datoss.telefono}</td>
+                              <td>{datoss.obrasocial}</td>
+                            </tr>)
+
+                          })}
                         </tbody>
                       </table>
                     </div>
