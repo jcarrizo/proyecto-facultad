@@ -47,8 +47,8 @@ const Perfil = () => {
                         <p className="text-secondary mb-1">Profesion</p>
 
                         <div className="mt-4">
-                          <button class="btn btn-primary">Remplazar Foto</button>
-                          <button class="btn btn-outline-primary">Cambiar Contraseña</button></div>
+                          <button className="btn btn-primary">Remplazar Foto</button>
+                          <button className="btn btn-outline-primary">Cambiar Contraseña</button></div>
 
 
                       </div>
