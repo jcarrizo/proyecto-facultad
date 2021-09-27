@@ -6,6 +6,10 @@ hr {
   width: 80% !important;
 }
 
+span:active {
+  color: var(--black);
+}
+
 .img-profile
 {
   font-size: 40px;

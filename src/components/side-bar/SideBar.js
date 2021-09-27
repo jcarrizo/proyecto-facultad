@@ -41,7 +41,7 @@ const SideBar = () => {
 
                 <div className="row bottom dropup">
                     <hr></hr>
-                    <div class="btn-group dropup row">
+                    <div className="btn-group dropup row">
                         <div className="col-auto text-center dropup">
                             <i className="bi-person-circle text-blue img-profile" />
                         </div>
