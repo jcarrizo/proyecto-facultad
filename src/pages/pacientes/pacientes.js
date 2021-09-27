@@ -18,13 +18,6 @@ const Pacientes = () => {
     });
   }, [])
 
-
-
-
-
-
-
-
   return (
     <div>
       <div className="row">
