@@ -57,24 +57,27 @@ const Pacientes = () => {
                       <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Pacientes</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Obra Social</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <td>Jesus</td>
+                            <td>39478994</td>
+                            <td>@gmail</td>
+                            <td>3816536701</td>
+                            <td>Subsidio</td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
+                            <td>Mauricio</td>
+                            <td>45454545</td>
+                            <td>@gmail</td>
+                            <td>381656565</td>
+                            <td>Subsidio</td>
                           </tr>
 
                         </tbody>
