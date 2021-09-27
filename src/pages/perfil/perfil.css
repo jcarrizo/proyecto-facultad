@@ -51,5 +51,5 @@
 
 .rounded-circle
 {
-  border: var(--blue) 6px outset;
+  border: var(--blue-trans) 6px outset;
 }
