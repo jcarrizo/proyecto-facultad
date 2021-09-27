@@ -29,7 +29,8 @@ const Login = () => {
       if (datoss.email === data.email && datoss.password === data.password) {
 
         flag = true;
-        localStorage.setItem('userSeccion', datoss.user);
+        localStorage.setItem('emailUser', datoss.email);
+        localStorage.setItem('nameUser', datoss.nombre);
 
         window.location = "/"
 

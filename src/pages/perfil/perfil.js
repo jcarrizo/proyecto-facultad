@@ -37,11 +37,11 @@ const Perfil = () => {
           {
             datos.map(datoss => {
 
-              var cat = localStorage.getItem('userSeccion');
+              var emailUser = localStorage.getItem('emailUser');
 
               console.log(datoss)
 
-              if (datoss.user === cat) {
+              if (datoss.email === emailUser) {
 
                 return (<div className="container mt-5">
                   <h2 className="tituloPerfil">Perfil</h2>
@@ -52,7 +52,7 @@ const Perfil = () => {
                           <div className="d-flex flex-column align-items-center text-center">
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150"></img>
                             <div className="mt-3 ">
-                              <h4>{datoss.user}</h4>
+                              <h4>{datoss.nombre + " " + datoss.apellido}</h4>
                               <p className="text-secondary mb-1">Profesion</p>
 
                               <div className="mt-4">
@@ -71,10 +71,19 @@ const Perfil = () => {
                         <div className="card-body">
                           <div className="row">
                             <div className="col-sm-3">
-                              <h6 className="mb-0">Full Name</h6>
+                              <h6 className="mb-0">Name</h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
-                              Kenneth Valdez
+                              {datoss.nombre}
+                            </div>
+                          </div>
+                          <hr></hr>
+                          <div className="row">
+                            <div className="col-sm-3">
+                              <h6 className="mb-0">Apellido</h6>
+                            </div>
+                            <div className="col-sm-9 text-secondary">
+                              {datoss.apellido}
                             </div>
                           </div>
                           <hr></hr>
@@ -89,19 +98,10 @@ const Perfil = () => {
                           <hr></hr>
                           <div className="row">
                             <div className="col-sm-3">
-                              <h6 className="mb-0">Usuario</h6>
-                            </div>
-                            <div className="col-sm-9 text-secondary">
-                              {datoss.user}
-                            </div>
-                          </div>
-                          <hr></hr>
-                          <div className="row">
-                            <div className="col-sm-3">
                               <h6 className="mb-0">Phone</h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
-                              (320) 380-4539
+                              {datoss.telefono}
                             </div>
                           </div>
                           <hr></hr>
@@ -110,7 +110,7 @@ const Perfil = () => {
                               <h6 className="mb-0">Address</h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
-                              Bay Area, San Francisco, CA
+                              {datoss.direccion}
                             </div>
                           </div>
                           <hr></hr>
