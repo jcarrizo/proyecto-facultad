@@ -42,7 +42,7 @@ const Pacientes = () => {
 
         <div classNameName="col-10 " >
           <div className="container mt-5">
-            <h2 className="tituloPerfil ">Pacientes</h2>
+            <h2 className="tituloPerfil">Pacientes</h2>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 tabla">
                 <div className="card">
@@ -53,7 +53,7 @@ const Pacientes = () => {
                         <input type="text" class="form-control" id="textPaciente" {...register("paciente")}></input>
                       </div>
                       <div className="col-1">
-                        <button type="submit" class="btn btn-primary" title="Agregar Paciente" data-bs-toggle="modal" data-bs-target="#exampleModal"><b>+</b></button>
+                        <button type="button" class="btn btn-primary" title="Agregar Paciente" data-bs-toggle="modal" data-bs-target="#exampleModal"><b>+</b></button>
                       </div>
 
                     </form>
