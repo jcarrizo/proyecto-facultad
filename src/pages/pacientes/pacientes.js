@@ -2,11 +2,17 @@ import React, { useState, useEffect } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
 import "./pacientes.css"
+import { useForm } from "react-hook-form";
 
 
 const Pacientes = () => {
 
   const [datos, setDatos] = useState([]);
+
+  const { register, handleSubmit, watch } = useForm();
+  const onSubmit = data => console.log(data);
+
+  console.log(watch("paciente"));
 
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
@@ -15,6 +21,7 @@ const Pacientes = () => {
         docs.push({ ...doc.data(), id: doc.id });
       });
       setDatos(docs);
+
     });
   }, [])
 
@@ -32,16 +39,16 @@ const Pacientes = () => {
               <div className="col-md-4 mb-3 tabla">
                 <div className="card">
                   <div className="card-body">
-                    <div class="mb-3 row d-flex align-items-end ">
+                    <form class="mb-3 row d-flex align-items-end " onSubmit={handleSubmit(onSubmit)}>
                       <div className="col-11">
-                        <label for="exampleInputEmail1" class="form-label">Buscar Pacientes</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                        <label for="textPaciente" class="form-label">Buscar Pacientes</label>
+                        <input type="text" class="form-control" id="textPaciente" {...register("paciente")}></input>
                       </div>
                       <div className="col-1">
                         <button type="submit" class="btn btn-primary" title="Agregar Paciente"><b>+</b></button>
                       </div>
 
-                    </div>
+                    </form>
                     <div className="d-flex flex-column align-items-center text-center">
                       <table class="table">
                         <thead>
