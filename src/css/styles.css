@@ -22,6 +22,16 @@ body
     --light-blue:#5fb8ff;
   }
 
+  .btn-primary
+  {
+    background-color: var(--blue);
+    border: white; 
+  }
+  .btn-primary:hover
+  {
+    background-color: var(--light-blue);
+  }
+
   .text-blue{
       color: var(--blue);
   }
@@ -31,6 +41,9 @@ body
   .text-grey{
     color: var(--grey);
     }
+    .text-light-grey{
+        color: var(--light-grey);
+        }
  
 
   .pointer

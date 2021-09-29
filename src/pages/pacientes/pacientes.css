@@ -10,17 +10,6 @@ table
   border: 4px solid;
 }
 
-
-.btn-primary
-{
-  background-color: var(--blue-trans);
-  border: white; 
-}
-.btn-primary:hover
-{
-  background-color: var(--light-blue);
-}
-
 .tituloPerfil {
   margin-bottom: 50px;
 }
