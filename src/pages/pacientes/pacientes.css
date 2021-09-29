@@ -1,7 +1,29 @@
+thead{
+  color:white;
+  background-color: var(--blue-trans);
+}
+tr{
+  border: 1px solid var(--light-grey);
+}
+table
+{
+  border: 4px solid;
+}
+
+
+.btn-primary
+{
+  background-color: var(--blue-trans);
+  border: white; 
+}
+.btn-primary:hover
+{
+  background-color: var(--light-blue);
+}
+
 .tituloPerfil {
   margin-bottom: 50px;
 }
-
 .tabla {
   width: 100% !important;
 }

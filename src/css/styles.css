@@ -13,20 +13,25 @@ body
     --light-light-orange: #FFE9DE;
     --light-grey: #D0D0D0;
     --dark-grey: #919191;
-    --grey: #848484;
+    --grey: #7c7c7c;
     --green: #29CD1E;
     --success: #23C76F;
     --light-success: #D1FFCE;
-    --blue: rgb(62, 131, 209);
+    --blue: #3e83d1;
     --blue-trans: rgba(62, 131, 209, 0.76);
+    --light-blue:#5fb8ff;
   }
 
   .text-blue{
       color: var(--blue);
   }
+  .text-light-blue{
+    color: var(--light-blue);
+    }
   .text-grey{
     color: var(--grey);
     }
+ 
 
   .pointer
   {

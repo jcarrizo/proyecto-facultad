@@ -19,10 +19,10 @@ const SideBar = () => {
                         <div className="mt-4">
                             <a href="/perfil">
                                 <button variant="outline-primary" className="btn pointer">
-                                    <p className="text-gray">
+                                    <p className="text-grey">
                                         <span><i className="bi-person" />
                                         </span>
-                                        <span className="ml-3 text-grey">Mi perfil</span>
+                                        <span className="ml-3">Mi perfil</span>
                                     </p>
                                 </button>
                             </a>
@@ -31,10 +31,10 @@ const SideBar = () => {
                         <div className="mt-4">
                             <a href="/pacientes">
                                 <button variant="outline-primary" className="btn pointer">
-                                    <p className="text-gray">
+                                    <p className="text-grey">
                                         <span><i className="bi-people" />
                                         </span>
-                                        <span className="ml-3 text-grey">Mis Pacientes</span>
+                                        <span className="ml-3">Mis Pacientes</span>
                                     </p>
                                 </button>
                             </a>
@@ -43,10 +43,10 @@ const SideBar = () => {
                         <div className="mt-4">
                             <a href="">
                                 <button variant="outline-primary" className="btn pointer">
-                                    <p className="text-gray">
+                                    <p className="text-grey">
                                         <span><i className="bi-table" />
                                         </span>
-                                        <span className="ml-3 text-grey">Turnos</span>
+                                        <span className="ml-3">Turnos</span>
                                     </p>
                                 </button>
                             </a>
