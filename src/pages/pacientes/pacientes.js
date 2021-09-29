@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 const Pacientes = () => {
 
   const [datos, setDatos] = useState([]);
-
   const { register, watch } = useForm();
   const watchShowPacient = watch("paciente");
 
@@ -27,7 +26,6 @@ const Pacientes = () => {
         }
         else {
           setDatos(docs)
-
         }
       })
     });
@@ -70,6 +68,7 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {
+
                             datos.map(datoss => {
                               return (<tr>
                                 <td>{datoss.nombre + " " + datoss.apellido}</td>
