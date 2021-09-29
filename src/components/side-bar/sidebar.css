@@ -20,11 +20,6 @@ span:active {
   text-decoration: none;
 }
 
-.max-length
-{
-  
-}
-
 .sidebar {
   position: relative;
   border-right: 1px var(--light-grey) solid;
