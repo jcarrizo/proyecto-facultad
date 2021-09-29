@@ -38,7 +38,7 @@ const Pacientes = () => {
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
                       </div>
                       <div className="col-1">
-                        <button type="submit" class="btn btn-primary">Buscar</button>
+                        <button type="submit" class="btn btn-primary"><h5>+</h5></button>
                       </div>
 
                     </div>
