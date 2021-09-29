@@ -18,11 +18,11 @@ const SideBar = () => {
 
                         <div className="mt-4">
                             <a href="/perfil">
-                                <button variant="outline-primary" className="btn pointer" >
+                                <button variant="outline-primary" className="btn pointer">
                                     <p className="text-gray">
                                         <span><i className="bi-person" />
                                         </span>
-                                        <span className="ml-3 text-grey" >Mi perfil</span>
+                                        <span className="ml-3 text-grey">Mi perfil</span>
                                     </p>
                                 </button>
                             </a>
@@ -30,7 +30,7 @@ const SideBar = () => {
 
                         <div className="mt-4">
                             <a href="/pacientes">
-                                <button variant="outline-primary" className="btn pointer" >
+                                <button variant="outline-primary" className="btn pointer">
                                     <p className="text-gray">
                                         <span><i className="bi-people" />
                                         </span>
