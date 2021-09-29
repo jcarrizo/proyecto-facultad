@@ -9,10 +9,9 @@ const Pacientes = () => {
 
   const [datos, setDatos] = useState([]);
 
-  const { register, handleSubmit, watch } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, watch } = useForm();
+  const watchShowPacient = watch("paciente");
 
-  console.log(watch("paciente"));
 
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
@@ -20,10 +19,19 @@ const Pacientes = () => {
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
-      setDatos(docs);
 
+
+      docs.map(infopacientes => {
+        if (infopacientes.nombre === watchShowPacient || infopacientes.email === watchShowPacient || infopacientes.dni === watchShowPacient || infopacientes.obrasocial === watchShowPacient) {
+          setDatos(infopacientes);
+        }
+        else {
+          setDatos(docs)
+
+        }
+      })
     });
-  }, [])
+  }, [watchShowPacient])
 
   return (
     <div>
@@ -39,7 +47,7 @@ const Pacientes = () => {
               <div className="col-md-4 mb-3 tabla">
                 <div className="card">
                   <div className="card-body">
-                    <form class="mb-3 row d-flex align-items-end " onSubmit={handleSubmit(onSubmit)}>
+                    <form class="mb-3 row d-flex align-items-end ">
                       <div className="col-11">
                         <label for="textPaciente" class="form-label">Buscar Pacientes</label>
                         <input type="text" class="form-control" id="textPaciente" {...register("paciente")}></input>
@@ -61,17 +69,18 @@ const Pacientes = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {datos.map(datoss => {
+                          {
+                            datos.map(datoss => {
+                              return (<tr>
+                                <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                <td>{datoss.dni}</td>
+                                <td>{datoss.email}</td>
+                                <td>{datoss.telefono}</td>
+                                <td>{datoss.obrasocial}</td>
+                              </tr>)
+                            })
 
-                            return (<tr>
-                              <td>{datoss.nombre + " " + datoss.apellido}</td>
-                              <td>{datoss.dni}</td>
-                              <td>{datoss.email}</td>
-                              <td>{datoss.telefono}</td>
-                              <td>{datoss.obrasocial}</td>
-                            </tr>)
-
-                          })}
+                          }
                         </tbody>
                       </table>
                     </div>
