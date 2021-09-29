@@ -26,9 +26,9 @@ span:active {
   position: fixed;
   height: 100%;
   width: 230px;
-  -webkit-box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff,
+  -webkit-box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px var(--light-blue), 15px 15px 0px 0px #a1d8ff,
     20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff, 23px 25px 15px -2px rgba(0, 0, 0, 0);
-  box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff,
+  box-shadow: 5px 5px 0px 0px var(--blue-trans), 10px 10px 0px 0px var(--light-blue), 15px 15px 0px 0px #a1d8ff,
     20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff, 23px 25px 15px -2px rgba(0, 0, 0, 0);
 }
 
