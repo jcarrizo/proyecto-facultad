@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
+import { useForm } from 'react-hook-form'
 import "./perfil.css"
 
 const Perfil = () => {
@@ -18,6 +19,10 @@ const Perfil = () => {
     });
   }, [])
 
+  const { register, handleSubmit, watch } = useForm();
+  const onSubmit = data => {
+
+  }
 
   return (
     <div>
@@ -131,29 +136,31 @@ const Perfil = () => {
                           <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                          <form className="text-grey">
+
+                          <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el nombre" value={datoss.nombre} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el nombre" value={datoss.nombre} {...register("nombre")}
+                                required></input>
                               <label>Nombre</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el apellido" value={datoss.apellido} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el apellido" value={datoss.apellido} {...register("apellido")} required></input>
                               <label>Apellido</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="email" className="form-control" placeholder="Ingrese el email" value={datoss.email} required></input>
+                              <input type="email" className="form-control" placeholder="Ingrese el email" value={datoss.email} {...register("email")} required></input>
                               <label>Email</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" value={datoss.telefono} required></input>
+                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" value={datoss.telefono} {...register("telefono")} required></input>
                               <label>Teléfono</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el domicilio" value={datoss.direccion} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el domicilio" value={datoss.direccion} {...register("domicilio")} required></input>
                               <label>Domicilio</label>
                             </div>
 
