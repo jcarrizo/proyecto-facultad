@@ -26,7 +26,7 @@ const Perfil = () => {
           <SideBar></SideBar>
         </div>
 
-        <div classNameName="col-10" >
+        <div className="col-10" >
           {
             datos.map(datoss => {
 
@@ -49,9 +49,10 @@ const Perfil = () => {
                               <p className="text-secondary mb-1">Profesión</p>
 
                               <div className="mt-4">
-                                <button class="btn btn-primary">Reemplazar Foto</button>
+                                <button className="btn btn-primary">Reemplazar Foto</button>
                                 <br></br>
-                                <button class="btn btn-outline-danger mt-4">Cambiar Contraseña</button></div>
+                                <button className="btn btn-outline-danger mt-4">Cambiar Contraseña</button>
+                              </div>
 
 
                             </div>
@@ -110,14 +111,11 @@ const Perfil = () => {
                           <hr className="mb-4"></hr>
                           <div className="row">
                             <div className="col-sm-12">
-                              <a className="btn btn-warning " href="">Editar</a>
+                              <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPerfil">Editar</button>
                             </div>
                           </div>
                         </div>
                       </div>
-
-
-
 
                     </div>
                   </div>
@@ -128,11 +126,68 @@ const Perfil = () => {
 
               }
 
+
+
+
+
+
+
+              {/* MODAL CREAR PACIENTE */ }
+              <div className="modal fade" id="editarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <form className="text-grey">
+                        <div className="mb-3 form-floating">
+                          <input type="text" className="form-control" placeholder="Ingrese el nombre" value={datoss.nombre} required></input>
+                          <label>Nombre</label>
+                        </div>
+
+                        <div className="mb-3 form-floating">
+                          <input type="text" className="form-control" placeholder="Ingrese el apellido" value="" required></input>
+                          <label>Apellido</label>
+                        </div>
+
+                        <div className="mb-3 form-floating">
+                          <input type="email" className="form-control" placeholder="Ingrese el email" value="" required></input>
+                          <label>Email</label>
+                        </div>
+
+                        <div className="mb-3 form-floating">
+                          <input type="tel" className="form-control" placeholder="Ingrese el teléfono" value="" required></input>
+                          <label>Teléfono</label>
+                        </div>
+
+                        <div className="mb-3 form-floating">
+                          <input type="number" className="form-control" placeholder="Ingrese el domicilio" value="" required></input>
+                          <label>Domicilio</label>
+                        </div>
+
+                        <div className="modal-footer">
+                          <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="submit" className="btn btn-primary">Editar Paciente</button>
+                        </div>
+
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
             })
           }
 
         </div>
       </div>
+
+
+
+
     </div>)
 }
 
