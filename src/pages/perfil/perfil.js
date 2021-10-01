@@ -120,74 +120,62 @@ const Perfil = () => {
                     </div>
                   </div>
 
+
+
+                  {/* MODAL EDITAR PERFIL */}
+                  <div className="modal fade" id="editarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <form className="text-grey">
+                            <div className="mb-3 form-floating">
+                              <input type="text" className="form-control" placeholder="Ingrese el nombre" value={datoss.nombre} required></input>
+                              <label>Nombre</label>
+                            </div>
+
+                            <div className="mb-3 form-floating">
+                              <input type="text" className="form-control" placeholder="Ingrese el apellido" value={datoss.apellido} required></input>
+                              <label>Apellido</label>
+                            </div>
+
+                            <div className="mb-3 form-floating">
+                              <input type="email" className="form-control" placeholder="Ingrese el email" value={datoss.email} required></input>
+                              <label>Email</label>
+                            </div>
+
+                            <div className="mb-3 form-floating">
+                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" value={datoss.telefono} required></input>
+                              <label>Teléfono</label>
+                            </div>
+
+                            <div className="mb-3 form-floating">
+                              <input type="text" className="form-control" placeholder="Ingrese el domicilio" value={datoss.direccion} required></input>
+                              <label>Domicilio</label>
+                            </div>
+
+                            <div className="modal-footer">
+                              <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                              <button type="submit" className="btn btn-primary">Editar Paciente</button>
+                            </div>
+
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                 )
-
-
               }
-
-
-
-
-
-
-
-              {/* MODAL CREAR PACIENTE */ }
-              <div className="modal fade" id="editarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLabel">Editar Perfil</h5>
-                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                      <form className="text-grey">
-                        <div className="mb-3 form-floating">
-                          <input type="text" className="form-control" placeholder="Ingrese el nombre" value={datoss.nombre} required></input>
-                          <label>Nombre</label>
-                        </div>
-
-                        <div className="mb-3 form-floating">
-                          <input type="text" className="form-control" placeholder="Ingrese el apellido" value="" required></input>
-                          <label>Apellido</label>
-                        </div>
-
-                        <div className="mb-3 form-floating">
-                          <input type="email" className="form-control" placeholder="Ingrese el email" value="" required></input>
-                          <label>Email</label>
-                        </div>
-
-                        <div className="mb-3 form-floating">
-                          <input type="tel" className="form-control" placeholder="Ingrese el teléfono" value="" required></input>
-                          <label>Teléfono</label>
-                        </div>
-
-                        <div className="mb-3 form-floating">
-                          <input type="number" className="form-control" placeholder="Ingrese el domicilio" value="" required></input>
-                          <label>Domicilio</label>
-                        </div>
-
-                        <div className="modal-footer">
-                          <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                          <button type="submit" className="btn btn-primary">Editar Paciente</button>
-                        </div>
-
-                      </form>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
             })
           }
-
         </div>
       </div>
-
-
-
-
     </div>)
 }
 
