@@ -68,7 +68,6 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {
-
                             datos.map(datoss => {
                               return (<tr>
                                 <td>{datoss.nombre + " " + datoss.apellido}</td>
