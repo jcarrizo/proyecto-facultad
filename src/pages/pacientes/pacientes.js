@@ -22,7 +22,11 @@ const Pacientes = () => {
 
       docs.map(infopacientes => {
         if (infopacientes.nombre === watchShowPacient || infopacientes.email === watchShowPacient || infopacientes.dni === watchShowPacient || infopacientes.obrasocial === watchShowPacient) {
+
+          let frutas = []
+          let algo;
           setDatos(infopacientes);
+
         }
         else {
           setDatos(docs)
