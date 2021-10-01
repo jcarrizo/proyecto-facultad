@@ -38,25 +38,25 @@ const Pacientes = () => {
           <SideBar></SideBar>
         </div>
 
-        <div classNameName="col-10 " >
+        <div className="col-10 " >
           <div className="container mt-5">
             <h2 className="tituloPerfil">Pacientes</h2>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 tabla">
                 <div className="card">
                   <div className="card-body">
-                    <form class="mb-3 row d-flex align-items-end ">
+                    <form className="mb-3 row d-flex align-items-end ">
                       <div className="col-11">
-                        <label for="textPaciente" class="form-label">Buscar Pacientes</label>
-                        <input type="text" class="form-control" id="textPaciente" {...register("paciente")}></input>
+                        <label for="textPaciente" className="form-label">Buscar Pacientes</label>
+                        <input type="text" className="form-control" id="textPaciente" {...register("paciente")}></input>
                       </div>
                       <div className="col-1">
-                        <button type="button" class="btn btn-primary" title="Agregar Paciente" data-bs-toggle="modal" data-bs-target="#exampleModal"><b>+</b></button>
+                        <button type="button" className="btn btn-primary" title="Agregar Paciente" data-bs-toggle="modal" data-bs-target="#agregarPaciente"><b>+</b></button>
                       </div>
 
                     </form>
                     <div className="d-flex flex-column align-items-center text-center">
-                      <table class="table">
+                      <table className="table">
                         <thead>
                           <tr>
                             <th scope="col">Pacientes</th>
@@ -78,7 +78,6 @@ const Pacientes = () => {
                                 <td>{datoss.obrasocial}</td>
                               </tr>)
                             })
-
                           }
                         </tbody>
                       </table>
@@ -91,44 +90,49 @@ const Pacientes = () => {
         </div>
       </div>
 
-      {/* MODAL CREAR PACIENTE */}
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Crear Paciente</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      {/* MODAL EDITAR PERFIL */}
+      <div className="modal fade" id="agregarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Crear Paciente</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <form class="text-grey">
-                <div class="mb-3 form-floating">
-                  <input type="text" class="form-control" placeholder="Ingrese el nombre" required></input>
+            <div className="modal-body">
+              <form className="text-grey">
+                <div className="mb-3 form-floating">
+                  <input type="text" className="form-control" placeholder="Ingrese el nombre" required></input>
                   <label>Nombre</label>
                 </div>
 
-                <div class="mb-3 form-floating">
-                  <input type="text" class="form-control" placeholder="Ingrese el apellido" required></input>
+                <div className="mb-3 form-floating">
+                  <input type="text" className="form-control" placeholder="Ingrese el apellido" required></input>
                   <label>Apellido</label>
                 </div>
 
-                <div class="mb-3 form-floating">
-                  <input type="email" class="form-control" placeholder="Ingrese el email" required></input>
+                <div className="mb-3 form-floating">
+                  <input type="email" className="form-control" placeholder="Ingrese el email" required></input>
                   <label>Email</label>
                 </div>
 
-                <div class="mb-3 form-floating">
-                  <input type="tel" class="form-control" placeholder="Ingrese el teléfono" required></input>
+                <div className="mb-3 form-floating">
+                  <input type="tel" className="form-control" placeholder="Ingrese el teléfono" required></input>
                   <label>Teléfono</label>
                 </div>
 
-                <div class="mb-3 form-floating">
-                  <input type="number" class="form-control" placeholder="Ingrese el teléfono" required></input>
+                <div className="mb-3 form-floating">
+                  <input type="tel" className="form-control" placeholder="Ingrese el domicilio" required></input>
+                  <label>Domicilio</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="number" className="form-control" placeholder="Ingrese el teléfono" required></input>
                   <label>DNI</label>
                 </div>
 
-                <div class="modal-footer">
-                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-primary">Agregar Paciente</button>
+                <div className="modal-footer">
+                  <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" className="btn btn-primary">Agregar Paciente</button>
                 </div>
 
               </form>
