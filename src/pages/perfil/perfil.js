@@ -23,6 +23,17 @@ const Perfil = () => {
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = data => {
 
+    const profileEdit = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.email,
+      telefono: data.telefono,
+      direccion: data.direccion,
+    }
+
+    db.collection("users").doc(datos[0].id).update(profileEdit)
+    localStorage.setItem('emailUser', data.email)
+    localStorage.setItem('nameUser', data.nombre)
   }
 
   return (
@@ -35,6 +46,8 @@ const Perfil = () => {
         <div className="col-10" >
           {
             datos.map(datoss => {
+
+              console.log(datoss);
 
               var emailUser = localStorage.getItem('emailUser');
 
@@ -159,8 +172,8 @@ const Perfil = () => {
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el domicilio" defaultValue={datoss.direccion} {...register("domicilio")} required></input>
-                              <label>Domicilio</label>
+                              <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.direccion} {...register("direccion")} required></input>
+                              <label>Dirección</label>
                             </div>
 
                             <div className="modal-footer">

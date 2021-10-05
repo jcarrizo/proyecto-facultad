@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 const Pacientes = () => {
 
   const [datos, setDatos] = useState([]);
-  const { register, watch } = useForm();
+  const { register, watch, handleSubmit, } = useForm();
   const watchShowPacient = watch("paciente");
 
 
@@ -34,6 +34,23 @@ const Pacientes = () => {
       })
     });
   }, [watchShowPacient])
+
+
+  const onSubmit = data => {
+
+    const newPatient = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.email,
+      telefono: data.telefono,
+      direccion: data.direccion,
+      dni: data.dni,
+      obrasocial: data.obrasocial,
+    }
+
+    db.collection("pacientes").doc().set(newPatient)
+  }
+
 
   return (
     <div>
@@ -93,43 +110,48 @@ const Pacientes = () => {
         </div>
       </div>
 
-      {/* MODAL EDITAR PERFIL */}
+      {/* MODAL AGREGAR PACIENTE */}
       <div className="modal fade" id="agregarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Crear Paciente</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Agregar Paciente</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <form className="text-grey">
+              <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-3 form-floating">
-                  <input type="text" className="form-control" placeholder="Ingrese el nombre" required></input>
+                  <input type="text" className="form-control" placeholder="Ingrese el nombre" {...register("nombre")} required></input>
                   <label>Nombre</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="text" className="form-control" placeholder="Ingrese el apellido" required></input>
+                  <input type="text" className="form-control" placeholder="Ingrese el apellido" {...register("apellido")} required></input>
                   <label>Apellido</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="email" className="form-control" placeholder="Ingrese el email" required></input>
+                  <input type="email" className="form-control" placeholder="Ingrese el email" {...register("email")} required></input>
                   <label>Email</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="tel" className="form-control" placeholder="Ingrese el teléfono" required></input>
+                  <input type="tel" className="form-control" placeholder="Ingrese el teléfono" {...register("telefono")} required></input>
                   <label>Teléfono</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="tel" className="form-control" placeholder="Ingrese el domicilio" required></input>
-                  <label>Domicilio</label>
+                  <input type="tel" className="form-control" placeholder="Ingrese la dirección" {...register("direccion")} required></input>
+                  <label>Dirección</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="number" className="form-control" placeholder="Ingrese el teléfono" required></input>
+                  <input type="text" className="form-control" placeholder="Ingrese la Obra Social" {...register("obrasocial")} required></input>
+                  <label>Obra Social</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="number" className="form-control" placeholder="Ingrese el DNI" {...register("dni")} required></input>
                   <label>DNI</label>
                 </div>
 
