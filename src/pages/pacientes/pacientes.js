@@ -23,8 +23,6 @@ const Pacientes = () => {
       docs.map(infopacientes => {
         if (infopacientes.nombre === watchShowPacient || infopacientes.email === watchShowPacient || infopacientes.dni === watchShowPacient || infopacientes.obrasocial === watchShowPacient) {
 
-          let frutas = []
-          let algo;
           setDatos(infopacientes);
 
         }
@@ -37,7 +35,7 @@ const Pacientes = () => {
 
 
   const onSubmit = data => {
-
+    //e.preventDefault(); //TODO:hacer
     const newPatient = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -47,7 +45,6 @@ const Pacientes = () => {
       dni: data.dni,
       obrasocial: data.obrasocial,
     }
-
     db.collection("pacientes").doc().set(newPatient)
   }
 
