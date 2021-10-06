@@ -31,9 +31,14 @@ const Perfil = () => {
       direccion: data.direccion,
     }
 
-    db.collection("users").doc(datos[0].id).update(profileEdit)
+    const resp = db.collection("users").doc(datos[0].id).update(profileEdit)
     localStorage.setItem('emailUser', data.email)
     localStorage.setItem('nameUser', data.nombre)
+
+    toast("Se editó el perfil correctamente", {
+      type: 'success', autoClose: 2000
+    })
+
   }
 
   return (
@@ -46,8 +51,6 @@ const Perfil = () => {
         <div className="col-10" >
           {
             datos.map(datoss => {
-
-              console.log(datoss);
 
               var emailUser = localStorage.getItem('emailUser');
 
@@ -178,7 +181,7 @@ const Perfil = () => {
 
                             <div className="modal-footer">
                               <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                              <button type="submit" className="btn btn-primary">Editar Paciente</button>
+                              <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
                             </div>
 
                           </form>

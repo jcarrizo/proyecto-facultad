@@ -3,6 +3,8 @@ import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
 import "./pacientes.css"
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify'
+
 
 
 const Pacientes = () => {
@@ -10,8 +12,6 @@ const Pacientes = () => {
   const [datos, setDatos] = useState([]);
   const { register, watch, handleSubmit, } = useForm();
   const watchShowPacient = watch("paciente");
-
-
 
 
   useEffect(() => {
@@ -49,6 +49,10 @@ const Pacientes = () => {
     }
 
     db.collection("pacientes").doc().set(newPatient)
+
+    toast("Se creó el paciente correctamente", {
+      type: 'success', autoClose: 2000
+    })
   }
 
 
@@ -159,7 +163,7 @@ const Pacientes = () => {
 
                 <div className="modal-footer">
                   <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="submit" className="btn btn-primary">Agregar Paciente</button>
+                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Agregar Paciente</button>
                 </div>
 
               </form>
