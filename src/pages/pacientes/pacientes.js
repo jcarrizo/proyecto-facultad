@@ -12,6 +12,8 @@ const Pacientes = () => {
   const watchShowPacient = watch("paciente");
 
 
+
+
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -45,6 +47,7 @@ const Pacientes = () => {
       dni: data.dni,
       obrasocial: data.obrasocial,
     }
+
     db.collection("pacientes").doc().set(newPatient)
   }
 
@@ -106,6 +109,8 @@ const Pacientes = () => {
           </div>
         </div>
       </div>
+
+
 
       {/* MODAL AGREGAR PACIENTE */}
       <div className="modal fade" id="agregarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
