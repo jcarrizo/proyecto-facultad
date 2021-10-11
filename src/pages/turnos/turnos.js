@@ -139,7 +139,7 @@ const Turnos = () => {
                 <SideBar></SideBar>
             </div>
 
-            <div className="col-10">
+            <div className="col-10 pt-5 pr-5 pb-5">
                 <ScheduleComponent>
                     <Inject services={[Day, Week, Month, Agenda, Resize, DragAndDrop]}></Inject>
                 </ScheduleComponent>
