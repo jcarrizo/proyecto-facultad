@@ -9,6 +9,7 @@ import Login from "../pages/login/Login";
 import Pacientes from "../pages/pacientes/pacientes";
 import Perfil from "../pages/perfil/perfil";
 import Signup from "../pages/signup/Signup";
+import Turnos from "../pages/turnos/turnos";
 
 
 const Rutas = () => {
@@ -40,6 +41,9 @@ const Rutas = () => {
         </Route>
         <Route path="/pacientes">
           <Pacientes />
+        </Route>
+        <Route path="/turnos">
+          <Turnos />
         </Route>
         <Route path="/">
           <Home></Home>

@@ -41,7 +41,7 @@ const SideBar = () => {
                         </div>
 
                         <div className="mt-4">
-                            <a href="">
+                            <a href="/turnos">
                                 <button variant="outline-primary" className="btn pointer">
                                     <p className="text-grey">
                                         <span><i className="bi-table" />
