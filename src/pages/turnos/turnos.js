@@ -56,7 +56,7 @@ const Turnos = () => {
 
             <div className="col-10 pt-5 pr-5 pb-5">
                 <Calendar localizer={localizer} events={events}
-                    startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} messages={{
+                    startAccessor="start" endAccessor="end" style={{ height: 800, margin: "50px" }} messages={{
                         next: "sig",
                         previous: "ant",
                         today: "Hoy",
