@@ -36,8 +36,8 @@ const events = [
     },
     {
         title: "Vacation",
-        start: new Date(2021, 9, 7),
-        end: new Date(2021, 9, 10),
+        start: new Date(),
+        end: new Date(),
     },
     {
         title: "Conference",
