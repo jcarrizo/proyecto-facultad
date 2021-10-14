@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import "./turnos.css"
-
 import { Calendar, dateFnsLocalizer, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { useForm } from "react-hook-form";
@@ -30,8 +29,6 @@ const localizer = momentLocalizer(moment);
 
 
 
-
-
 const Turnos = () => {
 
     const [startDate, setStartDate] = useState(new Date());
@@ -39,33 +36,28 @@ const Turnos = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
 
-    console.log("empieza");
-    console.log(startDate);
-    let replica = startDate
-    replica.setHours(23, 59)
-    let newDateObj = replica
-    console.log("termina");
-    console.log(newDateObj);
+
+    let endDate = new Date()
+    endDate.setHours(startDate.getHours(), startDate.getMinutes() + 15)
+
 
     const events = [
         {
             title: "jesus chupala",
-            allDay: true,
             start: new Date(startDate),
-            end: new Date(newDateObj),
+            end: new Date(endDate),
         },
-        {
-            title: "Vacation",
-            start: new Date(),
-            end: new Date(),
-        },
-        {
-            title: "Conference",
-            start: new Date(),
-            end: new Date(),
-        },
+        /*  {
+             title: "Vacation",
+             start: new Date(),
+             end: new Date(),
+         },
+         {
+             title: "Conference",
+             start: new Date(),
+             end: new Date(),
+         }, */
     ];
-
     let handleColor = (time) => {
         return time.getHours() > 12 ? "text-success" : "text-error";
     };
