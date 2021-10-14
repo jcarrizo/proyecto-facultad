@@ -11,6 +11,9 @@ import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import TextInput from 'react-autocomplete-input';
+import 'react-autocomplete-input/dist/bundle.css';
+
 
 /* const locales = {
     "en-US": require("date-fns/locale/en-US"),
@@ -47,6 +50,8 @@ const events = [
 ];
 
 
+
+
 const Turnos = () => {
     return (<div>
         <div className="row">
@@ -55,6 +60,28 @@ const Turnos = () => {
             </div>
 
             <div className="col-10 pt-5 pr-5 pb-5">
+
+                <form>
+                    <div className="row ml-4">
+                        <div className="col-4">
+                            <label for="exampleInputEmail1" className="form-label">Paciente</label>
+                            <TextInput className="form-control fixed" options={["apple", "apricot", "banana", "carrot"]} />
+                        </div>
+
+
+                        <div className="col-1">
+                            <label for="exampleInputEmail1" className="form-label">Fecha</label>
+                            <DatePicker className="form-control" placeholderText="" />
+                        </div>
+
+                        <div className="col-4">
+                            <button type="submit" className="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+
+
                 <Calendar localizer={localizer} events={events}
                     startAccessor="start" endAccessor="end" style={{ height: 800, margin: "50px" }} messages={{
                         next: "sig",
