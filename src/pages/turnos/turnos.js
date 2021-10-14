@@ -10,6 +10,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TextInput from 'react-autocomplete-input';
 import 'react-autocomplete-input/dist/bundle.css';
+import { addHours } from 'date-fns';
 
 
 /* const locales = {
@@ -31,21 +32,27 @@ const localizer = momentLocalizer(moment);
 
 
 
-
 const Turnos = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-    console.log(startDate)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
 
+    console.log("empieza");
+    console.log(startDate);
+    let replica = startDate
+    replica.setHours(23, 59)
+    let newDateObj = replica
+    console.log("termina");
+    console.log(newDateObj);
+
     const events = [
         {
-            title: "Big Meeting",
+            title: "jesus chupala",
             allDay: true,
-            start: new Date(2021, 9, 1),
-            end: new Date(2021, 9, 3),
+            start: new Date(startDate),
+            end: new Date(newDateObj),
         },
         {
             title: "Vacation",
