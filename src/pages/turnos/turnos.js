@@ -4,10 +4,7 @@ import "./turnos.css"
 
 import { Calendar, dateFnsLocalizer, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import format from "date-fns/format";
-import parse from "date-fns/parse";
-import startOfWeek from "date-fns/startOfWeek";
-import getDay from "date-fns/getDay";
+import { useForm } from "react-hook-form";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -30,29 +27,41 @@ import 'react-autocomplete-input/dist/bundle.css';
 require("moment/locale/es.js")
 const localizer = momentLocalizer(moment);
 
-const events = [
-    {
-        title: "Big Meeting",
-        allDay: true,
-        start: new Date(2021, 9, 0),
-        end: new Date(2021, 9, 0),
-    },
-    {
-        title: "Vacation",
-        start: new Date(),
-        end: new Date(),
-    },
-    {
-        title: "Conference",
-        start: new Date(),
-        end: new Date(),
-    },
-];
+
 
 
 
 
 const Turnos = () => {
+
+    const [startDate, setStartDate] = useState(new Date());
+    console.log(startDate)
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+
+    const events = [
+        {
+            title: "Big Meeting",
+            allDay: true,
+            start: new Date(2021, 9, 1),
+            end: new Date(2021, 9, 3),
+        },
+        {
+            title: "Vacation",
+            start: new Date(),
+            end: new Date(),
+        },
+        {
+            title: "Conference",
+            start: new Date(),
+            end: new Date(),
+        },
+    ];
+
+    let handleColor = (time) => {
+        return time.getHours() > 12 ? "text-success" : "text-error";
+    };
     return (<div>
         <div className="row">
             <div className="col-2">
@@ -61,20 +70,26 @@ const Turnos = () => {
 
             <div className="col-10 pt-5 pr-5 pb-5">
 
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row ml-4">
-                        <div className="col-4">
+                        <div className="col">
                             <label for="exampleInputEmail1" className="form-label">Paciente</label>
-                            <TextInput className="form-control fixed" options={["apple", "apricot", "banana", "carrot"]} />
+                            <TextInput className="form-control fixed" options={["juan", "mauricio", "jesus", "ElAgucho"]} />
                         </div>
 
 
-                        <div className="col-1">
+                        <div className="col">
                             <label for="exampleInputEmail1" className="form-label">Fecha</label>
-                            <DatePicker className="form-control" placeholderText="" />
+                            <DatePicker
+                                showTimeSelect
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                timeClassName={handleColor}
+
+                            />
                         </div>
 
-                        <div className="col-4">
+                        <div className="col d-flex align-items-center mt-3" >
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
                     </div>
