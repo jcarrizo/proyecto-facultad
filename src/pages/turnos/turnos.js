@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import "./turnos.css"
 import { Calendar, dateFnsLocalizer, momentLocalizer } from "react-big-calendar";
@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TextInput from 'react-autocomplete-input';
 import 'react-autocomplete-input/dist/bundle.css';
+import { db } from "../../DB/firebase";
 import { addHours } from 'date-fns';
 
 
@@ -27,40 +28,61 @@ import { addHours } from 'date-fns';
 require("moment/locale/es.js")
 const localizer = momentLocalizer(moment);
 
-
-
 const Turnos = () => {
 
     const [startDate, setStartDate] = useState(new Date());
 
+    const [events, setEvents] = useState([]);
+    const [pacientes, setPacientes] = useState([]);
+    const [nombreSelector, setnombreSelector] = useState("");
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+
+    let NombrePaciente = []
+    for (let i = 0; i < pacientes.length; i++) {
 
 
-    let endDate = new Date()
-    endDate.setHours(startDate.getHours(), startDate.getMinutes() + 15)
+        NombrePaciente.push(pacientes[i].nombre);
+
+    }
+    let opciones = NombrePaciente
 
 
-    const events = [
-        {
-            title: "jesus chupala",
-            start: new Date(startDate),
-            end: new Date(endDate),
-        },
-        /*  {
-             title: "Vacation",
-             start: new Date(),
-             end: new Date(),
-         },
-         {
-             title: "Conference",
-             start: new Date(),
-             end: new Date(),
-         }, */
-    ];
-    let handleColor = (time) => {
-        return time.getHours() > 12 ? "text-success" : "text-error";
+    const onSubmit = data => {
+
+        console.log(watch("datoPaciente"));
+        const data2 = {
+            title: nombreSelector,
+            start: String(startDate),
+            end: String(startDate),
+        }
+
+        db.collection("eventos").doc().set(data2);
     };
+
+
+    useEffect(() => {
+        db.collection("eventos").onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                docs.push({ ...doc.data(), id: doc.id });
+            });
+            setEvents(docs);
+        });
+
+        db.collection("pacientes").onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                docs.push({ ...doc.data(), id: doc.id });
+            });
+            setPacientes(docs);
+        });
+
+    }, [])
+
+
+
+
+
     return (<div>
         <div className="row">
             <div className="col-2">
@@ -73,7 +95,7 @@ const Turnos = () => {
                     <div className="row ml-4">
                         <div className="col">
                             <label for="exampleInputEmail1" className="form-label">Paciente</label>
-                            <TextInput className="form-control fixed" options={["juan", "mauricio", "jesus", "ElAgucho"]} />
+                            <TextInput className="form-control fixed" options={opciones} onSelect={(datoss) => { setnombreSelector(datoss) }} />
                         </div>
 
 
@@ -83,7 +105,6 @@ const Turnos = () => {
                                 showTimeSelect
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}
-                                timeClassName={handleColor}
 
                             />
                         </div>
