@@ -39,24 +39,22 @@ const Turnos = () => {
 
     let NombrePaciente = []
     for (let i = 0; i < pacientes.length; i++) {
-
-
         NombrePaciente.push(pacientes[i].nombre);
-
     }
     let opciones = NombrePaciente
 
+    let endDate = new Date()
+    endDate.setHours(startDate.getHours(), startDate.getMinutes() + 29)
 
     const onSubmit = data => {
-
         console.log(watch("datoPaciente"));
         const data2 = {
             title: nombreSelector,
             start: String(startDate),
-            end: String(startDate),
+            end: String(endDate)
         }
-
         db.collection("eventos").doc().set(data2);
+        console.log(data2);
     };
 
 
@@ -110,7 +108,7 @@ const Turnos = () => {
                         </div>
 
                         <div className="col d-flex align-items-center mt-3" >
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" className="btn btn-primary">Agregar Turno</button>
                         </div>
                     </div>
 
