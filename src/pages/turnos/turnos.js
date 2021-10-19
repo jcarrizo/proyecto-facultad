@@ -64,6 +64,11 @@ const Turnos = () => {
             querySnapshot.forEach((doc) => {
                 docs.push({ ...doc.data(), id: doc.id });
             });
+            for (let i = 0; i < docs.length; i++) {
+                docs[i].start = new Date(docs[i].start)
+                docs[i].end = new Date(docs[i].end)
+            }
+
             setEvents(docs);
         });
 
