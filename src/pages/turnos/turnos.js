@@ -46,10 +46,26 @@ const Turnos = () => {
     }
     let opciones = NombrePaciente
 
+    // let datasos = [];
+
+    // for (let x = 0; x < events.length; x++) {
+
+    //     const newEvent = [
+    //         {
+    //             title: events[x].title,
+    //             start: new Date(events[x].start),
+    //             end: new Date(events[x].end)
+    //         }
+    //     ];
+
+    //     datasos = newEvent;
+
+    // }
+    // console.log(datasos)
 
     const onSubmit = data => {
 
-        console.log(watch("datoPaciente"));
+
         const data2 = {
             title: nombreSelector,
             start: String(startDate),
@@ -60,12 +76,31 @@ const Turnos = () => {
     };
 
 
+    const myEventsList = [
+        {
+            title: "Mauricio",
+            start: new Date("28 Oct 2021 8:00:00"),
+            end: new Date("28 Oct 2021 10:00:00")
+        },
+        {
+            title: "Jesus",
+            start: new Date("30 Oct 2021 8:00:00 "),
+            end: new Date("30 Oct 2021 10:00:00 ")
+        }
+    ];
+
+
     useEffect(() => {
         db.collection("eventos").onSnapshot((querySnapshot) => {
             const docs = [];
             querySnapshot.forEach((doc) => {
                 docs.push({ ...doc.data(), id: doc.id });
             });
+
+            for (let i = 0; i < docs.length; i++) {
+                docs[i].start = new Date(docs[i].start)
+                docs[i].end = new Date(docs[i].end)
+            }
             setEvents(docs);
         });
 
