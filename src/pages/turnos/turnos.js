@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import "./turnos.css"
-import { Calendar, dateFnsLocalizer, momentLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { useForm } from "react-hook-form";
 import "react-big-calendar/lib/css/react-big-calendar.css";
