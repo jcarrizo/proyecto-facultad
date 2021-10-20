@@ -10,19 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import TextInput from 'react-autocomplete-input';
 import 'react-autocomplete-input/dist/bundle.css';
 import { db } from "../../DB/firebase";
-import { addHours } from 'date-fns';
 
-
-/* const locales = {
-    "en-US": require("date-fns/locale/en-US"),
-}; */
-/* const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-}); */
 
 
 require("moment/locale/es.js")
@@ -32,84 +20,51 @@ const Turnos = () => {
 
     const [startDate, setStartDate] = useState(new Date());
 
-    const [events, setEvents] = useState([]);
+    const [turnos, setTurnos] = useState([]);
     const [pacientes, setPacientes] = useState([]);
     const [nombreSelector, setnombreSelector] = useState("");
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { handleSubmit, formState: { errors } } = useForm();
 
-    let NombrePaciente = []
+    let nombrePaciente = []
     for (let i = 0; i < pacientes.length; i++) {
-        NombrePaciente.push(pacientes[i].nombre);
+        nombrePaciente.push(pacientes[i].nombre);
     }
-    let opciones = NombrePaciente
+    let opciones = nombrePaciente
 
-    // let datasos = [];
-
-    // for (let x = 0; x < events.length; x++) {
-
-    //     const newEvent = [
-    //         {
-    //             title: events[x].title,
-    //             start: new Date(events[x].start),
-    //             end: new Date(events[x].end)
-    //         }
-    //     ];
-
-    //     datasos = newEvent;
-
-    // }
-    // console.log(datasos)
 
     const onSubmit = data => {
-
-
-        const data2 = {
+        const nuevoTurno = {
             title: nombreSelector,
             start: String(startDate),
             end: String(startDate)
         }
-        db.collection("eventos").doc().set(data2);
-        console.log(data2);
+        db.collection("turnos").doc().set(nuevoTurno);
+        console.log(nuevoTurno);
     };
 
 
-    const myEventsList = [
-        {
-            title: "Mauricio",
-            start: new Date("28 Oct 2021 8:00:00"),
-            end: new Date("28 Oct 2021 10:00:00")
-        },
-        {
-            title: "Jesus",
-            start: new Date("30 Oct 2021 8:00:00 "),
-            end: new Date("30 Oct 2021 10:00:00 ")
-        }
-    ];
-
-
     useEffect(() => {
-        db.collection("eventos").onSnapshot((querySnapshot) => {
-            const docs = [];
+        db.collection("turnos").onSnapshot((querySnapshot) => {
+            const turnos = [];
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id });
+                turnos.push({ ...doc.data(), id: doc.id });
             });
-            for (let i = 0; i < docs.length; i++) {
-                docs[i].start = new Date(docs[i].start)
-                docs[i].end = new Date(docs[i].end)
+            for (let i = 0; i < turnos.length; i++) {
+                turnos[i].start = new Date(turnos[i].start)
+                turnos[i].end = new Date(turnos[i].end)
             }
-            setEvents(docs);
+            setTurnos(turnos);
         });
 
         db.collection("pacientes").onSnapshot((querySnapshot) => {
-            const docs = [];
+            const pacientes = [];
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id });
+                pacientes.push({ ...doc.data(), id: doc.id });
             });
-            setPacientes(docs);
+            setPacientes(pacientes);
         });
 
     }, [])
-
 
 
 
@@ -148,7 +103,7 @@ const Turnos = () => {
                 </form>
 
 
-                <Calendar localizer={localizer} events={events}
+                <Calendar localizer={localizer} events={turnos}
                     startAccessor="start" endAccessor="end" style={{ height: 800, margin: "50px" }} messages={{
                         next: "sig",
                         previous: "ant",
@@ -157,7 +112,6 @@ const Turnos = () => {
                         week: "Semana",
                         day: "Día",
                     }} />
-
             </div>
         </div>
     </div>)
