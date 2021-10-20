@@ -39,10 +39,7 @@ const Turnos = () => {
 
     let NombrePaciente = []
     for (let i = 0; i < pacientes.length; i++) {
-
-
         NombrePaciente.push(pacientes[i].nombre);
-
     }
     let opciones = NombrePaciente
 
@@ -69,10 +66,10 @@ const Turnos = () => {
         const data2 = {
             title: nombreSelector,
             start: String(startDate),
-            end: String(startDate),
+            end: String(startDate)
         }
-
         db.collection("eventos").doc().set(data2);
+        console.log(data2);
     };
 
 
@@ -96,7 +93,6 @@ const Turnos = () => {
             querySnapshot.forEach((doc) => {
                 docs.push({ ...doc.data(), id: doc.id });
             });
-
             for (let i = 0; i < docs.length; i++) {
                 docs[i].start = new Date(docs[i].start)
                 docs[i].end = new Date(docs[i].end)
@@ -145,7 +141,7 @@ const Turnos = () => {
                         </div>
 
                         <div className="col d-flex align-items-center mt-3" >
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" className="btn btn-primary">Agregar Turno</button>
                         </div>
                     </div>
 
