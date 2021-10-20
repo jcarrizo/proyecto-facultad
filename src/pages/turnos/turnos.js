@@ -39,7 +39,6 @@ const Turnos = () => {
             end: String(startDate)
         }
         db.collection("turnos").doc().set(nuevoTurno);
-        console.log(nuevoTurno);
     };
 
 
