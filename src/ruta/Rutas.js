@@ -40,7 +40,7 @@ const Rutas = () => {
           <Route path="/turnos">
             <Turnos />
           </Route>
-          <Route path="/profecionales">
+          <Route path="/profesionales">
             <Profesionales />
           </Route>
           <Route path="/">

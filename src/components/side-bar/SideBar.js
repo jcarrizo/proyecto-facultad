@@ -41,7 +41,7 @@ const SideBar = () => {
                     <span>
                       <i className="bi bi-people-fill" />
                     </span>
-                    <span className="ml-3">Mis Pacientes</span>
+                    <span className="ml-3">Pacientes</span>
                   </p>
                 </button>
               </a>
