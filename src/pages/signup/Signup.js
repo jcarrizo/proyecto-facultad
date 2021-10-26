@@ -38,7 +38,14 @@ const Signup = () => {
         apellido: "",
         direccion: "",
         telefono: "",
+        rol: 0,
       };
+
+      // 0: invitado
+      // 1: medico
+      // 2: Secretaria
+      // 3: Admin
+
       db.collection("users").doc().set(info);
       toast("Nuevo usuario agregado", { type: "success", autoClose: 2000 });
       setTimeout(() => {

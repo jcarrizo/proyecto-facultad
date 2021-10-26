@@ -59,6 +59,19 @@ const SideBar = () => {
                 </button>
               </a>
             </div>
+
+            <div className="mt-4">
+              <a href="/profesionales">
+                <button variant="outline-primary" className="btn pointer">
+                  <p className="text-grey">
+                    <span>
+                      <i className="bi-table" />
+                    </span>
+                    <span className="ml-3">Profesionales</span>
+                  </p>
+                </button>
+              </a>
+            </div>
           </div>
         </div>
 
