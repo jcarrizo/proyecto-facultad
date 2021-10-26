@@ -65,7 +65,7 @@ const SideBar = () => {
                 <button variant="outline-primary" className="btn pointer">
                   <p className="text-grey">
                     <span>
-                      <i className="bi-table" />
+                      <i className="bi bi-suit-heart-fill" />
                     </span>
                     <span className="ml-3">Profesionales</span>
                   </p>
