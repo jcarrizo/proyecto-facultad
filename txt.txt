@@ -1,0 +1,71 @@
+________________________________________________________________________________________________________
+
+                                                  LOGIN
+--FALTA--
+
+--ISSUES--
+* Visuales no representan la app + texto del cartel al crear usuario / entrar o no
+
+--NICE TO HAVE--
+________________________________________________________________________________________________________
+
+
+
+
+________________________________________________________________________________________________________
+
+                                                  SIGNUP
+--FALTA--
+
+--ISSUES--
+* Visuales no representan la app + texto del cartel al crear usuario / entrar o no
+    
+--NICE TO HAVE--
+________________________________________________________________________________________________________
+
+
+
+
+________________________________________________________________________________________________________
+
+                                                 MI PERFIL
+--FALTA--
+* Editar Foto
+* Cambiar password
+* Donde dice Profesion, cambiar a rol
+
+--ISSUES--
+* Editar no te deja editar un solo campo, tiene q ser todos o se pudre
+________________________________________________________________________________________________________
+
+
+
+
+________________________________________________________________________________________________________
+
+                                               MIS PACIENTES
+--FALTA--
+* Modificacion y eliminacion de Pacientes
+
+--ISSUES--
+* Arreglar buscador de pacientes
+* Agregar paciente guarda info sin verificar raro
+
+--NICE TO HAVE--
+* seleccionable del paciente y ver su info
+________________________________________________________________________________________________________
+
+
+
+
+________________________________________________________________________________________________________
+
+                                                  TURNOS
+--FALTA--
+
+--ISSUES--
+
+--NICE TO HAVE--
+* Visuales, arreglar arriba y hacer mas chico
+* Fecha en español
+________________________________________________________________________________________________________

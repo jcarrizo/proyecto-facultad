@@ -26,7 +26,7 @@ const SideBar = () => {
                 <button variant="outline-primary" className="btn pointer">
                   <p className="text-grey">
                     <span>
-                      <i className="bi-person" />
+                      <i className="bi bi-person-lines-fill" />
                     </span>
                     <span className="ml-3">Mi perfil</span>
                   </p>
@@ -39,7 +39,7 @@ const SideBar = () => {
                 <button variant="outline-primary" className="btn pointer">
                   <p className="text-grey">
                     <span>
-                      <i className="bi-people" />
+                      <i className="bi bi-people-fill" />
                     </span>
                     <span className="ml-3">Mis Pacientes</span>
                   </p>
@@ -52,7 +52,7 @@ const SideBar = () => {
                 <button variant="outline-primary" className="btn pointer">
                   <p className="text-grey">
                     <span>
-                      <i className="bi-table" />
+                      <i className="bi bi-calendar-event" />
                     </span>
                     <span className="ml-3">Turnos</span>
                   </p>
