@@ -42,6 +42,8 @@ const Signup = () => {
       db.collection("users").doc().set(info);
       toast("Nuevo usuario agregado", { type: "success", autoClose: 2000 });
       setTimeout(() => {
+        localStorage.setItem("emailUser", info.email);
+        localStorage.setItem("nameUser", info.nombre);
         window.location = "/";
       }, 1000);
     } else {
