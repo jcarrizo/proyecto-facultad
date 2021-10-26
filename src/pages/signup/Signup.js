@@ -33,8 +33,11 @@ const Signup = () => {
       const info = {
         email: data.email,
         password: data.password,
-        user: data.usuario,
+        nombre: data.usuario,
         state: true,
+        apellido: "",
+        direccion: "",
+        telefono: "",
       };
       db.collection("users").doc().set(info);
       toast("Nuevo usuario agregado", { type: "success", autoClose: 2000 });
