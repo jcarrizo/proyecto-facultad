@@ -33,7 +33,7 @@ const Profesionales = () => {
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end "></form>
                     <div className="d-flex flex-column align-items-center text-center">
-                      <table className="table">
+                      <table className="table table-hover pointer">
                         <thead>
                           <tr>
                             <th scope="col">Nombre</th>
