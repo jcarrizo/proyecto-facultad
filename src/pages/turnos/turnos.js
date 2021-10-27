@@ -37,14 +37,14 @@ const Turnos = () => {
             title: nombreSelector,
             start: String(startDate),
             end: String(startDate),
-            profesional: localStorage.getItem('emailUser'),
+            profesionalId: localStorage.getItem('dataD'),
 
         }
         db.collection("turnos").doc().set(nuevoTurno);
     };
 
     let rolUsuario = localStorage.getItem('rolUser')
-    let EmailUsuario = localStorage.getItem('emailUser')
+    let IdUsuario = localStorage.getItem('dataD')
     let turnosProfesional = []
 
     useEffect(() => {
@@ -63,7 +63,7 @@ const Turnos = () => {
             }
             if (rolUsuario === "Profesional de la Salud") {
                 turnos.map((data) => {
-                    if (data.profesional === EmailUsuario) {
+                    if (data.profesionalId === IdUsuario) {
 
                         turnosProfesional.push(data)
                     }
