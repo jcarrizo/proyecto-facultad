@@ -42,7 +42,7 @@ const Pacientes = () => {
       direccion: data.direccion,
       dni: data.dni,
       obrasocial: data.obrasocial,
-      profesional: localStorage.getItem('emailUser'),
+      profesionalId: localStorage.getItem('dataD'),
     };
 
     db.collection("pacientes").doc().set(newPatient);
@@ -52,6 +52,8 @@ const Pacientes = () => {
       autoClose: 2000,
     });
   };
+  let rolUsuario = localStorage.getItem('rolUser')
+  let IdUsuario = localStorage.getItem('dataD')
 
   return (
     <div>
@@ -104,15 +106,29 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datoss) => {
-                            return (
-                              <tr>
-                                <td>{datoss.nombre + " " + datoss.apellido}</td>
-                                <td>{datoss.dni}</td>
-                                <td>{datoss.email}</td>
-                                <td>{datoss.telefono}</td>
-                                <td>{datoss.obrasocial}</td>
-                              </tr>
-                            );
+                            if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+                              return (
+                                <tr>
+                                  <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                  <td>{datoss.dni}</td>
+                                  <td>{datoss.email}</td>
+                                  <td>{datoss.telefono}</td>
+                                  <td>{datoss.obrasocial}</td>
+                                </tr>
+                              );
+                            }
+                            if (datoss.profesionalId === IdUsuario) {
+                              return (
+                                <tr>
+                                  <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                  <td>{datoss.dni}</td>
+                                  <td>{datoss.email}</td>
+                                  <td>{datoss.telefono}</td>
+                                  <td>{datoss.obrasocial}</td>
+                                </tr>
+                              );
+                            }
+
                           })}
                         </tbody>
                       </table>
