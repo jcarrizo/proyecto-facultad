@@ -8,6 +8,8 @@ const SideBar = () => {
   const LogOut = () => {
     localStorage.setItem("emailUser", "");
     localStorage.setItem("nameUser", "");
+    localStorage.setItem('dataD', "");
+    localStorage.setItem('rolUser', "");
 
     if (window.confirm("¿confirma que deasea desloguearse?")) {
       window.location.href = "login";
