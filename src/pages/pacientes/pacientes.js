@@ -42,6 +42,7 @@ const Pacientes = () => {
       direccion: data.direccion,
       dni: data.dni,
       obrasocial: data.obrasocial,
+      profesional: localStorage.getItem('emailUser'),
     };
 
     db.collection("pacientes").doc().set(newPatient);

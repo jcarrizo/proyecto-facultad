@@ -36,11 +36,16 @@ const Turnos = () => {
         const nuevoTurno = {
             title: nombreSelector,
             start: String(startDate),
-            end: String(startDate)
+            end: String(startDate),
+            profesional: localStorage.getItem('emailUser'),
+
         }
         db.collection("turnos").doc().set(nuevoTurno);
     };
 
+    let rolUsuario = localStorage.getItem('rolUser')
+    let EmailUsuario = localStorage.getItem('emailUser')
+    let turnosProfesional = []
 
     useEffect(() => {
         db.collection("turnos").onSnapshot((querySnapshot) => {
@@ -52,7 +57,20 @@ const Turnos = () => {
                 turnos[i].start = new Date(turnos[i].start)
                 turnos[i].end = new Date(turnos[i].end)
             }
-            setTurnos(turnos);
+
+            if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+                setTurnos(turnos);
+            }
+            if (rolUsuario === "Profesional de la Salud") {
+                turnos.map((data) => {
+                    if (data.profesional === EmailUsuario) {
+
+                        turnosProfesional.push(data)
+                    }
+                })
+                setTurnos(turnosProfesional);
+            }
+
         });
 
         db.collection("pacientes").onSnapshot((querySnapshot) => {

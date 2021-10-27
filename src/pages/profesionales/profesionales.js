@@ -3,6 +3,9 @@ import SideBar from "../../components/side-bar/SideBar";
 import { db } from "../../DB/firebase";
 import "./profesionales.css";
 
+
+
+
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
   const [Profesional, setProfesional] = useState([]);

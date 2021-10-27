@@ -31,6 +31,7 @@ const Login = () => {
         flag = true;
         localStorage.setItem('emailUser', datoss.email);
         localStorage.setItem('nameUser', datoss.nombre);
+        localStorage.setItem('rolUser', datoss.rol);
 
         window.location = "/"
 
