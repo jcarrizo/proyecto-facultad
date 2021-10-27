@@ -6,8 +6,9 @@ import "./profesionales.css";
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
 
-  const Hola = () => {
-    alert("hola")
+  const Hola = (datosProfesional) => {
+    console.log(datosProfesional)
+
   }
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const Profesionales = () => {
                         <tbody>
                           {datos.map((datoss) => {
                             return (
-                              <tr onClick={Hola()} >
+                              <tr onClick={() => Hola(datoss)} >
                                 <td >{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
@@ -95,7 +96,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Nombre</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"datoss.nombre"}
+                      { }
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
