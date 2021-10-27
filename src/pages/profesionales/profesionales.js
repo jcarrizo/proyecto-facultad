@@ -5,10 +5,12 @@ import "./profesionales.css";
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
+  const [Profesional, setProfesional] = useState([]);
+
+
 
   const Hola = (datosProfesional) => {
-    console.log(datosProfesional)
-
+    setProfesional(datosProfesional)
   }
 
   useEffect(() => {
@@ -19,6 +21,8 @@ const Profesionales = () => {
       });
       setDatos(docs);
     });
+
+
   }, []);
 
   return (
@@ -77,10 +81,10 @@ const Profesionales = () => {
               <div className="card">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150"></img>
+                    <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
                     <div className="mt-3 ">
-                      <h4>{"datoss.nombre" + " " + "datoss.apellido"}</h4>
-                      <p className="text-secondary mb-1">Profesión</p>
+                      <h4>{Profesional.nombre + " " + Profesional.apellido}</h4>
+                      <p className="text-secondary mb-1">{Profesional.rol}</p>
 
                     </div>
                   </div>
@@ -96,7 +100,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Nombre</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      { }
+                      {Profesional.nombre}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -105,7 +109,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Apellido</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"datoss.apellido"}
+                      {Profesional.apellido}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -114,7 +118,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Email</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"datoss.email"}
+                      {Profesional.email}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -123,7 +127,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Teléfono</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"datoss.telefono"}
+                      {Profesional.telefono}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -132,7 +136,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Domicilio</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"datoss.direccion"}
+                      {Profesional.direccion}
                     </div>
                   </div>
                 </div>
