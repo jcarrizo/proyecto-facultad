@@ -6,6 +6,10 @@ import "./profesionales.css";
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
 
+  const Hola = () => {
+    alert("hola")
+  }
+
   useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -45,7 +49,7 @@ const Profesionales = () => {
                         <tbody>
                           {datos.map((datoss) => {
                             return (
-                              <tr >
+                              <tr onClick={Hola()} >
                                 <td >{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
