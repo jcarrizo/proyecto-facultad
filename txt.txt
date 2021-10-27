@@ -90,10 +90,11 @@ ________________________________________________________________________________
 
                                                   Profesionales
 --FALTA--
-
+agregar horario del trabajo del Profesional
 
 --ISSUES--
 Agregar Campo Profesional, que no es lo mismo que rol
+
 
 
 --NICE TO HAVE--

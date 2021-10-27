@@ -9,12 +9,53 @@ const Profesionales = () => {
 
 
 
-  const Hola = (datosProfesional) => {
+  const ProfesionalInfo = (datosProfesional) => {
     setProfesional(datosProfesional)
   }
 
 
 
+  const checked = () => {
+
+    if (Profesional.rol === "Secretaria") {
+      return (
+        <div className="ms-4 mt-4">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" ></input>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Profesional de la Salud
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked></input>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Secretaria
+            </label>
+          </div>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="ms-4 mt-4">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked></input>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Profesional de la Salud
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"></input>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Secretaria
+            </label>
+          </div>
+        </div>
+      )
+    }
+
+
+  }
 
   useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
@@ -57,7 +98,7 @@ const Profesionales = () => {
                         <tbody>
                           {datos.map((datoss) => {
                             return (
-                              <tr onClick={() => Hola(datoss)} >
+                              <tr onClick={() => ProfesionalInfo(datoss)} >
                                 <td >{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
@@ -93,20 +134,7 @@ const Profesionales = () => {
 
 
                   </div>
-                  <div className="ms-4 mt-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" ></input>
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        Profesional de la Salud
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"></input>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Secretaria
-                      </label>
-                    </div>
-                  </div>
+                  {checked()}
                 </div>
               </div>
 
