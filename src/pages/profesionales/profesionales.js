@@ -35,7 +35,7 @@ const Profesionales = () => {
                     <div className="d-flex flex-column align-items-center text-center">
                       <table className="table table-hover pointer">
                         <thead>
-                          <tr>
+                          <tr >
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Telefono</th>
@@ -45,8 +45,8 @@ const Profesionales = () => {
                         <tbody>
                           {datos.map((datoss) => {
                             return (
-                              <tr>
-                                <td>{datoss.nombre + " " + datoss.apellido}</td>
+                              <tr >
+                                <td >{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
                                 <td>{datoss.rol}</td>
