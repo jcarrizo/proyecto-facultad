@@ -67,10 +67,10 @@ const Turnos = () => {
                 turnos[i].end = new Date(turnos[i].end)
             }
 
-            if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+            if (rolUsuario === "2" || rolUsuario === "3") {
                 setTurnos(turnos);
             }
-            if (rolUsuario === "Profesional de la Salud") {
+            if (rolUsuario === "1") {
                 turnos.map((data) => {
                     if (data.profesionalId === IdUsuario) {
 

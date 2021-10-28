@@ -20,7 +20,7 @@ const SideBar = () => {
 
   const vistaProfesional = () => {
 
-    if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+    if (rolUsuario === "3" || rolUsuario === "2") {
       return (
         <div className="mt-4">
           <a href="/profesionales">
