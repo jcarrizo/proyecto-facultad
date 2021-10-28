@@ -27,20 +27,29 @@ const Turnos = () => {
 
     let nombrePaciente = []
     for (let i = 0; i < pacientes.length; i++) {
-        nombrePaciente.push(pacientes[i].nombre);
+        nombrePaciente.push(pacientes[i].nombre + " " + pacientes[i].apellido);
     }
     let opciones = nombrePaciente
 
 
     const onSubmit = data => {
-        const nuevoTurno = {
-            title: nombreSelector,
-            start: String(startDate),
-            end: String(startDate),
-            profesionalId: localStorage.getItem('dataD'),
 
+        console.log(nombreSelector)
+
+        if (nombreSelector != "") {
+            const nuevoTurno = {
+                title: nombreSelector,
+                start: String(startDate),
+                end: String(startDate),
+                profesionalId: localStorage.getItem('dataD'),
+
+            }
+            db.collection("turnos").doc().set(nuevoTurno);
+            setnombreSelector("");
+        } else {
+            alert("No se pueden ingresar campos vacios")
         }
-        db.collection("turnos").doc().set(nuevoTurno);
+
     };
 
     let rolUsuario = localStorage.getItem('rolUser')
