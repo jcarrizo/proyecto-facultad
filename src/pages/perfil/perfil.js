@@ -66,7 +66,7 @@ const Perfil = () => {
                             <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
                             <div className="mt-3 ">
                               <h4>{datoss.nombre + " " + datoss.apellido}</h4>
-                              <p className="text-secondary mb-1">Profesión</p>
+                              <p className="text-secondary mb-1">{datoss.profesion}</p>
 
                               <div className="mt-4">
                                 <button className="btn btn-primary">Reemplazar Foto</button>

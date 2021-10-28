@@ -18,50 +18,6 @@ const Profesionales = () => {
     setProfesional(datosProfesional)
   }
 
-
-
-  const checked = () => {
-
-    if (Profesional.rol === "Secretaria") {
-      return (
-        <div className="ms-4 mt-4">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" ></input>
-            <label class="form-check-label" for="flexRadioDefault2">
-              Profesional de la Salud
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked></input>
-            <label class="form-check-label" for="flexRadioDefault1">
-              Secretaria
-            </label>
-          </div>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div className="ms-4 mt-4">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked></input>
-            <label class="form-check-label" for="flexRadioDefault2">
-              Profesional de la Salud
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"></input>
-            <label class="form-check-label" for="flexRadioDefault1">
-              Secretaria
-            </label>
-          </div>
-        </div>
-      )
-    }
-
-
-  }
-
   useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -107,7 +63,7 @@ const Profesionales = () => {
                                 <td>{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
-                                <td>{datoss.rol}</td>
+                                <td>{datoss.profesion}</td>
                               </tr>
                             );
                           })}
@@ -133,10 +89,9 @@ const Profesionales = () => {
                     <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
                     <div className="mt-3 ">
                       <h4>{Profesional.nombre + " " + Profesional.apellido}</h4>
-                      <p className="text-secondary mb-1">{Profesional.rol}</p>
+                      <p className="text-secondary mb-1">{Profesional.profesion}</p>
                     </div>
                   </div>
-                  {checked()}
                 </div>
               </div>
 
