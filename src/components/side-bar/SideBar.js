@@ -4,6 +4,7 @@ import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS fi
 
 const SideBar = () => {
   let nameUser = localStorage.getItem("nameUser");
+  let rolUsuario = localStorage.getItem('rolUser');
 
   const LogOut = () => {
     localStorage.setItem("emailUser", "");
@@ -15,6 +16,27 @@ const SideBar = () => {
       window.location.href = "login";
     }
   };
+
+
+  const vistaProfesional = () => {
+
+    if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+      return (
+        <div className="mt-4">
+          <a href="/profesionales">
+            <button variant="outline-primary" className="btn pointer">
+              <p className="text-grey">
+                <span>
+                  <i className="bi bi-suit-heart-fill" />
+                </span>
+                <span className="ml-3">Profesionales</span>
+              </p>
+            </button>
+          </a>
+        </div>
+      );
+    }
+  }
 
   return (
     <div className="sidebar">
@@ -62,18 +84,9 @@ const SideBar = () => {
               </a>
             </div>
 
-            <div className="mt-4">
-              <a href="/profesionales">
-                <button variant="outline-primary" className="btn pointer">
-                  <p className="text-grey">
-                    <span>
-                      <i className="bi bi-suit-heart-fill" />
-                    </span>
-                    <span className="ml-3">Profesionales</span>
-                  </p>
-                </button>
-              </a>
-            </div>
+
+
+            {vistaProfesional()}
           </div>
         </div>
 
