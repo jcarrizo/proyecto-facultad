@@ -102,7 +102,7 @@ const Profesionales = () => {
                           {datos.map((datoss) => {
                             return (
                               <tr onClick={() => ProfesionalInfo(datoss)} >
-                                <td >{datoss.nombre + " " + datoss.apellido}</td>
+                                <td>{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
                                 <td>{datoss.rol}</td>
