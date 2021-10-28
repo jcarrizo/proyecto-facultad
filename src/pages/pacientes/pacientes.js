@@ -99,7 +99,7 @@ const Pacientes = () => {
                           <tr>
                             <th scope="col">Pacientes</th>
                             <th scope="col">DNI</th>
-                            <th scope="col">Correo</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Obra Social</th>
                           </tr>

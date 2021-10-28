@@ -51,9 +51,9 @@ const Profesionales = () => {
                         <thead>
                           <tr >
                             <th scope="col">Nombre</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Profesion</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Profesión</th>
                           </tr>
                         </thead>
                         <tbody>
