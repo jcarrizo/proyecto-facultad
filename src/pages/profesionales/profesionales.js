@@ -122,7 +122,7 @@ const Profesionales = () => {
 
         {/*                                                      Seleccionable                       */}
         <div className="col-5 mt-5 container">
-          <h2 className="tituloPerfil">Perfil</h2>
+          <h2 className="tituloPerfil text-center ml-4">Perfil seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
               <div className="card">
@@ -133,9 +133,6 @@ const Profesionales = () => {
                       <h4>{Profesional.nombre + " " + Profesional.apellido}</h4>
                       <p className="text-secondary mb-1">{Profesional.rol}</p>
                     </div>
-
-
-
                   </div>
                   {checked()}
                 </div>
