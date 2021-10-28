@@ -16,50 +16,6 @@ const Profesionales = () => {
     setProfesional(datosProfesional)
   }
 
-
-
-  const checked = () => {
-
-    if (Profesional.rol === "Secretaria") {
-      return (
-        <div className="ms-4 mt-4">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" ></input>
-            <label class="form-check-label" for="flexRadioDefault2">
-              Profesional de la Salud
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked></input>
-            <label class="form-check-label" for="flexRadioDefault1">
-              Secretaria
-            </label>
-          </div>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div className="ms-4 mt-4">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="0" checked></input>
-            <label class="form-check-label" for="flexRadioDefault2">
-              Profesional de la Salud
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"></input>
-            <label class="form-check-label" for="flexRadioDefault1">
-              Secretaria
-            </label>
-          </div>
-        </div>
-      )
-    }
-
-
-  }
-
   useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -134,7 +90,6 @@ const Profesionales = () => {
                       <p className="text-secondary mb-1">{Profesional.rol}</p>
                     </div>
                   </div>
-                  {checked()}
                 </div>
               </div>
 
