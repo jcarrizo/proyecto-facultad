@@ -61,7 +61,7 @@ const Profesionales = () => {
                                 <td>{datoss.nombre + " " + datoss.apellido}</td>
                                 <td>{datoss.email}</td>
                                 <td>{datoss.telefono}</td>
-                                <td>{datoss.rol}</td>
+                                <td>{datoss.profesion}</td>
                               </tr>
                             );
                           })}
@@ -87,7 +87,7 @@ const Profesionales = () => {
                     <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
                     <div className="mt-3 ">
                       <h4>{Profesional.nombre + " " + Profesional.apellido}</h4>
-                      <p className="text-secondary mb-1">{Profesional.rol}</p>
+                      <p className="text-secondary mb-1">{Profesional.profesion}</p>
                     </div>
                   </div>
                 </div>
