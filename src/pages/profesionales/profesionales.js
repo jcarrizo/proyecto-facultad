@@ -11,11 +11,36 @@ import "./profesionales.css";
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
   const [Profesional, setProfesional] = useState([]);
+  const { register, handleSubmit } = useForm();
 
+  const onSubmit = data => {
+
+    const profileEdit = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.email,
+      telefono: data.telefono,
+      direccion: data.direccion,
+      dni: data.dni,
+    }
+
+    const resp = db.collection("users").doc(datos[0].id).update(profileEdit)
+    toast("Se editó el perfil correctamente", {
+      type: 'success', autoClose: 2000
+    })
+
+  }
 
 
   const ProfesionalInfo = (datosProfesional) => {
     setProfesional(datosProfesional)
+  }
+
+
+  const eliminarProfesional = () => {
+    if (window.confirm("¿Está seguro que desea eliminar el profesional?")) {
+
+    }
   }
 
   useEffect(() => {
@@ -145,8 +170,18 @@ const Profesionales = () => {
                   </div>
                   <hr className="mb-4"></hr>
                   <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">DNI</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {Profesional.dni}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
                     <div className="col-sm-12">
                       <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPerfil">Editar</button>
+                      <button className="btn btn-danger ml-5" href="" onClick={() => eliminarProfesional()}>Eliminar</button>
                     </div>
                   </div>
 
@@ -168,31 +203,36 @@ const Profesionales = () => {
                 </div>
                 <div className="modal-body">
 
-                  <form className="text-grey" >
+                  <form className="text-grey" onSubmit={handleSubmit(onSubmit)} >
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={Profesional.nombre}
+                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={Profesional.nombre} {...register("nombre")}
                         required></input>
                       <label>Nombre</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={Profesional.apellido} required></input>
+                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={Profesional.apellido} {...register("apellido")} required></input>
                       <label>Apellido</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={Profesional.email} required></input>
+                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={Profesional.email} {...register("email")} required></input>
                       <label>Email</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={Profesional.telefono} required></input>
+                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={Profesional.telefono} {...register("telefono")} required></input>
                       <label>Teléfono</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={Profesional.direccion} required></input>
+                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={Profesional.direccion} {...register("direccion")} required></input>
                       <label>Dirección</label>
+                    </div>
+
+                    <div className="mb-3 form-floating">
+                      <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={Profesional.dni} {...register("dni")} required></input>
+                      <label>DNI</label>
                     </div>
 
                     <div className="modal-footer">

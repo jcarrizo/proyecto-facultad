@@ -52,9 +52,9 @@ const Perfil = () => {
           {
             datos.map(datoss => {
 
-              var emailUser = localStorage.getItem('emailUser');
+              var IdUser = localStorage.getItem('dataD');
 
-              if (datoss.email === emailUser) {
+              if (datoss.id === IdUser) {
 
                 return (<div className="container mt-5">
                   <h2 className="tituloPerfil">Perfil</h2>
@@ -130,6 +130,15 @@ const Perfil = () => {
                           </div>
                           <hr className="mb-4"></hr>
                           <div className="row">
+                            <div className="col-sm-3">
+                              <h6 className="mb-0">DNI</h6>
+                            </div>
+                            <div className="col-sm-9 text-secondary">
+                              {datoss.dni}
+                            </div>
+                          </div>
+                          <hr className="mb-4"></hr>
+                          <div className="row">
                             <div className="col-sm-12">
                               <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPerfil">Editar</button>
                             </div>
@@ -177,6 +186,11 @@ const Perfil = () => {
                             <div className="mb-3 form-floating">
                               <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.direccion} {...register("direccion")} required></input>
                               <label>Dirección</label>
+                            </div>
+
+                            <div className="mb-3 form-floating">
+                              <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.dni} {...register("direccion")} required></input>
+                              <label>DNI</label>
                             </div>
 
                             <div className="modal-footer">

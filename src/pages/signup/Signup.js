@@ -39,6 +39,8 @@ const Signup = () => {
         direccion: "",
         telefono: "",
         rol: 1,
+        enabled: true,
+        profesion: "",
       };
 
       // 1: medico
