@@ -10,7 +10,9 @@ const Home = () => {
             </div>
 
             <div className="col-10">
-
+                <div className="container">
+                    <h1 className="text-light-blue text-center">Bienvenidos</h1>
+                </div>
             </div>
         </div>
     </div>)

@@ -78,7 +78,7 @@ ________________________________________________________________________________
 
                                                   USUARIOS
 --FALTA--
-* DNI de usuarios 
+* Funcion eliminar usuario
 
 --ISSUES--
 
