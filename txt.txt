@@ -47,9 +47,9 @@ ________________________________________________________________________________
                                                MIS PACIENTES
 --FALTA--
 * Modificacion y eliminacion de Pacientes
+* Funcion delBuscador de pacientes
 
 --ISSUES--
-* Arreglar buscador de pacientes
 * Agregar paciente guarda info sin verificar raro
 
 --NICE TO HAVE--
@@ -88,13 +88,12 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________________
 
-                                                  Profesionales
+                                                PROFESIONALES
 --FALTA--
 agregar horario del trabajo del Profesional
 
 --ISSUES--
 Agregar Campo Profesional, que no es lo mismo que rol
-
 
 
 --NICE TO HAVE--
