@@ -102,7 +102,7 @@ const Turnos = () => {
                 <div className="col-10 pt-5 pr-5 pb-5">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row ml-4">
-                            <div className="col">
+                            <div className="col-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Paciente
                                 </label>
@@ -115,11 +115,11 @@ const Turnos = () => {
                                 />
                             </div>
 
-                            <div className="col">
+                            <div className="col-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Fecha
                                 </label>
-                                <DatePicker
+                                <DatePicker className="form-control text-center"
                                     showTimeSelect
                                     selected={startDate}
                                     onChange={(date) => setStartDate(date)}
@@ -141,7 +141,7 @@ const Turnos = () => {
                         events={turnos}
                         startAccessor="start"
                         endAccessor="end"
-                        style={{ height: 800, margin: "50px" }}
+                        style={{ height: 700, margin: "50px" }}
                         messages={{
                             next: "sig",
                             previous: "ant",
