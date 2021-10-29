@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import TextInput from "react-autocomplete-input";
 import "react-autocomplete-input/dist/bundle.css";
 import { db } from "../../DB/firebase";
+import { toast } from 'react-toastify'
 
 require("moment/locale/es.js");
 const localizer = momentLocalizer(moment);
@@ -43,6 +44,9 @@ const Turnos = () => {
             };
             db.collection("turnos").doc().set(nuevoTurno);
             setnombreSelector("");
+
+            toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
+
         } else {
             alert("No se pueden ingresar campos vacios");
         }
@@ -107,6 +111,7 @@ const Turnos = () => {
                                     Paciente
                                 </label>
                                 <TextInput
+                                    trigger={[""]}
                                     className="form-control fixed"
                                     options={opciones}
                                     onSelect={(datoss) => {
@@ -128,7 +133,10 @@ const Turnos = () => {
                                 />
                             </div>
 
-                            <div className="col d-flex align-items-center mt-3">
+
+                            <div className="col">
+                                <label>&nbsp;</label>
+                                <br></br>
                                 <button type="submit" className="btn btn-primary">
                                     Agregar Turno
                                 </button>
@@ -141,7 +149,7 @@ const Turnos = () => {
                         events={turnos}
                         startAccessor="start"
                         endAccessor="end"
-                        style={{ height: 700, margin: "50px" }}
+                        style={{ height: 700, margin: "35px" }}
                         messages={{
                             next: "sig",
                             previous: "ant",
