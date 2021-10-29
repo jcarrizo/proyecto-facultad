@@ -128,7 +128,10 @@ const Turnos = () => {
                                 />
                             </div>
 
-                            <div className="col d-flex align-items-center mt-3">
+
+                            <div className="col">
+                                <label>&nbsp;</label>
+                                <br></br>
                                 <button type="submit" className="btn btn-primary">
                                     Agregar Turno
                                 </button>
