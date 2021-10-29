@@ -40,7 +40,7 @@ const Login = () => {
     })
 
     if (flag === false) {
-      toast('El usuario ingresado NO correcto', { type: 'error', autoClose: 3000 })
+      toast('El usuario ingresado no correcto', { type: 'error', autoClose: 3000 })
     }
 
 
