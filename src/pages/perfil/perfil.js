@@ -20,7 +20,7 @@ const Perfil = () => {
     });
   }, [])
 
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = data => {
 
     const profileEdit = {
