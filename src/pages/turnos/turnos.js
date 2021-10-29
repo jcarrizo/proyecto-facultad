@@ -105,19 +105,18 @@ const Turnos = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row ml-4">
-                        <div className="col">
+                        <div className="col-3">
                             <label for="exampleInputEmail1" className="form-label">Paciente</label>
-                            <TextInput className="form-control fixed" options={opciones} onSelect={(datoss) => { setnombreSelector(datoss) }} />
+                            <TextInput trigger={[""]} className="form-control fixed" options={opciones} onSelect={(datoss) => { setnombreSelector(datoss) }} />
                         </div>
 
 
-                        <div className="col">
+                        <div className="col-3">
                             <label for="exampleInputEmail1" className="form-label">Fecha</label>
-                            <DatePicker
+                            <DatePicker className="form-control text-center"
                                 showTimeSelect
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}
-
                             />
                         </div>
 
@@ -130,7 +129,7 @@ const Turnos = () => {
 
 
                 <Calendar localizer={localizer} events={turnos}
-                    startAccessor="start" endAccessor="end" style={{ height: 800, margin: "50px" }} messages={{
+                    startAccessor="start" endAccessor="end" style={{ height: 700, margin: "35px" }} messages={{
                         next: "sig",
                         previous: "ant",
                         today: "Hoy",
