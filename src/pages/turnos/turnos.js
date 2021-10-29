@@ -42,13 +42,11 @@ const Turnos = () => {
                 end: String(startDate),
                 profesionalId: localStorage.getItem("dataD"),
             };
-            db.collection("turnos").doc().set(nuevoTurno);
+
             setnombreSelector("");
-
             toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
-
         } else {
-            alert("No se pueden ingresar campos vacios");
+            toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
         }
     };
 
