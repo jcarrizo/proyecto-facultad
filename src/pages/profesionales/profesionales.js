@@ -41,7 +41,7 @@ const Profesionales = () => {
         .collection("users")
         .doc(profesional.id)
         .update(profileEdit);
-      toast("Se editó el perfil correctamente", {
+      toast("Se eliminó el perfil correctamente", {
         type: "success",
         autoClose: 2000,
       });

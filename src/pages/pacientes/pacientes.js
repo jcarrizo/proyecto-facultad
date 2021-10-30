@@ -58,6 +58,23 @@ const Pacientes = () => {
     setPaciente(datosPaciente);
   };
 
+  const eliminarPaciente = () => {
+    if (window.confirm("¿Está seguro que desea eliminar el paciente?")) {
+      const profileEdit = {
+        eliminado: true,
+      };
+
+      const resp = db
+        .collection("pacientes")
+        .doc(paciente.id)
+        .update(profileEdit);
+      toast("Se eliminó el paciente correctamente", {
+        type: "success",
+        autoClose: 2000,
+      });
+    }
+  };
+
   let rolUsuario = localStorage.getItem("rolUser");
   let IdUsuario = localStorage.getItem("dataD");
 
@@ -152,7 +169,7 @@ const Pacientes = () => {
 
         {/*                                                      Seleccionable                       */}
         <div className="col-5 mt-5 container">
-          <h2 className="tituloPerfil text-center ml-4">Perfil seleccionado</h2>
+          <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
               <div className="card">
@@ -227,8 +244,8 @@ const Pacientes = () => {
                   <hr className="mb-4"></hr>
                   <div className="row">
                     <div className="col-sm-12">
-                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPerfil">Editar</button>
-                      <button className="btn btn-danger ml-5" href="" onClick={() => "eliminarProfesional()"}>Eliminar</button>
+                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente">Editar</button>
+                      <button className="btn btn-danger ml-5" href="" onClick={() => eliminarPaciente()}>Eliminar</button>
                     </div>
                   </div>
 
@@ -241,11 +258,11 @@ const Pacientes = () => {
 
           </div>
           {/* MODAL EDITAR PERFIL */}
-          <div className="modal fade" id="editarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                  <h5 className="modal-title" id="exampleModalLabel">Editar Paciente</h5>
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
