@@ -42,7 +42,7 @@ const Pacientes = () => {
       direccion: data.direccion,
       dni: data.dni,
       obrasocial: data.obrasocial,
-      profesionalId: localStorage.getItem('dataD'),
+      profesionalId: localStorage.getItem("dataD"),
     };
 
     db.collection("pacientes").doc().set(newPatient);
@@ -52,8 +52,8 @@ const Pacientes = () => {
       autoClose: 2000,
     });
   };
-  let rolUsuario = localStorage.getItem('rolUser')
-  let IdUsuario = localStorage.getItem('dataD')
+  let rolUsuario = localStorage.getItem("rolUser");
+  let IdUsuario = localStorage.getItem("dataD");
 
   return (
     <div>
@@ -106,10 +106,12 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datoss) => {
-                            if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+                            if (rolUsuario === "3" || rolUsuario === "2") {
                               return (
                                 <tr>
-                                  <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                  <td>
+                                    {datoss.nombre + " " + datoss.apellido}
+                                  </td>
                                   <td>{datoss.dni}</td>
                                   <td>{datoss.email}</td>
                                   <td>{datoss.telefono}</td>
@@ -120,7 +122,9 @@ const Pacientes = () => {
                             if (datoss.profesionalId === IdUsuario) {
                               return (
                                 <tr>
-                                  <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                  <td>
+                                    {datoss.nombre + " " + datoss.apellido}
+                                  </td>
                                   <td>{datoss.dni}</td>
                                   <td>{datoss.email}</td>
                                   <td>{datoss.telefono}</td>
@@ -128,7 +132,6 @@ const Pacientes = () => {
                                 </tr>
                               );
                             }
-
                           })}
                         </tbody>
                       </table>

@@ -39,7 +39,7 @@ const Signup = () => {
         direccion: "",
         telefono: "",
         rol: 1,
-        enabled: true,
+        eliminado: false,
         profesion: "",
       };
 
