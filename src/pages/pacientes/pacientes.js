@@ -9,6 +9,7 @@ const Pacientes = () => {
   const [datos, setDatos] = useState([]);
   const { register, watch, handleSubmit } = useForm();
   const watchShowPacient = watch("paciente");
+  const [paciente, setPaciente] = useState([]);
 
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
@@ -52,6 +53,11 @@ const Pacientes = () => {
       autoClose: 2000,
     });
   };
+
+  const pacienteInfo = (datosPaciente) => {
+    setPaciente(datosPaciente);
+  };
+
   let rolUsuario = localStorage.getItem("rolUser");
   let IdUsuario = localStorage.getItem("dataD");
 
@@ -108,7 +114,7 @@ const Pacientes = () => {
                           {datos.map((datoss) => {
                             if (rolUsuario === "3" || rolUsuario === "2") {
                               return (
-                                <tr>
+                                <tr onClick={() => pacienteInfo(datoss)}>
                                   <td>
                                     {datoss.nombre + " " + datoss.apellido}
                                   </td>
@@ -154,8 +160,8 @@ const Pacientes = () => {
                   <div className="d-flex flex-column align-items-center text-center">
                     <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
                     <div className="mt-3 ">
-                      <h4>{ }</h4> {/* "Profesional.nombre + " " + Profesional.apellido" */}
-                      <p className="text-secondary mb-1">{"Profesional.profesion"}</p>
+                      <h4>{paciente.nombre + " " + paciente.apellido}</h4>
+                      <p className="text-secondary mb-1">{paciente.profesion}</p>
                     </div>
                   </div>
                 </div>
@@ -170,7 +176,7 @@ const Pacientes = () => {
                       <h6 className="mb-0">Nombre</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      Profesional.nombre
+                      {paciente.nombre}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -179,7 +185,7 @@ const Pacientes = () => {
                       <h6 className="mb-0">Apellido</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      Profesional.apellido
+                      {paciente.apellido}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -188,7 +194,7 @@ const Pacientes = () => {
                       <h6 className="mb-0">Email</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      Profesional.email
+                      {paciente.email}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -197,7 +203,7 @@ const Pacientes = () => {
                       <h6 className="mb-0">Teléfono</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"Profesional.telefono"}
+                      {paciente.telefono}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -206,7 +212,7 @@ const Pacientes = () => {
                       <h6 className="mb-0">Domicilio</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"Profesional.direccion"}
+                      {paciente.direccion}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -215,7 +221,7 @@ const Pacientes = () => {
                       <h6 className="mb-0">DNI</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {"Profesional.dni"}
+                      {paciente.dni}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -246,33 +252,33 @@ const Pacientes = () => {
 
                   <form className="text-grey" onSubmit={handleSubmit(onSubmit)} >
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={"Profesional.nombre"} {...register("nombre")}
+                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
                         required></input>
                       <label>Nombre</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={"Profesional.apellido"} {...register("apellido")} required></input>
+                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} {...register("apellido")} required></input>
                       <label>Apellido</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={"Profesional.email"} {...register("email")} required></input>
+                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} {...register("email")} required></input>
                       <label>Email</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={"Profesional.telefono"} {...register("telefono")} required></input>
+                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} {...register("telefono")} required></input>
                       <label>Teléfono</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={"Profesional.direccion"} {...register("direccion")} required></input>
+                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} {...register("direccion")} required></input>
                       <label>Dirección</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={"Profesional.dni"} {...register("dni")} required></input>
+                      <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.dni} {...register("dni")} required></input>
                       <label>DNI</label>
                     </div>
 

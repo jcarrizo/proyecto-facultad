@@ -7,7 +7,7 @@ import "./profesionales.css";
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
-  const [Profesional, setProfesional] = useState([]);
+  const [profesional, setProfesional] = useState([]);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -27,7 +27,7 @@ const Profesionales = () => {
     });
   };
 
-  const ProfesionalInfo = (datosProfesional) => {
+  const profesionalInfo = (datosProfesional) => {
     setProfesional(datosProfesional);
   };
 
@@ -39,7 +39,7 @@ const Profesionales = () => {
 
       const resp = db
         .collection("users")
-        .doc(Profesional.id)
+        .doc(profesional.id)
         .update(profileEdit);
       toast("Se editó el perfil correctamente", {
         type: "success",
@@ -88,7 +88,7 @@ const Profesionales = () => {
                           {datos.map((datoss) => {
                             if (datoss.eliminado === false) {
                               return (
-                                <tr onClick={() => ProfesionalInfo(datoss)}>
+                                <tr onClick={() => profesionalInfo(datoss)}>
                                   <td>
                                     {datoss.nombre + " " + datoss.apellido}
                                   </td>
@@ -124,9 +124,9 @@ const Profesionales = () => {
                       width="150"
                     ></img>
                     <div className="mt-3 ">
-                      <h4>{Profesional.nombre + " " + Profesional.apellido}</h4>
+                      <h4>{profesional.nombre + " " + profesional.apellido}</h4>
                       <p className="text-secondary mb-1">
-                        {Profesional.profesion}
+                        {profesional.profesion}
                       </p>
                     </div>
                   </div>
@@ -141,7 +141,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Nombre</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.nombre}
+                      {profesional.nombre}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -150,7 +150,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Apellido</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.apellido}
+                      {profesional.apellido}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -159,7 +159,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Email</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.email}
+                      {profesional.email}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -168,7 +168,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Teléfono</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.telefono}
+                      {profesional.telefono}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -177,7 +177,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Domicilio</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.direccion}
+                      {profesional.direccion}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -186,7 +186,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">DNI</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.dni}
+                      {profesional.dni}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -241,7 +241,7 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el nombre"
-                        defaultValue={Profesional.nombre}
+                        defaultValue={profesional.nombre}
                         {...register("nombre")}
                         required
                       ></input>
@@ -253,7 +253,7 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el apellido"
-                        defaultValue={Profesional.apellido}
+                        defaultValue={profesional.apellido}
                         {...register("apellido")}
                         required
                       ></input>
@@ -265,7 +265,7 @@ const Profesionales = () => {
                         type="email"
                         className="form-control"
                         placeholder="Ingrese el email"
-                        defaultValue={Profesional.email}
+                        defaultValue={profesional.email}
                         {...register("email")}
                         required
                       ></input>
@@ -277,7 +277,7 @@ const Profesionales = () => {
                         type="tel"
                         className="form-control"
                         placeholder="Ingrese el teléfono"
-                        defaultValue={Profesional.telefono}
+                        defaultValue={profesional.telefono}
                         {...register("telefono")}
                         required
                       ></input>
@@ -289,7 +289,7 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el dirección"
-                        defaultValue={Profesional.direccion}
+                        defaultValue={profesional.direccion}
                         {...register("direccion")}
                         required
                       ></input>
@@ -301,7 +301,7 @@ const Profesionales = () => {
                         type="number"
                         className="form-control"
                         placeholder="Ingrese el dirección"
-                        defaultValue={Profesional.dni}
+                        defaultValue={profesional.dni}
                         {...register("dni")}
                         required
                       ></input>
