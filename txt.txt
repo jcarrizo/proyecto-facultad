@@ -67,8 +67,9 @@ ________________________________________________________________________________
 --ISSUES--
 
 --NICE TO HAVE--
-* Visuales, arreglar arriba y hacer mas chico
+* Boton agregar turno muy arriba
 * Fecha en español
+* Seleccionar fecha con z index y oscuro 
 ________________________________________________________________________________________________________
 
 
