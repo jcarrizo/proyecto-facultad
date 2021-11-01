@@ -16,8 +16,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
+  -o-object-fit: fill;
+  object-fit: contain;
 }
 .login-card .card-body {
   padding: 85px 160px 60px;

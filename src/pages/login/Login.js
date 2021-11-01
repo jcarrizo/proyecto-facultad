@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './login.css'
-import img from '../../images/login.jpg'
+import imgLogin from '../../images/login.png'
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
@@ -53,7 +53,7 @@ const Login = () => {
         <div className="card login-card">
           <div className="row no-gutters">
             <div className="col-md-5">
-              <img src={img} alt="login" className="login-card-img"></img>
+              <img src={imgLogin} alt="login" className="login-card-img"></img>
             </div>
             <div className="col-md-7">
               <div className="card-body">
