@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../signup/signup.css";
 import imgSignUp from "../../images/signup.png";
 import { useForm } from "react-hook-form";
@@ -9,7 +9,7 @@ const Signup = () => {
   const { register, handleSubmit, reset } = useForm();
   const [datos, setDatos] = useState([]);
 
-  const GetUser = async () => {
+  useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
@@ -17,7 +17,8 @@ const Signup = () => {
       });
       setDatos(docs);
     });
-  };
+  }, [])
+
 
   const onSubmit = (data) => {
 
