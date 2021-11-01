@@ -69,7 +69,7 @@ const Perfil = () => {
                               <p className="text-secondary mb-1">{datoss.profesion}</p>
 
                               <div className="mt-4">
-                                <button className="btn btn-primary">Reemplazar Foto</button>
+                                <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarFoto">Reemplazar Foto</button>
                                 <br></br>
                                 <button className="btn btn-outline-danger mt-4">Cambiar Contraseña</button>
                               </div>
@@ -204,6 +204,33 @@ const Perfil = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* MODAL EDITAR FOTO */}
+                  <div className="modal fade" id="editarFoto" tabindex="-1" aria-labelledby="ModalFOTO" aria-hidden="true">
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="ModalFOTO">Reemplazar Foto</h5>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+
+                          <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
+                            <div class="mb-3">
+                              <label for="formFile" class="form-label">Selecciona la Imagen</label>
+                              <input class="form-control" type="file" id="formFile"></input>
+                            </div>
+                            <div className="modal-footer">
+                              <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                              <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                            </div>
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
 
                 </div>
                 )
