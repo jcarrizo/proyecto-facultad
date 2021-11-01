@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../login/login.css'
 import imgLogin from '../../images/login.jpg'
 import { useForm } from "react-hook-form";
@@ -10,13 +10,17 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const [datos, setDatos] = useState([]);
 
-  db.collection("users").onSnapshot((querySnapshot) => {
-    const docs = [];
-    querySnapshot.forEach((doc) => {
-      docs.push({ ...doc.data(), id: doc.id });
+  useEffect(() => {
+    db.collection("users").onSnapshot((querySnapshot) => {
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setDatos(docs);
     });
-    setDatos(docs);
-  });
+
+  }, [])
+
 
   const onSubmit = data => {
 
