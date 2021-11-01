@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../signup/signup.css";
-import img from "../../images/login3.jpg";
+import imgSignUp from "../../images/signup.png";
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
 import { toast } from "react-toastify";
@@ -68,12 +68,12 @@ const Signup = () => {
         <div className="card login-card">
           <div className="row no-gutters">
             <div className="col-md-5">
-              <img src={img} alt="login" className="login-card-img"></img>
+              <img src={imgSignUp} alt="login" className="login-card-img"></img>
             </div>
             <div className="col-md-7">
               <div className="card-body">
 
-                <p className="login-card-description">Crear cuenta</p>
+                <h3 className="login-card-description-signup">Crear cuenta</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input
