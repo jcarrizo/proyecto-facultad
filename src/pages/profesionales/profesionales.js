@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../../components/side-bar/SideBar";
 import { db } from "../../DB/firebase";
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify'
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import "./profesionales.css";
-
-
-
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
-  const [Profesional, setProfesional] = useState([]);
+  const [profesional, setProfesional] = useState([]);
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = data => {
-
+  const onSubmit = (data) => {
     const profileEdit = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -22,26 +18,35 @@ const Profesionales = () => {
       telefono: data.telefono,
       direccion: data.direccion,
       dni: data.dni,
-    }
+    };
 
-    const resp = db.collection("users").doc(datos[0].id).update(profileEdit)
+    const resp = db.collection("users").doc(datos[0].id).update(profileEdit);
     toast("Se editó el perfil correctamente", {
-      type: 'success', autoClose: 2000
-    })
+      type: "success",
+      autoClose: 2000,
+    });
+  };
 
-  }
-
-
-  const ProfesionalInfo = (datosProfesional) => {
-    setProfesional(datosProfesional)
-  }
-
+  const profesionalInfo = (datosProfesional) => {
+    setProfesional(datosProfesional);
+  };
 
   const eliminarProfesional = () => {
     if (window.confirm("¿Está seguro que desea eliminar el profesional?")) {
+      const profileEdit = {
+        eliminado: true,
+      };
 
+      const resp = db
+        .collection("users")
+        .doc(profesional.id)
+        .update(profileEdit);
+      toast("Se eliminó el perfil correctamente", {
+        type: "success",
+        autoClose: 2000,
+      });
     }
-  }
+  };
 
   useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
@@ -51,8 +56,6 @@ const Profesionales = () => {
       });
       setDatos(docs);
     });
-
-
   }, []);
 
   return (
@@ -74,7 +77,7 @@ const Profesionales = () => {
                     <div className="d-flex flex-column align-items-center text-center">
                       <table className="table table-hover pointer">
                         <thead>
-                          <tr >
+                          <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
                             <th scope="col">Teléfono</th>
@@ -83,14 +86,18 @@ const Profesionales = () => {
                         </thead>
                         <tbody>
                           {datos.map((datoss) => {
-                            return (
-                              <tr onClick={() => ProfesionalInfo(datoss)} >
-                                <td>{datoss.nombre + " " + datoss.apellido}</td>
-                                <td>{datoss.email}</td>
-                                <td>{datoss.telefono}</td>
-                                <td>{datoss.profesion}</td>
-                              </tr>
-                            );
+                            if (datoss.eliminado === false) {
+                              return (
+                                <tr onClick={() => profesionalInfo(datoss)}>
+                                  <td>
+                                    {datoss.nombre + " " + datoss.apellido}
+                                  </td>
+                                  <td>{datoss.email}</td>
+                                  <td>{datoss.telefono}</td>
+                                  <td>{datoss.profesion}</td>
+                                </tr>
+                              );
+                            }
                           })}
                         </tbody>
                       </table>
@@ -102,7 +109,6 @@ const Profesionales = () => {
           </div>
         </div>
 
-
         {/*                                                      Seleccionable                       */}
         <div className="col-5 mt-5 container">
           <h2 className="tituloPerfil text-center ml-4">Perfil seleccionado</h2>
@@ -111,15 +117,21 @@ const Profesionales = () => {
               <div className="card">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
+                    <img
+                      src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
+                      alt="Admin"
+                      className="rounded-circle"
+                      width="150"
+                    ></img>
                     <div className="mt-3 ">
-                      <h4>{Profesional.nombre + " " + Profesional.apellido}</h4>
-                      <p className="text-secondary mb-1">{Profesional.profesion}</p>
+                      <h4>{profesional.nombre + " " + profesional.apellido}</h4>
+                      <p className="text-secondary mb-1">
+                        {profesional.profesion}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
             <div className="col-md-8">
               <div className="card mb-3">
@@ -129,7 +141,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Nombre</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.nombre}
+                      {profesional.nombre}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -138,7 +150,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Apellido</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.apellido}
+                      {profesional.apellido}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -147,7 +159,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Email</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.email}
+                      {profesional.email}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -156,7 +168,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Teléfono</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.telefono}
+                      {profesional.telefono}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -165,7 +177,7 @@ const Profesionales = () => {
                       <h6 className="mb-0">Domicilio</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.direccion}
+                      {profesional.direccion}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -174,75 +186,146 @@ const Profesionales = () => {
                       <h6 className="mb-0">DNI</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {Profesional.dni}
+                      {profesional.dni}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
                   <div className="row">
                     <div className="col-sm-12">
-                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPerfil">Editar</button>
-                      <button className="btn btn-danger ml-5" href="" onClick={() => eliminarProfesional()}>Eliminar</button>
+                      <button
+                        className="btn btn-warning"
+                        href=""
+                        data-bs-toggle="modal"
+                        data-bs-target="#editarPerfil"
+                      >
+                        Editar
+                      </button>
+                      <button
+                        className="btn btn-danger ml-5"
+                        href=""
+                        onClick={() => eliminarProfesional()}
+                      >
+                        Eliminar
+                      </button>
                     </div>
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
-
           </div>
           {/* MODAL EDITAR PERFIL */}
-          <div className="modal fade" id="editarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div
+            className="modal fade"
+            id="editarPerfil"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Editar Perfil</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 className="modal-title" id="exampleModalLabel">
+                    Editar Perfil
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div className="modal-body">
-
-                  <form className="text-grey" onSubmit={handleSubmit(onSubmit)} >
+                  <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={Profesional.nombre} {...register("nombre")}
-                        required></input>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Ingrese el nombre"
+                        defaultValue={profesional.nombre}
+                        {...register("nombre")}
+                        required
+                      ></input>
                       <label>Nombre</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={Profesional.apellido} {...register("apellido")} required></input>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Ingrese el apellido"
+                        defaultValue={profesional.apellido}
+                        {...register("apellido")}
+                        required
+                      ></input>
                       <label>Apellido</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={Profesional.email} {...register("email")} required></input>
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Ingrese el email"
+                        defaultValue={profesional.email}
+                        {...register("email")}
+                        required
+                      ></input>
                       <label>Email</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={Profesional.telefono} {...register("telefono")} required></input>
+                      <input
+                        type="tel"
+                        className="form-control"
+                        placeholder="Ingrese el teléfono"
+                        defaultValue={profesional.telefono}
+                        {...register("telefono")}
+                        required
+                      ></input>
                       <label>Teléfono</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={Profesional.direccion} {...register("direccion")} required></input>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Ingrese el dirección"
+                        defaultValue={profesional.direccion}
+                        {...register("direccion")}
+                        required
+                      ></input>
                       <label>Dirección</label>
                     </div>
 
                     <div className="mb-3 form-floating">
-                      <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={Profesional.dni} {...register("dni")} required></input>
+                      <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Ingrese el dirección"
+                        defaultValue={profesional.dni}
+                        {...register("dni")}
+                        required
+                      ></input>
                       <label>DNI</label>
                     </div>
 
                     <div className="modal-footer">
-                      <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
+                      <button
+                        type="reset"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary"
+                        data-bs-dismiss="modal"
+                      >
+                        Editar Paciente
+                      </button>
                     </div>
-
                   </form>
                 </div>
-
               </div>
             </div>
           </div>

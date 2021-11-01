@@ -9,6 +9,7 @@ const Pacientes = () => {
   const [datos, setDatos] = useState([]);
   const { register, watch, handleSubmit } = useForm();
   const watchShowPacient = watch("paciente");
+  const [paciente, setPaciente] = useState([]);
 
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
@@ -42,7 +43,7 @@ const Pacientes = () => {
       direccion: data.direccion,
       dni: data.dni,
       obrasocial: data.obrasocial,
-      profesionalId: localStorage.getItem('dataD'),
+      profesionalId: localStorage.getItem("dataD"),
     };
 
     db.collection("pacientes").doc().set(newPatient);
@@ -52,8 +53,30 @@ const Pacientes = () => {
       autoClose: 2000,
     });
   };
-  let rolUsuario = localStorage.getItem('rolUser')
-  let IdUsuario = localStorage.getItem('dataD')
+
+  const pacienteInfo = (datosPaciente) => {
+    setPaciente(datosPaciente);
+  };
+
+  const eliminarPaciente = () => {
+    if (window.confirm("¿Está seguro que desea eliminar el paciente?")) {
+      const profileEdit = {
+        eliminado: true,
+      };
+
+      const resp = db
+        .collection("pacientes")
+        .doc(paciente.id)
+        .update(profileEdit);
+      toast("Se eliminó el paciente correctamente", {
+        type: "success",
+        autoClose: 2000,
+      });
+    }
+  };
+
+  let rolUsuario = localStorage.getItem("rolUser");
+  let IdUsuario = localStorage.getItem("dataD");
 
   return (
     <div>
@@ -62,7 +85,7 @@ const Pacientes = () => {
           <SideBar></SideBar>
         </div>
 
-        <div className="col-10 ">
+        <div className="col-5">
           <div className="container mt-5">
             <h2 className="tituloPerfil">Pacientes</h2>
             <div className="row gutters-sm">
@@ -106,10 +129,12 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datoss) => {
-                            if (rolUsuario === "Admin" || rolUsuario === "Secretaria") {
+                            if (rolUsuario === "3" || rolUsuario === "2") {
                               return (
-                                <tr>
-                                  <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                <tr onClick={() => pacienteInfo(datoss)}>
+                                  <td>
+                                    {datoss.nombre + " " + datoss.apellido}
+                                  </td>
                                   <td>{datoss.dni}</td>
                                   <td>{datoss.email}</td>
                                   <td>{datoss.telefono}</td>
@@ -120,7 +145,9 @@ const Pacientes = () => {
                             if (datoss.profesionalId === IdUsuario) {
                               return (
                                 <tr>
-                                  <td>{datoss.nombre + " " + datoss.apellido}</td>
+                                  <td>
+                                    {datoss.nombre + " " + datoss.apellido}
+                                  </td>
                                   <td>{datoss.dni}</td>
                                   <td>{datoss.email}</td>
                                   <td>{datoss.telefono}</td>
@@ -128,7 +155,6 @@ const Pacientes = () => {
                                 </tr>
                               );
                             }
-
                           })}
                         </tbody>
                       </table>
@@ -139,6 +165,155 @@ const Pacientes = () => {
             </div>
           </div>
         </div>
+
+
+        {/*                                                      Seleccionable                       */}
+        <div className="col-5 mt-5 container">
+          <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
+          <div className="row gutters-sm">
+            <div className="col-md-4 mb-3">
+              <div className="card">
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center">
+                    <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
+                    <div className="mt-3 ">
+                      <h4>{paciente.nombre + " " + paciente.apellido}</h4>
+                      <p className="text-secondary mb-1">{paciente.profesion}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div className="col-md-8">
+              <div className="card mb-3">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Nombre</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {paciente.nombre}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Apellido</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {paciente.apellido}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Email</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {paciente.email}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Teléfono</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {paciente.telefono}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Domicilio</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {paciente.direccion}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">DNI</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {paciente.dni}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente">Editar</button>
+                      <button className="btn btn-danger ml-5" href="" onClick={() => eliminarPaciente()}>Eliminar</button>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+          {/* MODAL EDITAR PERFIL */}
+          <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">Editar Paciente</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+
+                  <form className="text-grey" onSubmit={handleSubmit(onSubmit)} >
+                    <div className="mb-3 form-floating">
+                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
+                        required></input>
+                      <label>Nombre</label>
+                    </div>
+
+                    <div className="mb-3 form-floating">
+                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} {...register("apellido")} required></input>
+                      <label>Apellido</label>
+                    </div>
+
+                    <div className="mb-3 form-floating">
+                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} {...register("email")} required></input>
+                      <label>Email</label>
+                    </div>
+
+                    <div className="mb-3 form-floating">
+                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} {...register("telefono")} required></input>
+                      <label>Teléfono</label>
+                    </div>
+
+                    <div className="mb-3 form-floating">
+                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} {...register("direccion")} required></input>
+                      <label>Dirección</label>
+                    </div>
+
+                    <div className="mb-3 form-floating">
+                      <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.dni} {...register("dni")} required></input>
+                      <label>DNI</label>
+                    </div>
+
+                    <div className="modal-footer">
+                      <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
+                    </div>
+
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
 
       {/* MODAL AGREGAR PACIENTE */}
