@@ -6,6 +6,7 @@ ________________________________________________________________________________
 --ISSUES--
 
 --NICE TO HAVE--
+* Ojito password
 ________________________________________________________________________________________________________
 
 
@@ -89,13 +90,15 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________________
 
-                                                PROFESIONALES
+                                             MIS PROFESIONALES
 --FALTA--
 * Funcion eliminar profesional
 * Agregar horario del trabajo del Profesional
+* Agregar Campo Profesional, que no es lo mismo que rol
+
 
 --ISSUES--
-* Agregar Campo Profesional, que no es lo mismo que rol
+* Al editar se pudre xd
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
