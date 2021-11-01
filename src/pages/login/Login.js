@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './login.css'
+import '../login/login.css'
 import imgLogin from '../../images/login.png'
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
@@ -73,13 +73,9 @@ const Login = () => {
 
                   <input className="btn btn-block login-btn mb-4" type="submit"
                     value="Ingresar"></input>
-                  <a href="/Signup">No tienes cuenta? Registrate!</a>
+                  <a href="/Signup">¿No tienes cuenta? Registrate!</a>
                 </form>
 
-                <nav className="login-card-footer-nav mt-3">
-                  <a href="#!">Términos y condiciones.</a>
-                  <a href="#!">Política de pivadidad</a>
-                </nav>
               </div>
             </div>
           </div>
