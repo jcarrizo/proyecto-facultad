@@ -57,9 +57,7 @@ const Login = () => {
             </div>
             <div className="col-md-7">
               <div className="card-body">
-                <div className="brand-wrapper">
-                  <a href="index.html"><img src="Images/logo.svg" alt="First Job" className="logo"></img></a>
-                </div>
+
                 <p className="login-card-description">Loguearse</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
@@ -71,7 +69,7 @@ const Login = () => {
                       placeholder="Contraseña" {...register("password")} required></input>
                   </div>
 
-                  <input className="btn btn-block login-btn mb-4" type="submit"
+                  <input className="btn btn-block login-btn2 mb-4" type="submit"
                     value="Ingresar"></input>
                   <a href="/Signup">¿No tienes cuenta? Registrate!</a>
                 </form>
