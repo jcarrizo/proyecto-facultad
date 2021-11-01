@@ -20,40 +20,61 @@ const Signup = () => {
   };
 
   const onSubmit = (data) => {
-    GetUser();
-    console.log(datos);
+
+
 
     //To do Las contraseñas primero
 
+    let flag2 = false;
     if (
       data.password !== "" &&
       data.passwordConfirm !== "" &&
       data.password === data.passwordConfirm
     ) {
-      const info = {
-        email: data.email,
-        password: data.password,
-        nombre: data.usuario,
-        state: true,
-        apellido: "",
-        direccion: "",
-        telefono: "",
-        rol: 1,
-        eliminado: false,
-        profesion: "",
-      };
 
-      // 1: medico
-      // 2: Secretaria
-      // 3: Admin
+      datos.map((info) => {
 
-      db.collection("users").doc().set(info);
-      toast("Nuevo usuario registrado", { type: "success", autoClose: 2000 });
-      setTimeout(() => {
-        localStorage.setItem("emailUser", info.email);
-        localStorage.setItem("nameUser", info.nombre);
-        window.location = "/";
-      }, 1000);
+        if (data.email === info.email) {
+
+          flag2 = true
+
+        }
+      })
+
+      if (flag2 != true) {
+        const info = {
+          email: data.email,
+          password: data.password,
+          nombre: data.usuario,
+          state: true,
+          apellido: "",
+          direccion: "",
+          telefono: "",
+          rol: 1,
+          eliminado: false,
+          profesion: "",
+        };
+
+        // 1: medico
+        // 2: Secretaria
+        // 3: Admin
+
+        db.collection("users").doc().set(info);
+        toast("Nuevo usuario agregado", { type: "success", autoClose: 2000 });
+        setTimeout(() => {
+          localStorage.setItem("emailUser", info.email);
+          localStorage.setItem("nameUser", info.nombre);
+          localStorage.setItem('rolUser', info.rol);
+          window.location = "/";
+        }, 1000);
+      }
+
+      if (flag2 === true) {
+        toast("El Email ya pertenece a una cuenta", { type: "error", autoClose: 2000 });
+      }
+
+
+
     } else {
       toast("Las contraseñas no son iguales", {
         type: "error",
