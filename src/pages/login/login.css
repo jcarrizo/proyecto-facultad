@@ -13,7 +13,7 @@
   object-fit: fill;
 }
 .login-card .card-body-login {
-  padding: 85px 160px 60px;
+  padding: 85px 130px 60px;
 }
 @media (max-width: 422px) {
   .login-card .card-body {
