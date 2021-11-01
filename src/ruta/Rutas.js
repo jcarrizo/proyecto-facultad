@@ -44,7 +44,7 @@ const Rutas = () => {
             <Profesionales />
           </Route>
           <Route path="/">
-            <Home></Home>
+            <Perfil></Perfil>
           </Route>
         </Switch>
       </div>
