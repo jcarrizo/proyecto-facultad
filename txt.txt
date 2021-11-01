@@ -63,6 +63,10 @@ ________________________________________________________________________________
 
                                                   TURNOS
 --FALTA--
+* Hay q ver de que la secretaria primero filtre los turnos 
+  x medico y que pueda pedir un turno para ese medico-paciente
+* borrar turno
+
 
 --ISSUES--
 
@@ -82,7 +86,6 @@ ________________________________________________________________________________
 * Funcion eliminar usuario
 
 --ISSUES--
-
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
 
@@ -91,11 +94,29 @@ ________________________________________________________________________________
 
                                                 PROFESIONALES
 --FALTA--
-agregar horario del trabajo del Profesional
+* Funcion eliminar profesional
+* Agregar horario del trabajo del Profesional
 
 --ISSUES--
-Agregar Campo Profesional, que no es lo mismo que rol
+* Agregar Campo Profesional, que no es lo mismo que rol
 
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
+
+
+
+
+________________________________________________________________________________________________________
+
+                                                  GENERAL
+--FALTA--
+* Welcome
+* Mobile
+* Deploy
+
+--ISSUES--
+--NICE TO HAVE--
+________________________________________________________________________________________________________
+
+
