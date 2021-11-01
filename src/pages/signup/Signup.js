@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./signup.css";
+import "../signup/signup.css";
 import img from "../../images/login3.jpg";
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
