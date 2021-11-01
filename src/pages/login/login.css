@@ -53,9 +53,9 @@
 .login-card .form-control::placeholder {
   color: #919aa3;
 }
-.login-card .login-btn {
+.login-card .login-btn2 {
   padding: 13px 20px 12px;
-  background-color: #000;
+  background-color: #3e83d1;
   border-radius: 4px;
   font-size: 17px;
   font-weight: bold;
@@ -63,7 +63,7 @@
   color: #fff;
   margin-bottom: 24px;
 }
-.login-card .login-btn:hover {
+.login-card .login-btn2:hover {
   border: 1px solid #000;
   background-color: transparent;
   color: #000;

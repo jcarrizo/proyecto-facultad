@@ -72,15 +72,7 @@ const Signup = () => {
             </div>
             <div className="col-md-7">
               <div className="card-body">
-                <div className="brand-wrapper">
-                  <a href="index.html">
-                    <img
-                      src="Images/logo.svg"
-                      alt="First Job"
-                      className="logo"
-                    ></img>
-                  </a>
-                </div>
+
                 <p className="login-card-description">Crear cuenta</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
@@ -138,13 +130,10 @@ const Signup = () => {
                       }, 1000);
                     }}
                   ></input>
-                  <a href="/login">Ya tienes cuenta?</a>
+                  <a href="/login">¿Ya tienes cuenta?</a>
                 </form>
 
-                <nav className="login-card-footer-nav">
-                  <a href="#!">Términos y condiciones.</a>
-                  <a href="#!">Política de pivadidad</a>
-                </nav>
+
               </div>
             </div>
           </div>
