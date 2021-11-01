@@ -53,7 +53,7 @@ const Login = () => {
         <div className="card login-card">
           <div className="row no-gutters">
             <div className="col-md-5">
-              <img src={imgLogin} alt="login" className="login-card-img"></img>
+              <img src={imgLogin} alt="login" className="login-card-img-login"></img>
             </div>
             <div className="col-md-7">
               <div className="card-body">
