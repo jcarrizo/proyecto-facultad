@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../login/login.css'
-import imgLogin from '../../images/login.png'
+import imgLogin from '../../images/login.jpg'
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
@@ -56,9 +56,9 @@ const Login = () => {
               <img src={imgLogin} alt="login" className="login-card-img-login"></img>
             </div>
             <div className="col-md-7">
-              <div className="card-body">
+              <div className="card-body-login">
 
-                <p className="login-card-description">Loguearse</p>
+                <h3 className="login-card-description-login">Loguearse</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input type="email" name="email" className="form-control"
