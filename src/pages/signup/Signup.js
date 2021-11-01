@@ -48,7 +48,7 @@ const Signup = () => {
       // 3: Admin
 
       db.collection("users").doc().set(info);
-      toast("Nuevo usuario agregado", { type: "success", autoClose: 2000 });
+      toast("Nuevo usuario registrado", { type: "success", autoClose: 2000 });
       setTimeout(() => {
         localStorage.setItem("emailUser", info.email);
         localStorage.setItem("nameUser", info.nombre);
