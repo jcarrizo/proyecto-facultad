@@ -143,7 +143,7 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datoss) => {
-                            if (rolUsuario === "3" || rolUsuario === "2") {
+                            if ((rolUsuario === "3" || rolUsuario === "2") && datoss.eliminado === false) {
                               return (
                                 <tr onClick={() => pacienteInfo(datoss)}>
                                   <td>
@@ -156,7 +156,7 @@ const Pacientes = () => {
                                 </tr>
                               );
                             }
-                            if (datoss.profesionalId === IdUsuario) {
+                            if ((datoss.profesionalId === IdUsuario) && datoss.eliminado === false) {
                               return (
                                 <tr>
                                   <td>
