@@ -71,7 +71,7 @@ const Signup = () => {
       }
 
       if (flag2 === true) {
-        toast("El Email ya pertenece a una cuenta", { type: "error", autoClose: 2000 });
+        toast("El Email ya pertenece a una cuenta", { type: "error", autoClose: 3000 });
       }
 
 
