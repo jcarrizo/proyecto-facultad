@@ -46,10 +46,10 @@ ________________________________________________________________________________
 
                                                MIS PACIENTES
 --FALTA--
-* Modificacion de Pacientes
 * Funcion del buscador de pacientes
 
 --ISSUES--
+* Modificacion de Pacientes
 * Agregar paciente guarda info sin verificar, raro
 
 --NICE TO HAVE--
