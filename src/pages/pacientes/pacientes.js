@@ -39,6 +39,8 @@ const Pacientes = () => {
   }, [watchShowPacient]);
 
   const onSubmit = (data) => {
+
+    console.log(data)
     //e.preventDefault(); //TODO:hacer
     const newPatient = {
       nombre: data.nombre,
@@ -59,6 +61,34 @@ const Pacientes = () => {
       autoClose: 2000,
     });
   };
+
+
+  const onSubmitEditar = (data) => {
+
+    console.log(data)
+    //e.preventDefault(); //TODO:hacer
+    const newPatient = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.email,
+      telefono: data.telefono,
+      direccion: data.direccion,
+      dni: data.dni,
+      obrasocial: data.obrasocial,
+      eliminado: false,
+      profesionalId: localStorage.getItem("dataD"),
+    };
+
+    const resp = db.collection("pacientes").doc(datos[0].id).update(newPatient);
+
+    toast("Se creó el paciente correctamente", {
+      type: "success",
+      autoClose: 2000,
+    });
+  };
+
+
+
 
   const pacienteInfo = (datosPaciente) => {
     setPaciente(datosPaciente);
@@ -282,7 +312,7 @@ const Pacientes = () => {
                 </div>
                 <div className="modal-body">
 
-                  <form className="text-grey" onSubmit={handleSubmit(onSubmit)} >
+                  <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)} >
                     <div className="mb-3 form-floating">
                       <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
                         required></input>
