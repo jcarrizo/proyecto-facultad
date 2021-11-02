@@ -5,13 +5,12 @@ import "../home/home.css"
 const Home = () => {
     return (<div>
         <div className="row">
-            <div className="col-2">
+            <div className="col-2 sidenav">
                 <SideBar></SideBar>
             </div>
 
             <div className="col-10">
                 <div className="container">
-                    <h1 className="text-light-blue text-center">Bienvenidos</h1>
                 </div>
             </div>
         </div>

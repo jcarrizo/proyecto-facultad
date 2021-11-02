@@ -152,7 +152,9 @@ const Signup = () => {
                       }, 1000);
                     }}
                   ></input>
-                  <a href="/login">¿Ya tienes cuenta?</a>
+                  <div className="row">
+                    <a className="center" href="/login">¿Ya tienes cuenta?</a>
+                  </div>
                 </form>
 
 

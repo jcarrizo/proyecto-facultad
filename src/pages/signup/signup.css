@@ -99,3 +99,10 @@
       max-width: 1100px !important;
     }
   }
+
+
+  @media (max-width: 400px){
+    .login-card-description-signup {
+        text-align: center;
+      }
+    }
