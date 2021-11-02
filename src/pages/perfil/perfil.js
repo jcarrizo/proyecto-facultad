@@ -215,7 +215,7 @@ const Perfil = () => {
                         </div>
                         <div className="modal-body">
 
-                          <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
+                          <form className="text-grey" >
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Selecciona la Imagen</label>
                               <input class="form-control" type="file" id="formFile"></input>
