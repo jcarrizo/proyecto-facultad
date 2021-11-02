@@ -14,6 +14,7 @@ const Pacientes = () => {
   let arrat = [];
 
   useEffect(() => {
+
     db.collection("pacientes").onSnapshot((querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
@@ -27,6 +28,7 @@ const Pacientes = () => {
           infopacientes.dni == watchShowPacient ||
           infopacientes.obrasocial == watchShowPacient
         ) {
+
           arrat.push(infopacientes)
           setDatos(arrat);
         } else {
