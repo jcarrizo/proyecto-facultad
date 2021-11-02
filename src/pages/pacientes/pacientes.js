@@ -11,6 +11,8 @@ const Pacientes = () => {
   const watchShowPacient = watch("paciente");
   const [paciente, setPaciente] = useState([]);
 
+  let arrat = [];
+
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
       const docs = [];
@@ -20,12 +22,13 @@ const Pacientes = () => {
 
       docs.map((infopacientes) => {
         if (
-          infopacientes.nombre === watchShowPacient ||
-          infopacientes.email === watchShowPacient ||
-          infopacientes.dni === watchShowPacient ||
-          infopacientes.obrasocial === watchShowPacient
+          infopacientes.nombre == watchShowPacient ||
+          infopacientes.email == watchShowPacient ||
+          infopacientes.dni == watchShowPacient ||
+          infopacientes.obrasocial == watchShowPacient
         ) {
-          setDatos(infopacientes);
+          arrat.push(infopacientes)
+          setDatos(arrat);
         } else {
           setDatos(docs);
         }
@@ -105,6 +108,15 @@ const Pacientes = () => {
                         ></input>
                       </div>
                       <div className="col-1">
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          title="Agregar Paciente"
+                          data-bs-toggle="modal"
+                          data-bs-target="#agregarPaciente"
+                        >
+                          <b>Buscar Paciente</b>
+                        </button>
                         <button
                           type="button"
                           className="btn btn-primary"
