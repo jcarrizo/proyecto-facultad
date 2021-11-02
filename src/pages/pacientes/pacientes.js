@@ -48,6 +48,7 @@ const Pacientes = () => {
       direccion: data.direccion,
       dni: data.dni,
       obrasocial: data.obrasocial,
+      eliminado: false,
       profesionalId: localStorage.getItem("dataD"),
     };
 
