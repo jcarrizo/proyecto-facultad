@@ -50,7 +50,7 @@ ________________________________________________________________________________
 * Funcion del buscador de pacientes
 
 --ISSUES--
-* Agregar paciente guarda info sin verificar raro
+* Agregar paciente guarda info sin verificar, raro
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
@@ -95,8 +95,6 @@ ________________________________________________________________________________
 --FALTA--
 * Funcion eliminar profesional
 * Agregar horario del trabajo del Profesional
-* Agregar Campo Profesional, que no es lo mismo que rol
-
 
 --ISSUES--
 * Al editar se pudre xd
@@ -111,7 +109,6 @@ ________________________________________________________________________________
 
                                                   GENERAL
 --FALTA--
-* Welcome
 * Mobile
 * Deploy
 
