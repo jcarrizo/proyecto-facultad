@@ -159,7 +159,7 @@ const Pacientes = () => {
                             }
                             if ((datoss.profesionalId === IdUsuario) && datoss.eliminado === false) {
                               return (
-                                <tr>
+                                <tr onClick={() => pacienteInfo(datoss)}>
                                   <td>
                                     {datoss.nombre + " " + datoss.apellido}
                                   </td>
