@@ -46,7 +46,7 @@ ________________________________________________________________________________
 
                                                MIS PACIENTES
 --FALTA--
-* Modificacion y eliminacion de Pacientes
+* Modificacion de Pacientes
 * Funcion del buscador de pacientes
 
 --ISSUES--
