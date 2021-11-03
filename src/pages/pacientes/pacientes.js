@@ -8,111 +8,67 @@ import { toast } from "react-toastify";
 const Pacientes = () => {
   const [datos, setDatos] = useState([]);
   const { register, watch, handleSubmit } = useForm();
-  const watchShowPacient = watch("paciente");
   const [paciente, setPaciente] = useState([]);
-
-  let arrat = [];
+  let rolUsuario = localStorage.getItem("rolUser");
+  let IdUsuario = localStorage.getItem("dataD");
 
   useEffect(() => {
-
     db.collection("pacientes").onSnapshot((querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
-      });
-
-      docs.map((infopacientes) => {
-        if (
-          infopacientes.nombre == watchShowPacient ||
-          infopacientes.email == watchShowPacient ||
-          infopacientes.dni == watchShowPacient ||
-          infopacientes.obrasocial == watchShowPacient
-        ) {
-
-          arrat.push(infopacientes)
-          setDatos(arrat);
-        } else {
-          setDatos(docs);
-        }
+        setDatos(docs);
       });
     });
-  }, [watchShowPacient]);
+  }, []);
 
-  const onSubmit = (data) => {
+  // const onSubmit = (data) => {
 
-    console.log(data)
-    //e.preventDefault(); //TODO:hacer
-    const newPatient = {
-      nombre: data.nombre,
-      apellido: data.apellido,
-      email: data.email,
-      telefono: data.telefono,
-      direccion: data.direccion,
-      dni: data.dni,
-      obrasocial: data.obrasocial,
-      eliminado: false,
-      profesionalId: localStorage.getItem("dataD"),
-    };
+  //   const newPatient = {
+  //     nombre: data.nombre,
+  //     apellido: data.apellido,
+  //     email: data.email,
+  //     telefono: data.telefono,
+  //     direccion: data.direccion,
+  //     dni: data.dni,
+  //     obrasocial: data.obrasocial,
+  //     eliminado: false,
+  //     profesionalId: localStorage.getItem("dataD"),
+  //   };
 
-    db.collection("pacientes").doc().set(newPatient);
+  //   db.collection("pacientes").doc().set(newPatient);
 
-    toast("Se creó el paciente correctamente", {
-      type: "success",
-      autoClose: 2000,
-    });
-  };
+  //   toast("Se creó el paciente correctamente", {
+  //     type: "success",
+  //     autoClose: 2000,
+  //   });
+  // };
 
 
-  const onSubmitEditar = (data) => {
+  // const eliminarPaciente = () => {
+  //   if (window.confirm("¿Está seguro que desea eliminar el paciente?")) {
+  //     const profileEdit = {
+  //       eliminado: true,
+  //     };
 
-    console.log(data)
-    //e.preventDefault(); //TODO:hacer
-    const newPatient = {
-      nombre: data.nombre,
-      apellido: data.apellido,
-      email: data.email,
-      telefono: data.telefono,
-      direccion: data.direccion,
-      dni: data.dni,
-      obrasocial: data.obrasocial,
-      eliminado: false,
-      profesionalId: localStorage.getItem("dataD"),
-    };
+  //     const resp = db
+  //       .collection("pacientes")
+  //       .doc(paciente.id)
+  //       .update(profileEdit);
+  //     toast("Se eliminó el paciente correctamente", {
+  //       type: "success",
+  //       autoClose: 2000,
+  //     });
+  //   }
+  // };
 
-    const resp = db.collection("pacientes").doc(datos[0].id).update(newPatient);
-
-    toast("Se creó el paciente correctamente", {
-      type: "success",
-      autoClose: 2000,
-    });
-  };
+  // const pacienteInfo = (datosPaciente) => {
+  //   setPaciente(datosPaciente);
+  // };
 
 
 
 
-  const pacienteInfo = (datosPaciente) => {
-    setPaciente(datosPaciente);
-  };
-
-  const eliminarPaciente = () => {
-    if (window.confirm("¿Está seguro que desea eliminar el paciente?")) {
-      const profileEdit = {
-        eliminado: true,
-      };
-
-      const resp = db
-        .collection("pacientes")
-        .doc(paciente.id)
-        .update(profileEdit);
-      toast("Se eliminó el paciente correctamente", {
-        type: "success",
-        autoClose: 2000,
-      });
-    }
-  };
-
-  let rolUsuario = localStorage.getItem("rolUser");
-  let IdUsuario = localStorage.getItem("dataD");
 
   return (
     <div>
@@ -137,7 +93,6 @@ const Pacientes = () => {
                           type="text"
                           className="form-control"
                           id="textPaciente"
-                          {...register("paciente")}
                         ></input>
                       </div>
                       <div className="col-1">
@@ -148,7 +103,7 @@ const Pacientes = () => {
                           data-bs-toggle="modal"
                           data-bs-target="#agregarPaciente"
                         >
-                          <b>Buscar Paciente</b>
+                          <b>Buscar</b>
                         </button>
                         <button
                           type="button"
@@ -157,7 +112,7 @@ const Pacientes = () => {
                           data-bs-toggle="modal"
                           data-bs-target="#agregarPaciente"
                         >
-                          <b>+</b>
+                          <b>Agregar Paciente</b>
                         </button>
                       </div>
                     </form>
@@ -173,33 +128,21 @@ const Pacientes = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {datos.map((datoss) => {
-                            if ((rolUsuario === "3" || rolUsuario === "2") && datoss.eliminado === false) {
-                              return (
-                                <tr onClick={() => pacienteInfo(datoss)}>
-                                  <td>
-                                    {datoss.nombre + " " + datoss.apellido}
-                                  </td>
-                                  <td>{datoss.dni}</td>
-                                  <td>{datoss.email}</td>
-                                  <td>{datoss.telefono}</td>
-                                  <td>{datoss.obrasocial}</td>
-                                </tr>
-                              );
-                            }
-                            if ((datoss.profesionalId === IdUsuario) && datoss.eliminado === false) {
-                              return (
-                                <tr onClick={() => pacienteInfo(datoss)}>
-                                  <td>
-                                    {datoss.nombre + " " + datoss.apellido}
-                                  </td>
-                                  <td>{datoss.dni}</td>
-                                  <td>{datoss.email}</td>
-                                  <td>{datoss.telefono}</td>
-                                  <td>{datoss.obrasocial}</td>
-                                </tr>
-                              );
-                            }
+                          {datos.map((datos2) => {
+                            console.log(datos2)
+                            return (
+                              <tr>
+                                <td>
+                                  {datos2.nombre + " " + datos2.apellido}
+                                </td>
+                                <td>{datos2.dni}</td>
+                                <td>{datos2.email}</td>
+                                <td>{datos2.telefono}</td>
+                                <td>{datos2.obrasocial}</td>
+                              </tr>
+                            );
+
+
                           })}
                         </tbody>
                       </table>
@@ -212,7 +155,7 @@ const Pacientes = () => {
         </div>
 
 
-        {/*                                                      Seleccionable                       */}
+        {/*Seleccionable*/}
         <div className="col-5 mt-5 container">
           <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
           <div className="row gutters-sm">
@@ -290,7 +233,7 @@ const Pacientes = () => {
                   <div className="row">
                     <div className="col-sm-12">
                       <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente">Editar</button>
-                      <button className="btn btn-danger ml-5" href="" onClick={() => eliminarPaciente()}>Eliminar</button>
+                      <button className="btn btn-danger ml-5" href="" >Eliminar</button>
                     </div>
                   </div>
 
@@ -312,7 +255,7 @@ const Pacientes = () => {
                 </div>
                 <div className="modal-body">
 
-                  <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)} >
+                  <form className="text-grey">
                     <div className="mb-3 form-floating">
                       <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
                         required></input>
@@ -383,7 +326,7 @@ const Pacientes = () => {
               ></button>
             </div>
             <div className="modal-body">
-              <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
+              <form className="text-grey" >
                 <div className="mb-3 form-floating">
                   <input
                     type="text"
