@@ -34,7 +34,6 @@ const SideBar = () => {
             </button>
           </a>
         </div>
-
       );
     }
   }
@@ -127,11 +126,10 @@ const SideBar = () => {
             <span></span>
 
             <ul id="menu">
-              <a href="#"><li>Home</li></a>
-              <a href="#"><li>About</li></a>
-              <a href="#"><li>Info</li></a>
-              <a href="#"><li>Contact</li></a>
-              <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+              <a href="/perfil"><li>Mi perfil</li></a>
+              <a href="/pacientes"><li>Pacientes</li></a>
+              <a href="/turnos"><li>Turnos</li></a>
+              <a href="#" onClick={LogOut}><li>Salir</li></a>
             </ul>
           </div>
         </nav>

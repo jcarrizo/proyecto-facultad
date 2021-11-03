@@ -44,11 +44,11 @@ const Perfil = () => {
   return (
     <div>
       <div className="row">
-        <div className="col-2">
+        <div className="col-md-2">
           <SideBar></SideBar>
         </div>
 
-        <div className="col-10" >
+        <div className="col-md-10" >
           {
             datos.map(datoss => {
 
