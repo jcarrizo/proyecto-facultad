@@ -96,14 +96,8 @@
   }
 }
 
-@media (max-width: 400px) {
-  .center {
+@media (max-width: 700px) {
+  .center, .login-card-description-login {
    text-align: center;
   }
 }
-
-@media (max-width: 400px){
-  .login-card-description-login {
-      text-align: center;
-    }
-  }

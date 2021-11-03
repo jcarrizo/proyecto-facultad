@@ -52,7 +52,7 @@ a:hover {
 
 
 
-@media (max-width: 400px){
+@media (max-width: 700px){
   .desktop {
       display: none;
     } 
@@ -60,7 +60,7 @@ a:hover {
       display: block;
     }
   }
-  @media (min-width: 401px){
+  @media (min-width: 701px){
     .mobile {
         display: none;
       }

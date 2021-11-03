@@ -61,12 +61,12 @@ const Profesionales = () => {
   return (
     <div>
       <div className="row">
-        <div className="col-2">
+        <div className="col-md-2">
           <SideBar></SideBar>
         </div>
 
         {/*                                                             Lista de profesionales                                   */}
-        <div className="col-5">
+        <div className="col-md-5">
           <div className="container mt-5">
             <h2 className="tituloPerfil">Profesionales</h2>
             <div className="row gutters-sm">
@@ -74,8 +74,8 @@ const Profesionales = () => {
                 <div className="card">
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end "></form>
-                    <div className="d-flex flex-column align-items-center text-center">
-                      <table className="table table-hover pointer">
+                    <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
+                      <table className="table table-hover pointer my-table">
                         <thead>
                           <tr>
                             <th scope="col">Nombre</th>
@@ -110,7 +110,7 @@ const Profesionales = () => {
         </div>
 
         {/*                                                      Seleccionable                       */}
-        <div className="col-5 mt-5 container">
+        <div className="col-md-5 mt-5 container">
           <h2 className="tituloPerfil text-center ml-4">Perfil seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">

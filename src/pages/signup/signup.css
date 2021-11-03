@@ -100,8 +100,7 @@
     }
   }
 
-
-  @media (max-width: 400px){
+  @media (max-width: 700px){
     .login-card-description-signup {
         text-align: center;
       }

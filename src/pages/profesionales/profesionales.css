@@ -1,0 +1,38 @@
+thead{
+    color:white;
+    background-color: var(--blue-trans);
+  }
+  tr{
+    border: 1px solid var(--light-grey);
+  }
+  table
+  {
+    border: 4px solid;
+  }
+  
+  .tituloPerfil {
+    margin-bottom: 50px;
+  }
+  .tabla {
+    width: 100% ;
+  }
+  
+  .horizontal-scroll {
+    overflow: hidden;
+    overflow-x: auto;
+    clear: both;
+    width: 100%;
+  }
+  
+  .my-table {
+    min-width: 100%;
+  }
+  
+  @media (max-width: 500px){
+    .flex-column {
+      flex-direction: row !important;
+  }
+  }
+  
+  
+  
