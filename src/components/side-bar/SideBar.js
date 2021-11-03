@@ -19,7 +19,6 @@ const SideBar = () => {
 
 
   const vistaProfesional = () => {
-
     if (rolUsuario === "3" || rolUsuario === "2") {
       return (
         <div className="mt-4">
@@ -34,6 +33,14 @@ const SideBar = () => {
             </button>
           </a>
         </div>
+      );
+    }
+  }
+
+  const vistaProfesionalResponsive = () => {
+    if (rolUsuario === "3" || rolUsuario === "2") {
+      return (
+        <a href="/profesionales"><li>Profesionales</li></a>
       );
     }
   }
@@ -129,6 +136,7 @@ const SideBar = () => {
               <a href="/perfil"><li>Mi perfil</li></a>
               <a href="/pacientes"><li>Pacientes</li></a>
               <a href="/turnos"><li>Turnos</li></a>
+              {vistaProfesionalResponsive()}
               <a href="#" onClick={LogOut}><li>Salir</li></a>
             </ul>
           </div>
