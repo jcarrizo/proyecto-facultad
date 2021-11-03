@@ -62,13 +62,6 @@ const Pacientes = () => {
   //   }
   // };
 
-  // const pacienteInfo = (datosPaciente) => {
-  //   setPaciente(datosPaciente);
-  // };
-
-
-
-
 
   return (
     <div>
@@ -130,7 +123,7 @@ const Pacientes = () => {
                         <tbody>
                           {datos.map((datos2) => {
                             return (
-                              <tr>
+                              <tr onClick={() => setPaciente(datos2)}>
                                 <td>
                                   {datos2.nombre + " " + datos2.apellido}
                                 </td>

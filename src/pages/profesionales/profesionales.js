@@ -27,9 +27,6 @@ const Profesionales = () => {
     });
   };
 
-  const profesionalInfo = (datosProfesional) => {
-    setProfesional(datosProfesional);
-  };
 
   const eliminarProfesional = () => {
     if (window.confirm("¿Está seguro que desea eliminar el profesional?")) {
@@ -88,7 +85,7 @@ const Profesionales = () => {
                           {datos.map((datoss) => {
                             if (datoss.eliminado === false) {
                               return (
-                                <tr onClick={() => profesionalInfo(datoss)}>
+                                <tr onClick={() => setProfesional(datoss)}>
                                   <td>
                                     {datoss.nombre + " " + datoss.apellido}
                                   </td>
