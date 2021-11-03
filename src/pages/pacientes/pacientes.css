@@ -14,5 +14,24 @@ table
   margin-bottom: 50px;
 }
 .tabla {
-  width: 100% !important;
+  width: 100% ;
 }
+
+.horizontal-scroll {
+  overflow: hidden;
+  overflow-x: auto;
+  clear: both;
+  width: 100%;
+}
+
+.my-table {
+  min-width: 100%;
+}
+
+@media (max-width: 400px){
+  .flex-column {
+    flex-direction: row !important;
+}
+}
+
+

@@ -53,3 +53,9 @@
 {
   border: var(--blue-trans) 6px outset;
 }
+
+@media (max-width: 400px){
+  .container {
+    padding: 15px 30px!important;
+    }
+  }
