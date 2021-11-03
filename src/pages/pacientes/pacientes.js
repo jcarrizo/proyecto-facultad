@@ -17,10 +17,10 @@ const Pacientes = () => {
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
-        setDatos(docs);
       });
+      setDatos(docs);
     });
-  }, []);
+  }, [])
 
   // const onSubmit = (data) => {
 
@@ -129,7 +129,6 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datos2) => {
-                            console.log(datos2)
                             return (
                               <tr>
                                 <td>
@@ -141,8 +140,6 @@ const Pacientes = () => {
                                 <td>{datos2.obrasocial}</td>
                               </tr>
                             );
-
-
                           })}
                         </tbody>
                       </table>
