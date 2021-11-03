@@ -62,6 +62,7 @@ const Turnos = () => {
     };
 
     useEffect(() => {
+
         db.collection("turnos").onSnapshot((querySnapshot) => {
             const turnos = [];
             querySnapshot.forEach((doc) => {
