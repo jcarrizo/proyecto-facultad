@@ -62,7 +62,6 @@ const Turnos = () => {
     };
 
     useEffect(() => {
-
         db.collection("turnos").onSnapshot((querySnapshot) => {
             const turnos = [];
             querySnapshot.forEach((doc) => {
@@ -77,6 +76,7 @@ const Turnos = () => {
                 setTurnos(turnos);
             }
             if (rolUsuario === "1") {
+                turnosProfesional = [];
                 turnos.map((data) => {
                     if (data.profesionalId === IdUsuario) {
                         turnosProfesional.push(data);
