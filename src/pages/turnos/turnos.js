@@ -103,6 +103,7 @@ const Turnos = () => {
                 </div>
 
                 <div className="col-md-10 pt-5 pr-5 pb-5">
+                    <h2 className="tituloPerfil padding-responsive">Turnos</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row ml-4">
                             <div className="col-md-4">
@@ -136,7 +137,7 @@ const Turnos = () => {
                             <div className="col-md-4">
                                 <label>&nbsp;</label>
                                 <br></br>
-                                <div className="row responsiveAgregarTurno">
+                                <div className="row responsive-agregar-turno">
                                     <button type="submit" className="btn btn-primary">
                                         Agregar Turno
                                     </button>
