@@ -10,26 +10,46 @@ const Profesionales = () => {
   const [profesional, setProfesional] = useState([]);
   const { register, handleSubmit } = useForm();
 
-  const onSubmit2 = (data) => {
 
-    console.log(data)
+  const profileEdit = {
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    dni: "",
+  };
+
+  const handleForm = () => {
+
+
+    let idSeleccionado = profesional.id;
+
+    let nombre = document.getElementById("nombre").value
+    let apellido = document.getElementById("apellido").value
+    let email = document.getElementById("email").value
+    let telefono = document.getElementById("telefono").value
+    let direccion = document.getElementById("direccion").value
+    let dni = document.getElementById("dni").value
+
     const profileEdit = {
-      nombre: data.nombre,
-      apellido: data.apellido,
-      email: data.email,
-      telefono: data.telefono,
-      direccion: data.direccion,
-      dni: data.dni,
+      nombre: nombre,
+      apellido: apellido,
+      email: email,
+      telefono: telefono,
+      direccion: direccion,
+      dni: dni,
     };
 
-    // const resp = db.collection("users").doc(datos[0].id).update(profileEdit);
+    const resp = db.collection("users").doc(idSeleccionado).update(profileEdit);
     toast("Se editó el perfil correctamente", {
       type: "success",
       autoClose: 2000,
     });
-  };
 
 
+
+  }
 
 
   const eliminarProfesional = () => {
@@ -58,6 +78,54 @@ const Profesionales = () => {
       setDatos(docs);
     });
   }, []);
+
+
+
+  const buttoneditar = () => {
+
+    if (profesional.id !== undefined) {
+      return (<div>
+        <button
+          className="btn btn-warning"
+          href=""
+          data-bs-toggle="modal"
+          data-bs-target="#editarPerfil"
+        >
+          Editar
+        </button>
+        <button
+          className="btn btn-danger ml-5"
+          href=""
+          onClick={() => eliminarProfesional()}
+        >
+          Eliminar
+        </button>
+      </div>
+      )
+    }
+    else {
+      return (<div>
+        <button
+          className="btn btn-warning"
+          href=""
+          data-bs-toggle="modal"
+          data-bs-target="#editarPerfil"
+          disabled
+        >
+          Editar
+        </button>
+        <button
+          className="btn btn-danger ml-5"
+          href=""
+          onClick={() => eliminarProfesional()}
+          disabled
+        >
+          Eliminar
+        </button>
+      </div>)
+    }
+
+  }
 
   return (
     <div>
@@ -193,21 +261,8 @@ const Profesionales = () => {
                   <hr className="mb-4"></hr>
                   <div className="row">
                     <div className="col-sm-12">
-                      <button
-                        className="btn btn-warning"
-                        href=""
-                        data-bs-toggle="modal"
-                        data-bs-target="#editarPerfil"
-                      >
-                        Editar
-                      </button>
-                      <button
-                        className="btn btn-danger ml-5"
-                        href=""
-                        onClick={() => eliminarProfesional()}
-                      >
-                        Eliminar
-                      </button>
+                      {buttoneditar()}
+
                     </div>
                   </div>
                 </div>
@@ -237,14 +292,15 @@ const Profesionales = () => {
                   ></button>
                 </div>
                 <div className="modal-body">
-                  <form className="text-grey" onSubmit={handleSubmit(onSubmit2)}>
+                  <form className="text-grey" >
                     <div className="mb-3 form-floating">
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el nombre"
-                        value={profesional.nombre}
-                        {...register("nombre")}
+                        defaultValue={profesional.nombre}
+                        id="nombre"
+                        name="nombre"
                         required
                       ></input>
                       <label>Nombre</label>
@@ -255,8 +311,9 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el apellido"
-                        value={profesional.apellido}
-                        {...register("apellido")}
+                        defaultValue={profesional.apellido}
+                        id="apellido"
+                        name="apellido"
                         required
                       ></input>
                       <label>Apellido</label>
@@ -267,8 +324,9 @@ const Profesionales = () => {
                         type="email"
                         className="form-control"
                         placeholder="Ingrese el email"
-                        value={profesional.email}
-                        {...register("email")}
+                        defaultValue={profesional.email}
+                        id="email"
+                        name="email"
                         required
                       ></input>
                       <label>Email</label>
@@ -279,8 +337,9 @@ const Profesionales = () => {
                         type="tel"
                         className="form-control"
                         placeholder="Ingrese el teléfono"
-                        value={profesional.telefono}
-                        {...register("telefono")}
+                        defaultValue={profesional.telefono}
+                        id="telefono"
+                        name="telefono"
                         required
                       ></input>
                       <label>Teléfono</label>
@@ -291,8 +350,9 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el dirección"
-                        value={profesional.direccion}
-                        {...register("direccion")}
+                        defaultValue={profesional.direccion}
+                        id="direccion"
+                        name="direccion"
                         required
                       ></input>
                       <label>Dirección</label>
@@ -303,8 +363,9 @@ const Profesionales = () => {
                         type="number"
                         className="form-control"
                         placeholder="Ingrese el dirección"
-                        value={profesional.dni}
-                        {...register("dni")}
+                        defaultValue={profesional.dni}
+                        id="dni"
+                        name="dni"
                         required
                       ></input>
                       <label>DNI</label>
@@ -319,9 +380,10 @@ const Profesionales = () => {
                         Cancelar
                       </button>
                       <button
-                        type="submit"
+                        type="button"
                         className="btn btn-primary"
                         data-bs-dismiss="modal"
+                        onClick={() => handleForm()}
                       >
                         Editar Paciente
                       </button>
