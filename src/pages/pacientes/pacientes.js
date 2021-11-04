@@ -7,10 +7,11 @@ import { toast } from "react-toastify";
 
 const Pacientes = () => {
   const [datos, setDatos] = useState([]);
-  const { register, watch, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
   const [paciente, setPaciente] = useState([]);
   let rolUsuario = localStorage.getItem("rolUser");
   let IdUsuario = localStorage.getItem("dataD");
+  let datoVacio = [];
 
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
@@ -22,27 +23,56 @@ const Pacientes = () => {
     });
   }, [])
 
-  // const onSubmit = (data) => {
 
-  //   const newPatient = {
-  //     nombre: data.nombre,
-  //     apellido: data.apellido,
-  //     email: data.email,
-  //     telefono: data.telefono,
-  //     direccion: data.direccion,
-  //     dni: data.dni,
-  //     obrasocial: data.obrasocial,
-  //     eliminado: false,
-  //     profesionalId: localStorage.getItem("dataD"),
-  //   };
+  const onSubmit = (data) => {
 
-  //   db.collection("pacientes").doc().set(newPatient);
 
-  //   toast("Se creó el paciente correctamente", {
-  //     type: "success",
-  //     autoClose: 2000,
-  //   });
-  // };
+    const newPatient = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.email,
+      telefono: data.telefono,
+      direccion: data.direccion,
+      dni: data.dni,
+      obrasocial: data.obrasocial,
+      eliminado: false,
+      profesionalId: localStorage.getItem("dataD"),
+    };
+
+    console.log(newPatient);
+
+    db.collection("pacientes").doc().set(newPatient);
+    setPaciente(datoVacio);
+
+    toast("Se creó el paciente correctamente", {
+      type: "success",
+      autoClose: 2000,
+    });
+  };
+
+  const onSubmitEditar = (data) => {
+
+    console.log(data)
+
+    const newPatient = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.email,
+      telefono: data.telefono,
+      direccion: data.direccion,
+      dni: data.dni,
+      obrasocial: data.obrasocial,
+      eliminado: false,
+      profesionalId: localStorage.getItem("dataD"),
+    };
+
+    // db.collection("pacientes").doc().set(newPatient);
+
+    toast("Se creó el paciente correctamente", {
+      type: "success",
+      autoClose: 2000,
+    });
+  };
 
 
   // const eliminarPaciente = () => {
@@ -145,26 +175,13 @@ const Pacientes = () => {
         </div>
 
 
-        {/*Seleccionable*/}
-        <div className="col-md-5 mt-5 container">
+        {/*Paciente Seleccionado*/}
+        <div className="col-md-5 mt-5 container ">
           <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
           <div className="row gutters-sm">
-            <div className="col-md-4 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <div className="d-flex flex-column align-items-center text-center">
-                    <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
-                    <div className="mt-3 ">
-                      <h4>{paciente.nombre + " " + paciente.apellido}</h4>
-                      <p className="text-secondary mb-1">{paciente.profesion}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-            </div>
-            <div className="col-md-8">
-              <div className="card mb-3">
+            <div className="col-md-12">
+              <div className="card mb-5">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
@@ -222,19 +239,15 @@ const Pacientes = () => {
                   <hr className="mb-4"></hr>
                   <div className="row">
                     <div className="col-sm-12">
-                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente">Editar</button>
+                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente" >Editar</button>
                       <button className="btn btn-danger ml-5" href="" >Eliminar</button>
                     </div>
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
-
           </div>
+
           {/* MODAL EDITAR PERFIL */}
           <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -245,9 +258,9 @@ const Pacientes = () => {
                 </div>
                 <div className="modal-body">
 
-                  <form className="text-grey">
+                  <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)}>
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
+                      <input type="text" className="form-control" placeholder="Ingrese el nombre" value={paciente.nombre} {...register("nombre")}
                         required></input>
                       <label>Nombre</label>
                     </div>
@@ -278,7 +291,7 @@ const Pacientes = () => {
                     </div>
 
                     <div className="modal-footer">
-                      <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
                       <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
                     </div>
 
@@ -316,12 +329,13 @@ const Pacientes = () => {
               ></button>
             </div>
             <div className="modal-body">
-              <form className="text-grey" >
+              <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-3 form-floating">
                   <input
                     type="text"
                     className="form-control"
                     placeholder="Ingrese el nombre"
+                    defaultValue=""
                     {...register("nombre")}
                     required
                   ></input>
@@ -406,6 +420,7 @@ const Pacientes = () => {
                     type="submit"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
+
                   >
                     Agregar Paciente
                   </button>
