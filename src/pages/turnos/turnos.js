@@ -103,7 +103,7 @@ const Turnos = () => {
                 </div>
 
                 <div className="col-md-10 pt-5 pr-5 pb-5">
-                    <h2 className="tituloPerfil padding-responsive">Turnos</h2>
+                    <h2 className="tituloPerfil padding-responsive text-muted">Turnos</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row ml-4">
                             <div className="col-md-4">

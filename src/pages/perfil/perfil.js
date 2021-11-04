@@ -57,7 +57,7 @@ const Perfil = () => {
               if (datoss.id === IdUser) {
 
                 return (<div className="container mt-5">
-                  <h2 className="tituloPerfil">Perfil</h2>
+                  <h2 className="tituloPerfil text-muted">Perfil</h2>
                   <div className="row gutters-sm">
                     <div className="col-md-4 mb-3">
                       <div className="card shadow">

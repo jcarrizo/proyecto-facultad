@@ -135,7 +135,7 @@ const Profesionales = () => {
         </div>
 
         {/*                                                             Lista de profesionales                                   */}
-        <div className="col-md-5">
+        <div className="col-md-5 text-muted">
           <div className="container mt-5">
             <h2 className="tituloPerfil">Profesionales</h2>
             <div className="row gutters-sm">
@@ -180,7 +180,7 @@ const Profesionales = () => {
 
         {/*                                                      Seleccionable                       */}
         <div className="col-md-5 mt-5 container">
-          <h2 className="tituloPerfil text-center ml-4">Perfil seleccionado</h2>
+          <h2 className="tituloPerfil text-center ml-4 text-muted">Perfil seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
               <div className="card shadow">
