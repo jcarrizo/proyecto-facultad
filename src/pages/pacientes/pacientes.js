@@ -111,7 +111,7 @@ const Pacientes = () => {
             </div>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 ancho">
-                <div className="card">
+                <div className="card shadow">
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end ">
                       <div className="col-10">
@@ -179,7 +179,7 @@ const Pacientes = () => {
           <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-12">
-              <div className="card mb-5">
+              <div className="card shadow mb-5">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">

@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className="d-flex align-items-center min-vh-100 py-3 py-md-0">
       <div className="container">
-        <div className="card login-card">
+        <div className="card shadow login-card">
           <div className="row no-gutters">
             <div className="col-md-5">
               <img src={imgLogin} alt="login" className="login-card-img-login"></img>
