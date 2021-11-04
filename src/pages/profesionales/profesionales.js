@@ -243,7 +243,7 @@ const Profesionales = () => {
                   <hr className="mb-4"></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Domicilio</h6>
+                      <h6 className="mb-0">Direccion</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       {profesional.direccion}
