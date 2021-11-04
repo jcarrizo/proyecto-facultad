@@ -102,13 +102,18 @@ const Pacientes = () => {
 
         <div className="col-md-5">
           <div className="container mt-5">
-            <h2 className="tituloPerfil">Pacientes</h2>
+            <div className="row">
+              <h2 className="tituloPerfil col-3 mt-1">Pacientes</h2>
+              <div className="col responsive">
+                <i className="btn btn-primary plus bi bi-person-plus-fill pointer" />
+              </div>
+            </div>
             <div className="row gutters-sm">
-              <div className="col-md-4 mb-3 tabla">
+              <div className="col-md-4 mb-3 ancho">
                 <div className="card">
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end ">
-                      <div className="col-11">
+                      <div className="col-10">
                         <label for="textPaciente" className="form-label">
                           Buscar Pacientes
                         </label>
@@ -118,24 +123,14 @@ const Pacientes = () => {
                           id="textPaciente"
                         ></input>
                       </div>
-                      <div className="col-1">
+                      <div className="col-2">
                         <button
                           type="button"
-                          className="btn btn-primary"
+                          className="btn btn-primary ml-3"
                           title="Agregar Paciente"
                           data-bs-toggle="modal"
-                          data-bs-target="#agregarPaciente"
-                        >
+                          data-bs-target="#agregarPaciente">
                           <b>Buscar</b>
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          title="Agregar Paciente"
-                          data-bs-toggle="modal"
-                          data-bs-target="#agregarPaciente"
-                        >
-                          <b>Agregar Paciente</b>
                         </button>
                       </div>
                     </form>

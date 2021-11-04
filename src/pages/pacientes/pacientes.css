@@ -13,7 +13,7 @@ table
 .tituloPerfil {
   margin-bottom: 50px;
 }
-.tabla {
+.ancho {
   width: 100% ;
 }
 
@@ -28,10 +28,36 @@ table
   min-width: 100%;
 }
 
-@media (max-width: 500px){
+.plus
+{
+    font-size: 25px !important;
+    color: var(--white) !important;
+}
+
+@media (max-width: 700px){
   .flex-column {
     flex-direction: row !important;
+  }
 }
+
+@media (max-width: 700px){
+  .responsive {
+    padding-left: 50px ;
+  }
 }
+
+@media (max-width: 700px){
+  .plus {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 700px){
+  .horizontal-scroll {
+    width: 300px !important;
+  }
+}
+
+
 
 

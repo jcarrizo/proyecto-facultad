@@ -1,6 +1,6 @@
 i {
-  font-size: 26px;
-  color: var(--grey);
+  font-size: 35px;
+  color: var(--blue);
 }
 hr {
   width: 80% !important;
@@ -14,7 +14,7 @@ span:active {
 
 .img-profile
 {
-  font-size: 40px;
+  font-size: 40px !important;
 }
 .pointer {
   text-decoration: none;
