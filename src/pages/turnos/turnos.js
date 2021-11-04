@@ -98,14 +98,14 @@ const Turnos = () => {
     return (
         <div>
             <div className="row">
-                <div className="col-2">
+                <div className="col-md-2">
                     <SideBar></SideBar>
                 </div>
 
-                <div className="col-10 pt-5 pr-5 pb-5">
+                <div className="col-md-10 pt-5 pr-5 pb-5">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row ml-4">
-                            <div className="col-3">
+                            <div className="col-md-4">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Paciente
                                 </label>
@@ -119,7 +119,7 @@ const Turnos = () => {
                                 />
                             </div>
 
-                            <div className="col-3">
+                            <div className="col-md-4">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Fecha
                                 </label>
@@ -133,17 +133,20 @@ const Turnos = () => {
                             </div>
 
 
-                            <div className="col">
+                            <div className="col-md-4">
                                 <label>&nbsp;</label>
                                 <br></br>
-                                <button type="submit" className="btn btn-primary">
-                                    Agregar Turno
-                                </button>
+                                <div className="row responsiveAgregarTurno">
+                                    <button type="submit" className="btn btn-primary">
+                                        Agregar Turno
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>
 
                     <Calendar
+                        className="calendar"
                         localizer={localizer}
                         events={turnos}
                         startAccessor="start"
