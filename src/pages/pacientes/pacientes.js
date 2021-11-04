@@ -9,6 +9,7 @@ const Pacientes = () => {
   const [datos, setDatos] = useState([]);
   const { register, reset, handleSubmit } = useForm();
   const [paciente, setPaciente] = useState([]);
+  const [pacienteEditar, setPacienteEditar] = useState([]);
   let rolUsuario = localStorage.getItem("rolUser");
   let IdUsuario = localStorage.getItem("dataD");
   let datoVacio = [];
@@ -154,7 +155,7 @@ const Pacientes = () => {
                           {datos.map((datos2) => {
                             if (datos2.eliminado === false) {
                               return (
-                                <tr onClick={() => setPaciente(datos2)}>
+                                <tr onClick={() => { setPaciente(datos2) }}>
                                   <td>
                                     {datos2.nombre + " " + datos2.apellido}
                                   </td>
@@ -182,7 +183,6 @@ const Pacientes = () => {
         <div className="col-md-5 mt-5 container ">
           <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
           <div className="row gutters-sm">
-
             <div className="col-md-12">
               <div className="card mb-5">
                 <div className="card-body">
@@ -250,64 +250,60 @@ const Pacientes = () => {
               </div>
             </div>
           </div>
-
-          {/* MODAL EDITAR PERFIL */}
-          <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Editar Paciente</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
-
-                  <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)}>
-                    <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
-                        required></input>
-                      <label>Nombre</label>
-                    </div>
-
-                    <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} {...register("apellido")} required></input>
-                      <label>Apellido</label>
-                    </div>
-
-                    <div className="mb-3 form-floating">
-                      <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} {...register("email")} required></input>
-                      <label>Email</label>
-                    </div>
-
-                    <div className="mb-3 form-floating">
-                      <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} {...register("telefono")} required></input>
-                      <label>Teléfono</label>
-                    </div>
-
-                    <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} {...register("direccion")} required></input>
-                      <label>Dirección</label>
-                    </div>
-
-                    <div className="mb-3 form-floating">
-                      <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.dni} {...register("dni")} required></input>
-                      <label>DNI</label>
-                    </div>
-
-                    <div className="modal-footer">
-                      <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
-                      <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
-                    </div>
-
-                  </form>
-                </div>
-
-              </div>
+        </div>
+      </div>
+      {/* MODAL EDITAR PERFIL */}
+      <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel1">Editar Paciente</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div className="modal-body">
+
+              <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)}>
+                <div className="mb-3 form-floating">
+                  <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
+                    required></input>
+                  <label>Nombre</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} {...register("apellido")} required></input>
+                  <label>Apellido</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} {...register("email")} required></input>
+                  <label>Email</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} {...register("telefono")} required></input>
+                  <label>Teléfono</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} {...register("direccion")} required></input>
+                  <label>Dirección</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.dni} {...register("dni")} required></input>
+                  <label>DNI</label>
+                </div>
+
+                <div className="modal-footer">
+                  <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
+                </div>
+
+              </form>
+            </div>
+
           </div>
         </div>
-
-
-
       </div>
 
       {/* MODAL AGREGAR PACIENTE */}
@@ -338,7 +334,6 @@ const Pacientes = () => {
                     type="text"
                     className="form-control"
                     placeholder="Ingrese el nombre"
-                    defaultValue=""
                     {...register("nombre")}
                     required
                   ></input>

@@ -10,7 +10,9 @@ const Profesionales = () => {
   const [profesional, setProfesional] = useState([]);
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit2 = (data) => {
+
+    console.log(data)
     const profileEdit = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -20,12 +22,14 @@ const Profesionales = () => {
       dni: data.dni,
     };
 
-    const resp = db.collection("users").doc(datos[0].id).update(profileEdit);
+    // const resp = db.collection("users").doc(datos[0].id).update(profileEdit);
     toast("Se editó el perfil correctamente", {
       type: "success",
       autoClose: 2000,
     });
   };
+
+
 
 
   const eliminarProfesional = () => {
@@ -210,6 +214,7 @@ const Profesionales = () => {
               </div>
             </div>
           </div>
+
           {/* MODAL EDITAR PERFIL */}
           <div
             className="modal fade"
@@ -232,13 +237,13 @@ const Profesionales = () => {
                   ></button>
                 </div>
                 <div className="modal-body">
-                  <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
+                  <form className="text-grey" onSubmit={handleSubmit(onSubmit2)}>
                     <div className="mb-3 form-floating">
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el nombre"
-                        defaultValue={profesional.nombre}
+                        value={profesional.nombre}
                         {...register("nombre")}
                         required
                       ></input>
@@ -250,7 +255,7 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el apellido"
-                        defaultValue={profesional.apellido}
+                        value={profesional.apellido}
                         {...register("apellido")}
                         required
                       ></input>
@@ -262,7 +267,7 @@ const Profesionales = () => {
                         type="email"
                         className="form-control"
                         placeholder="Ingrese el email"
-                        defaultValue={profesional.email}
+                        value={profesional.email}
                         {...register("email")}
                         required
                       ></input>
@@ -274,7 +279,7 @@ const Profesionales = () => {
                         type="tel"
                         className="form-control"
                         placeholder="Ingrese el teléfono"
-                        defaultValue={profesional.telefono}
+                        value={profesional.telefono}
                         {...register("telefono")}
                         required
                       ></input>
@@ -286,7 +291,7 @@ const Profesionales = () => {
                         type="text"
                         className="form-control"
                         placeholder="Ingrese el dirección"
-                        defaultValue={profesional.direccion}
+                        value={profesional.direccion}
                         {...register("direccion")}
                         required
                       ></input>
@@ -298,7 +303,7 @@ const Profesionales = () => {
                         type="number"
                         className="form-control"
                         placeholder="Ingrese el dirección"
-                        defaultValue={profesional.dni}
+                        value={profesional.dni}
                         {...register("dni")}
                         required
                       ></input>
