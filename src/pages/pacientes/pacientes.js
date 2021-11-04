@@ -75,22 +75,22 @@ const Pacientes = () => {
   };
 
 
-  // const eliminarPaciente = () => {
-  //   if (window.confirm("¿Está seguro que desea eliminar el paciente?")) {
-  //     const profileEdit = {
-  //       eliminado: true,
-  //     };
+  const eliminarPaciente = () => {
+    if (window.confirm("¿Está seguro que desea eliminar el paciente?")) {
+      const profileEdit = {
+        eliminado: true,
+      };
 
-  //     const resp = db
-  //       .collection("pacientes")
-  //       .doc(paciente.id)
-  //       .update(profileEdit);
-  //     toast("Se eliminó el paciente correctamente", {
-  //       type: "success",
-  //       autoClose: 2000,
-  //     });
-  //   }
-  // };
+      const resp = db
+        .collection("pacientes")
+        .doc(paciente.id)
+        .update(profileEdit);
+      toast("Se eliminó el paciente correctamente", {
+        type: "success",
+        autoClose: 2000,
+      });
+    }
+  };
 
 
   return (
@@ -152,17 +152,20 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datos2) => {
-                            return (
-                              <tr onClick={() => setPaciente(datos2)}>
-                                <td>
-                                  {datos2.nombre + " " + datos2.apellido}
-                                </td>
-                                <td>{datos2.dni}</td>
-                                <td>{datos2.email}</td>
-                                <td>{datos2.telefono}</td>
-                                <td>{datos2.obrasocial}</td>
-                              </tr>
-                            );
+                            if (datos2.eliminado === false) {
+                              return (
+                                <tr onClick={() => setPaciente(datos2)}>
+                                  <td>
+                                    {datos2.nombre + " " + datos2.apellido}
+                                  </td>
+                                  <td>{datos2.dni}</td>
+                                  <td>{datos2.email}</td>
+                                  <td>{datos2.telefono}</td>
+                                  <td>{datos2.obrasocial}</td>
+                                </tr>
+                              );
+                            }
+
                           })}
                         </tbody>
                       </table>
@@ -240,7 +243,7 @@ const Pacientes = () => {
                   <div className="row">
                     <div className="col-sm-12">
                       <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente" >Editar</button>
-                      <button className="btn btn-danger ml-5" href="" >Eliminar</button>
+                      <button className="btn btn-danger ml-5" href="" onClick={() => { eliminarPaciente() }}>Eliminar</button>
                     </div>
                   </div>
                 </div>
@@ -260,7 +263,7 @@ const Pacientes = () => {
 
                   <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)}>
                     <div className="mb-3 form-floating">
-                      <input type="text" className="form-control" placeholder="Ingrese el nombre" value={paciente.nombre} {...register("nombre")}
+                      <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
                         required></input>
                       <label>Nombre</label>
                     </div>
