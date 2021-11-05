@@ -39,21 +39,26 @@ const Turnos = () => {
 
     let nombreMedico = [];
     for (let i = 0; i < medicos.length; i++) {
-        nombrePaciente.push(medicos[i].nombre + " " + medicos[i].apellido);
+        nombreMedico.push(medicos[i].nombre + " " + medicos[i].apellido);
     }
-    let opcionesMedicos = nombrePaciente;
+    let opcionesMedicos = nombreMedico;
 
     const onSubmit = (data) => {
-        console.log(nombreSelectorPaciente);
-
         if (nombreSelectorPaciente != "") {
-            if (rolUsuario == "medico" || nombreSelectorMedico != "") {
-                const nuevoTurno = {
+            if (rolUsuario === "medico" || nombreSelectorMedico !== "") {
+                let nuevoTurno = {
                     title: nombreSelectorPaciente,
                     start: String(startDate),
                     end: String(startDate),
                     profesionalId: localStorage.getItem("dataD"),
                 };
+                if (rolUsuario !== "medico") {
+                    for (let i = 0; i < medicos.length; i++) {
+                        if (medicos[i].nombre + " " + medicos[i].apellido + " " === nombreSelectorMedico) {
+                            nuevoTurno.profesionalId = medicos[i].id;
+                        }
+                    }
+                }
                 db.collection("turnos").doc().set(nuevoTurno);
                 setnombreSelectorPaciente("");
                 toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
@@ -108,13 +113,22 @@ const Turnos = () => {
         });
 
         db.collection("users").onSnapshot((querySnapshot) => {
-            const medicos = [];
+            let medicos = [];
             querySnapshot.forEach((doc) => {
                 medicos.push({ ...doc.data(), id: doc.id });
             });
-            setMedicos(medicos);
-        });
-    }, []);
+
+            let medicosArray = [];
+            for (let i = 0; i < medicos.length; i++) {
+                if (medicos[i].rol === 1) {
+                    medicosArray.push(medicos[i]);
+                }
+            }
+            setMedicos(medicosArray)
+        }
+        );
+    },
+        []);
 
     return (
         <div>
