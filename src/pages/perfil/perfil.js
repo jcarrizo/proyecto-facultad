@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
-import { useForm } from 'react-hook-form';
+import { get, useForm } from 'react-hook-form';
 import "./perfil.css"
 
 
 const Perfil = () => {
 
   const [datos, setDatos] = useState([]);
+  let usuarioId = localStorage.getItem("dataD")
+
 
   useEffect(() => {
     db.collection("users").onSnapshot((querySnapshot) => {
@@ -21,6 +23,7 @@ const Perfil = () => {
   }, [])
 
   const { register, handleSubmit } = useForm();
+
   const onSubmit = data => {
 
     const profileEdit = {
@@ -31,7 +34,7 @@ const Perfil = () => {
       direccion: data.direccion,
     }
 
-    const resp = db.collection("users").doc(datos[0].id).update(profileEdit)
+    const resp = db.collection("users").doc(usuarioId).update(profileEdit)
     localStorage.setItem('emailUser', data.email)
     localStorage.setItem('nameUser', data.nombre)
 
@@ -163,33 +166,33 @@ const Perfil = () => {
 
                           <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={datoss.nombre} {...register("nombre")}
+                              <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={datoss.nombre}
                                 required></input>
                               <label>Nombre</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={datoss.apellido} {...register("apellido")} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={datoss.apellido} required></input>
                               <label>Apellido</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={datoss.email} {...register("email")} required></input>
+                              <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={datoss.email} required></input>
                               <label>Email</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={datoss.telefono} {...register("telefono")} required></input>
+                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={datoss.telefono} required></input>
                               <label>Teléfono</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.direccion} {...register("direccion")} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.direccion} required></input>
                               <label>Dirección</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.dni} {...register("direccion")} required></input>
+                              <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.dni} required></input>
                               <label>DNI</label>
                             </div>
 
