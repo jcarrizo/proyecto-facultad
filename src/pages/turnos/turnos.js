@@ -20,7 +20,11 @@ const Turnos = () => {
 
     const [turnos, setTurnos] = useState([]);
     const [pacientes, setPacientes] = useState([]);
-    const [nombreSelector, setnombreSelector] = useState("");
+    const [medicos, setMedicos] = useState([]);
+
+    const [nombreSelectorPaciente, setnombreSelectorPaciente] = useState("");
+    const [nombreSelectorMedico, setnombreSelectorMedico] = useState("");
+
     const {
         handleSubmit,
         formState: { errors },
@@ -30,23 +34,37 @@ const Turnos = () => {
     for (let i = 0; i < pacientes.length; i++) {
         nombrePaciente.push(pacientes[i].nombre + " " + pacientes[i].apellido);
     }
-    let opciones = nombrePaciente;
+    let opcionesPacientes = nombrePaciente;
+
+
+    let nombreMedico = [];
+    for (let i = 0; i < medicos.length; i++) {
+        nombreMedico.push(medicos[i].nombre + " " + medicos[i].apellido);
+    }
+    let opcionesMedicos = nombreMedico;
 
     const onSubmit = (data) => {
-        console.log(nombreSelector);
-
-        if (nombreSelector != "") {
-            const nuevoTurno = {
-                title: nombreSelector,
-                start: String(startDate),
-                end: String(startDate),
-                profesionalId: localStorage.getItem("dataD"),
-            };
-            db.collection("turnos").doc().set(nuevoTurno);
-            setnombreSelector("");
-            toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
-        } else {
-            toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
+        if (nombreSelectorPaciente != "") {
+            if (rolUsuario === "medico" || nombreSelectorMedico !== "") {
+                let nuevoTurno = {
+                    title: nombreSelectorPaciente,
+                    start: String(startDate),
+                    end: String(startDate),
+                    profesionalId: localStorage.getItem("dataD"),
+                };
+                if (rolUsuario !== "medico") {
+                    for (let i = 0; i < medicos.length; i++) {
+                        if (medicos[i].nombre + " " + medicos[i].apellido + " " === nombreSelectorMedico) {
+                            nuevoTurno.profesionalId = medicos[i].id;
+                        }
+                    }
+                }
+                db.collection("turnos").doc().set(nuevoTurno);
+                setnombreSelectorPaciente("");
+                toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
+            } else {
+                toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
+            }
         }
     };
 
@@ -93,7 +111,24 @@ const Turnos = () => {
             });
             setPacientes(pacientes);
         });
-    }, []);
+
+        db.collection("users").onSnapshot((querySnapshot) => {
+            let medicos = [];
+            querySnapshot.forEach((doc) => {
+                medicos.push({ ...doc.data(), id: doc.id });
+            });
+
+            let medicosArray = [];
+            for (let i = 0; i < medicos.length; i++) {
+                if (medicos[i].rol === 1) {
+                    medicosArray.push(medicos[i]);
+                }
+            }
+            setMedicos(medicosArray)
+        }
+        );
+    },
+        []);
 
     return (
         <div>
@@ -106,21 +141,35 @@ const Turnos = () => {
                     <h2 className="tituloPerfil padding-responsive text-muted">Turnos</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row ml-4">
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Paciente
                                 </label>
                                 <TextInput
                                     trigger={[""]}
                                     className="form-control fixed"
-                                    options={opciones}
+                                    options={opcionesPacientes}
                                     onSelect={(datoss) => {
-                                        setnombreSelector(datoss);
+                                        setnombreSelectorPaciente(datoss);
                                     }}
                                 />
                             </div>
 
-                            <div className="col-md-4">
+                            <div className="col-md-3">
+                                <label for="exampleInputEmail1" className="form-label">
+                                    Médico
+                                </label>
+                                <TextInput
+                                    trigger={[""]}
+                                    className="form-control fixed"
+                                    options={opcionesMedicos}
+                                    onSelect={(datoss) => {
+                                        setnombreSelectorMedico(datoss);
+                                    }}
+                                />
+                            </div>
+
+                            <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Fecha
                                 </label>
@@ -134,7 +183,7 @@ const Turnos = () => {
                             </div>
 
 
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <label>&nbsp;</label>
                                 <br></br>
                                 <div className="row responsive-agregar-turno">
