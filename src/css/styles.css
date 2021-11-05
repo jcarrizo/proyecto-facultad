@@ -20,6 +20,7 @@ body
     --blue: #3e83d1;
     --blue-trans: rgba(62, 131, 209, 0.76);
     --light-blue:#5fb8ff;
+    --yellow: #ffc107;
   }
 
   .btn-primary
@@ -41,9 +42,12 @@ body
   .text-grey{
     color: var(--grey);
     }
-    .text-light-grey{
-        color: var(--light-grey);
-        }
+  .text-light-grey{
+    color: var(--light-grey);
+   }
+   .text-yellow{
+    color: var(--yellow);
+   }
  
 
   .pointer

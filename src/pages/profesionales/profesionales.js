@@ -137,12 +137,12 @@ const Profesionales = () => {
         </div>
 
         {/*                                                             Lista de profesionales                                   */}
-        <div className="col-md-5">
+        <div className="col-md-5 text-muted">
           <div className="container mt-5">
             <h2 className="tituloPerfil">Profesionales</h2>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 tabla">
-                <div className="card">
+                <div className="card shadow">
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end "></form>
                     <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
@@ -182,10 +182,10 @@ const Profesionales = () => {
 
         {/*                                                      Seleccionable                       */}
         <div className="col-md-5 mt-5 container">
-          <h2 className="tituloPerfil text-center ml-4">Perfil seleccionado</h2>
+          <h2 className="tituloPerfil text-center ml-4 text-muted">Perfil seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
-              <div className="card">
+              <div className="card shadow">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
@@ -205,7 +205,7 @@ const Profesionales = () => {
               </div>
             </div>
             <div className="col-md-8">
-              <div className="card mb-3">
+              <div className="card shadow mb-3">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">

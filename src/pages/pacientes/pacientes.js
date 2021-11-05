@@ -141,14 +141,14 @@ const Pacientes = () => {
         <div className="col-md-5">
           <div className="container mt-5">
             <div className="row">
-              <h2 className="tituloPerfil col-3 mt-1">Pacientes</h2>
+              <h2 className="tituloPerfil col-3 mt-1 text-muted">Pacientes</h2>
               <div className="col responsive">
-                <i className="btn btn-primary plus bi bi-person-plus-fill pointer" />
+                <i className="btn btn-primary plus bi bi-person-plus-fill pointer" data-toggle="tooltip" data-placement="right" title="Nuevo Paciente" />
               </div>
             </div>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 ancho">
-                <div className="card">
+                <div className="card shadow">
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end ">
                       <div className="col-10">
@@ -213,10 +213,10 @@ const Pacientes = () => {
 
         {/*Paciente Seleccionado*/}
         <div className="col-md-5 mt-5 container ">
-          <h2 className="tituloPerfil text-center ml-4">Paciente seleccionado</h2>
+          <h2 className="tituloPerfil text-left text-muted">Paciente seleccionado</h2>
           <div className="row gutters-sm">
             <div className="col-md-12">
-              <div className="card mb-5">
+              <div className="card shadow mb-5">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">

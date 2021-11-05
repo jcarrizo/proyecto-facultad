@@ -57,10 +57,10 @@ const Perfil = () => {
               if (datoss.id === IdUser) {
 
                 return (<div className="container mt-5">
-                  <h2 className="tituloPerfil">Perfil</h2>
+                  <h2 className="tituloPerfil text-muted">Perfil</h2>
                   <div className="row gutters-sm">
                     <div className="col-md-4 mb-3">
-                      <div className="card">
+                      <div className="card shadow">
                         <div className="card-body">
                           <div className="d-flex flex-column align-items-center text-center">
                             <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
@@ -82,7 +82,7 @@ const Perfil = () => {
 
                     </div>
                     <div className="col-md-8">
-                      <div className="card mb-3">
+                      <div className="card shadow mb-3">
                         <div className="card-body">
                           <div className="row">
                             <div className="col-sm-3">
