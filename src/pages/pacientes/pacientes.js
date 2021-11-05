@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import SideBar from "../../components/side-bar/SideBar";
 import { db } from "../../DB/firebase";
-import "./pacientes.css";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import "./pacientes.css";
 
 const Pacientes = () => {
   const [datos, setDatos] = useState([]);
   const { register, reset, handleSubmit } = useForm();
   const [paciente, setPaciente] = useState([]);
-  const [pacienteEditar, setPacienteEditar] = useState([]);
   let rolUsuario = localStorage.getItem("rolUser");
   let IdUsuario = localStorage.getItem("dataD");
   let datoVacio = [];
@@ -51,28 +50,45 @@ const Pacientes = () => {
     });
   };
 
-  const onSubmitEditar = (data) => {
+  const profileEditar = {
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    dni: "",
+  };
 
-    console.log(data)
+  const onSubmitEditar = () => {
 
-    const newPatient = {
-      nombre: data.nombre,
-      apellido: data.apellido,
-      email: data.email,
-      telefono: data.telefono,
-      direccion: data.direccion,
-      dni: data.dni,
-      obrasocial: data.obrasocial,
-      eliminado: false,
-      profesionalId: localStorage.getItem("dataD"),
+    let idSeleccionadoPaciente = paciente.id;
+
+
+
+    let nombre = document.getElementById("nombre").value
+    let apellido = document.getElementById("apellido").value
+    let email = document.getElementById("email").value
+    let telefono = document.getElementById("telefono").value
+    let direccion = document.getElementById("direccion").value
+    let dni = document.getElementById("dni").value
+
+    const profileEditar = {
+      nombre: nombre,
+      apellido: apellido,
+      email: email,
+      telefono: telefono,
+      direccion: direccion,
+      dni: dni,
     };
-
-    // db.collection("pacientes").doc().set(newPatient);
-
-    toast("Se creó el paciente correctamente", {
+    console.log(profileEditar)
+    const resp = db.collection("pacientes").doc(idSeleccionadoPaciente).update(profileEditar);
+    toast("Se editó el perfil correctamente", {
       type: "success",
       autoClose: 2000,
     });
+
+
+
   };
 
 
@@ -92,6 +108,27 @@ const Pacientes = () => {
       });
     }
   };
+
+
+
+  const buttoneditar = () => {
+
+    if (paciente.id !== undefined) {
+      return (<div>
+        <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente" >Editar</button>
+        <button className="btn btn-danger ml-5" href="" onClick={() => { eliminarPaciente() }}>Eliminar</button>
+      </div>
+      )
+    }
+    else {
+      return (<div>
+        <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente" disabled>Editar</button>
+        <button className="btn btn-danger ml-5" href="" onClick={() => { eliminarPaciente() }} disabled>Eliminar</button>
+      </div>)
+    }
+
+  }
+
 
 
   return (
@@ -237,8 +274,7 @@ const Pacientes = () => {
                   <hr className="mb-4"></hr>
                   <div className="row">
                     <div className="col-sm-12">
-                      <button className="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editarPaciente" >Editar</button>
-                      <button className="btn btn-danger ml-5" href="" onClick={() => { eliminarPaciente() }}>Eliminar</button>
+                      {buttoneditar()}
                     </div>
                   </div>
                 </div>
@@ -257,41 +293,47 @@ const Pacientes = () => {
             </div>
             <div className="modal-body">
 
-              <form className="text-grey" onSubmit={handleSubmit(onSubmitEditar)}>
+              <form className="text-grey">
                 <div className="mb-3 form-floating">
-                  <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} {...register("nombre")}
+                  <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} id="nombre"
+                    name="nombre"
                     required></input>
                   <label>Nombre</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} {...register("apellido")} required></input>
+                  <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} id="apellido"
+                    name="apellido" required></input>
                   <label>Apellido</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} {...register("email")} required></input>
+                  <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} id="email"
+                    name="email" required></input>
                   <label>Email</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} {...register("telefono")} required></input>
+                  <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} id="telefono"
+                    name="telefono" required></input>
                   <label>Teléfono</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} {...register("direccion")} required></input>
+                  <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} id="direccion"
+                    name="direccion" required></input>
                   <label>Dirección</label>
                 </div>
 
                 <div className="mb-3 form-floating">
-                  <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.dni} {...register("dni")} required></input>
+                  <input type="number" className="form-control" placeholder="Ingrese el dni" defaultValue={paciente.dni} id="dni"
+                    name="dni" required></input>
                   <label>DNI</label>
                 </div>
 
                 <div className="modal-footer">
                   <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
-                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
+                  <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmitEditar()}>Editar Paciente</button>
                 </div>
 
               </form>
