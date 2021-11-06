@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import SideBar from '../../components/side-bar/SideBar';
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
-import { get, useForm } from 'react-hook-form';
 import "./perfil.css"
 
 
@@ -22,21 +21,30 @@ const Perfil = () => {
     });
   }, [])
 
-  const { register, handleSubmit } = useForm();
+  const onSubmit = () => {
 
-  const onSubmit = data => {
+    let nombre = document.getElementById("nombre").value
+    let apellido = document.getElementById("apellido").value
+    let profesion = document.getElementById("profesion").value
+    let email = document.getElementById("email").value
+    let telefono = document.getElementById("telefono").value
+    let direccion = document.getElementById("direccion").value
+    let dni = document.getElementById("dni").value
+
 
     const profileEdit = {
-      nombre: data.nombre,
-      apellido: data.apellido,
-      email: data.email,
-      telefono: data.telefono,
-      direccion: data.direccion,
-    }
+      nombre: nombre,
+      apellido: apellido,
+      profesion: profesion,
+      email: email,
+      telefono: telefono,
+      direccion: direccion,
+      dni: dni,
+    };
 
     const resp = db.collection("users").doc(usuarioId).update(profileEdit)
-    localStorage.setItem('emailUser', data.email)
-    localStorage.setItem('nameUser', data.nombre)
+    localStorage.setItem('emailUser', email)
+    localStorage.setItem('nameUser', nombre)
 
     toast("Se editó el perfil correctamente", {
       type: 'success', autoClose: 2000
@@ -164,41 +172,53 @@ const Perfil = () => {
                         </div>
                         <div className="modal-body">
 
-                          <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
+                          <form className="text-grey" >
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={datoss.nombre}
+                              <input type="text" className="form-control" placeholder="Ingrese el nombre" id="nombre"
+                                name="nombre" defaultValue={datoss.nombre}
                                 required></input>
                               <label>Nombre</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={datoss.apellido} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el apellido" id="apellido"
+                                name="apellido" defaultValue={datoss.apellido} required></input>
                               <label>Apellido</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={datoss.email} required></input>
+                              <input type="email" className="form-control" placeholder="Ingrese el email" id="profesion"
+                                name="profesion" defaultValue={datoss.profesion} required></input>
+                              <label>Profesion</label>
+                            </div>
+
+                            <div className="mb-3 form-floating">
+                              <input type="email" className="form-control" placeholder="Ingrese el email" id="email"
+                                name="email" defaultValue={datoss.email} required></input>
                               <label>Email</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={datoss.telefono} required></input>
+                              <input type="tel" className="form-control" placeholder="Ingrese el teléfono" id="telefono"
+                                name="telefono" defaultValue={datoss.telefono} required></input>
                               <label>Teléfono</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.direccion} required></input>
+                              <input type="text" className="form-control" placeholder="Ingrese el dirección" id="direccion"
+                                name="direccion" defaultValue={datoss.direccion} required></input>
                               <label>Dirección</label>
                             </div>
 
                             <div className="mb-3 form-floating">
-                              <input type="number" className="form-control" placeholder="Ingrese el dirección" defaultValue={datoss.dni} required></input>
+                              <input type="number" className="form-control" placeholder="Ingrese el dirección" id="dni"
+                                name="dni" defaultValue={datoss.dni} required></input>
                               <label>DNI</label>
                             </div>
 
                             <div className="modal-footer">
                               <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                              <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Editar Paciente</button>
+                              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmit()}>Editar Paciente</button>
                             </div>
 
                           </form>
