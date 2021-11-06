@@ -49,7 +49,6 @@ ________________________________________________________________________________
 * Funcion del buscador de pacientes
 
 --ISSUES--
-* Modificacion de Pacientes
 * Agregar paciente guarda info sin verificar, raro
 
 --NICE TO HAVE--
@@ -68,10 +67,11 @@ ________________________________________________________________________________
 
 
 --ISSUES--
+* Seleccionar fecha con z index y oscuro 
+
 
 --NICE TO HAVE--
 * Fecha en español
-* Seleccionar fecha con z index y oscuro 
 ________________________________________________________________________________________________________
 
 
@@ -81,7 +81,6 @@ ________________________________________________________________________________
 
                                                   USUARIOS
 --FALTA--
-* Funcion eliminar usuario
 
 --ISSUES--
 
