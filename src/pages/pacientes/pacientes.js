@@ -143,7 +143,8 @@ const Pacientes = () => {
             <div className="row">
               <h2 className="tituloPerfil col-3 mt-1 text-muted">Pacientes</h2>
               <div className="col responsive">
-                <i className="btn btn-primary plus bi bi-person-plus-fill pointer" data-toggle="tooltip" data-placement="right" title="Nuevo Paciente" />
+                <i className="btn btn-primary plus bi bi-person-plus-fill pointer" data-toggle="tooltip" data-placement="right" data-bs-toggle="modal"
+                  data-bs-target="#agregarPaciente" title="Nuevo Paciente" />
               </div>
             </div>
             <div className="row gutters-sm">
@@ -165,9 +166,7 @@ const Pacientes = () => {
                         <button
                           type="button"
                           className="btn btn-primary ml-3"
-                          title="Agregar Paciente"
-                          data-bs-toggle="modal"
-                          data-bs-target="#agregarPaciente">
+                        >
                           <b>Buscar</b>
                         </button>
                       </div>
