@@ -21,6 +21,28 @@ const Perfil = () => {
     });
   }, [])
 
+  const imagenSubir = () => {
+    let Imagen = document.getElementById("formImagen").files;
+
+    var file = Imagen[0];
+    var reader = new FileReader();
+    reader.onload = function () {
+
+      let _data = {
+        fotoUser: reader.result,
+      }
+
+      const resp = db.collection("users").doc(usuarioId).update(_data)
+
+      toast("Se cargo la imagen correctamente", {
+        type: 'success', autoClose: 2000
+      })
+    }
+    reader.readAsDataURL(file);
+
+
+  }
+
   const onSubmit = () => {
 
     let nombre = document.getElementById("nombre").value
@@ -52,6 +74,22 @@ const Perfil = () => {
 
   }
 
+
+  const CargarImagen = (urlimagen) => {
+    var image = new Image()
+    image.src = urlimagen;
+    if (urlimagen != "" && urlimagen != undefined) {
+      return (
+        <img src={image.src} alt="Admin" id="fotoUser" className="rounded-circle" width="150" height="150"></img>
+      )
+    }
+    else {
+      return (
+        <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" id="fotoUser" className="rounded-circle" width="150"></img>
+      )
+    }
+  }
+
   return (
     <div>
       <div className="row">
@@ -74,7 +112,7 @@ const Perfil = () => {
                       <div className="card shadow">
                         <div className="card-body">
                           <div className="d-flex flex-column align-items-center text-center">
-                            <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" className="rounded-circle" width="150"></img>
+                            {CargarImagen(datoss.fotoUser)}
                             <div className="mt-3 ">
                               <h4>{datoss.nombre + " " + datoss.apellido}</h4>
                               <p className="text-secondary mb-1">{datoss.profesion}</p>
@@ -241,11 +279,11 @@ const Perfil = () => {
                           <form className="text-grey" >
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Selecciona la Imagen</label>
-                              <input class="form-control" type="file" id="formFile"></input>
+                              <input class="form-control" type="file" id="formImagen" accept="image/png, image/jpeg"></input>
                             </div>
                             <div className="modal-footer">
                               <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                              <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => imagenSubir()}>Aceptar</button>
                             </div>
                           </form>
                         </div>

@@ -54,6 +54,7 @@ const Signup = () => {
           rol: 1,
           eliminado: false,
           profesion: "",
+          fotoUser: ""
         };
 
 

@@ -128,6 +128,24 @@ const Profesionales = () => {
   }
 
 
+  const CargarImagen = (urlimagen) => {
+    var image = new Image()
+    image.src = urlimagen;
+    console.log(urlimagen)
+    if (urlimagen != "" && urlimagen != undefined) {
+      return (
+        <img src={image.src} alt="Admin" id="fotoUser" className="rounded-circle" width="150" height="150"></img>
+      )
+    }
+    else {
+      return (
+        <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" id="fotoUser" className="rounded-circle" width="150"></img>
+      )
+    }
+  }
+
+
+
 
   return (
     <div>
@@ -188,12 +206,7 @@ const Profesionales = () => {
               <div className="card shadow">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <img
-                      src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
-                      alt="Admin"
-                      className="rounded-circle"
-                      width="150"
-                    ></img>
+                    {CargarImagen(profesional.fotoUser)}
                     <div className="mt-3 ">
                       <h4>{profesional.nombre + " " + profesional.apellido}</h4>
                       <p className="text-secondary mb-1">
