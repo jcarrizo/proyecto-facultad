@@ -27,6 +27,7 @@ const Profesionales = () => {
 
     let nombre = document.getElementById("nombre").value
     let apellido = document.getElementById("apellido").value
+    let profesion = document.getElementById("profesion").value
     let email = document.getElementById("email").value
     let telefono = document.getElementById("telefono").value
     let direccion = document.getElementById("direccion").value
@@ -35,6 +36,7 @@ const Profesionales = () => {
     const profileEdit = {
       nombre: nombre,
       apellido: apellido,
+      profesion: profesion,
       email: email,
       telefono: telefono,
       direccion: direccion,
@@ -145,6 +147,22 @@ const Profesionales = () => {
   }
 
 
+  const NombreTexto = (dataNombre, dataApellido) => {
+
+    if (dataNombre != undefined && dataNombre != "") {
+
+      return (<td>
+        <h4>{dataNombre + " " + dataApellido}</h4>
+      </td>)
+
+    }
+
+    else {
+      return (<h4>Nombre Profesional</h4>)
+    }
+  }
+
+
 
 
   return (
@@ -208,10 +226,7 @@ const Profesionales = () => {
                   <div className="d-flex flex-column align-items-center text-center">
                     {CargarImagen(profesional.fotoUser)}
                     <div className="mt-3 ">
-                      <h4>{profesional.nombre + " " + profesional.apellido}</h4>
-                      <p className="text-secondary mb-1">
-                        {profesional.profesion}
-                      </p>
+                      {NombreTexto(profesional.nombre, profesional.apellido)}
                     </div>
                   </div>
                 </div>
@@ -235,6 +250,15 @@ const Profesionales = () => {
                     </div>
                     <div className="col-sm-9 text-secondary">
                       {profesional.apellido}
+                    </div>
+                  </div>
+                  <hr className="mb-4"></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">profesión</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {profesional.profesion}
                     </div>
                   </div>
                   <hr className="mb-4"></hr>
@@ -332,6 +356,18 @@ const Profesionales = () => {
                         required
                       ></input>
                       <label>Apellido</label>
+                    </div>
+                    <div className="mb-3 form-floating">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Ingrese el apellido"
+                        defaultValue={profesional.profesion}
+                        id="profesion"
+                        name="profesion"
+                        required
+                      ></input>
+                      <label>Profesión</label>
                     </div>
 
                     <div className="mb-3 form-floating">
