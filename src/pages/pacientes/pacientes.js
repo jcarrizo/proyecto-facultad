@@ -26,7 +26,6 @@ const Pacientes = () => {
 
   const onSubmit = (data) => {
 
-
     const newPatient = {
       nombre: data.nombre,
       apellido: data.apellido,
