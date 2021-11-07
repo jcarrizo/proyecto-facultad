@@ -287,45 +287,44 @@ const Pacientes = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel1">Editar Paciente</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
 
               <form className="text-grey">
                 <div className="mb-3 form-floating">
                   <input type="text" className="form-control" placeholder="Ingrese el nombre" defaultValue={paciente.nombre} id="nombre"
-                    name="nombre"
+                    name="nombre" maxlength="30"
                     required></input>
                   <label>Nombre</label>
                 </div>
 
                 <div className="mb-3 form-floating">
                   <input type="text" className="form-control" placeholder="Ingrese el apellido" defaultValue={paciente.apellido} id="apellido"
-                    name="apellido" required></input>
+                    name="apellido" maxlength="30" required></input>
                   <label>Apellido</label>
                 </div>
 
                 <div className="mb-3 form-floating">
                   <input type="email" className="form-control" placeholder="Ingrese el email" defaultValue={paciente.email} id="email"
-                    name="email" required></input>
+                    name="email" maxlength="30" required></input>
                   <label>Email</label>
                 </div>
 
                 <div className="mb-3 form-floating">
                   <input type="tel" className="form-control" placeholder="Ingrese el teléfono" defaultValue={paciente.telefono} id="telefono"
-                    name="telefono" required></input>
+                    name="telefono" maxlength="30" required></input>
                   <label>Teléfono</label>
                 </div>
 
                 <div className="mb-3 form-floating">
                   <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} id="direccion"
-                    name="direccion" required></input>
+                    name="direccion" maxlength="30" required></input>
                   <label>Dirección</label>
                 </div>
 
                 <div className="mb-3 form-floating">
                   <input type="number" className="form-control" placeholder="Ingrese el dni" defaultValue={paciente.dni} id="dni"
-                    name="dni" required></input>
+                    name="dni" min="1" max="99999999999" required></input>
                   <label>DNI</label>
                 </div>
 
@@ -355,12 +354,7 @@ const Pacientes = () => {
               <h5 className="modal-title" id="exampleModalLabel">
                 Agregar Paciente
               </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+
             </div>
             <div className="modal-body">
               <form className="text-grey" onSubmit={handleSubmit(onSubmit)}>
@@ -370,6 +364,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese el nombre"
                     {...register("nombre")}
+                    maxlength="30"
                     required
                   ></input>
                   <label>Nombre</label>
@@ -381,6 +376,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese el apellido"
                     {...register("apellido")}
+                    maxlength="30"
                     required
                   ></input>
                   <label>Apellido</label>
@@ -392,6 +388,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese el email"
                     {...register("email")}
+                    maxlength="30"
                     required
                   ></input>
                   <label>Email</label>
@@ -403,6 +400,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese el teléfono"
                     {...register("telefono")}
+                    maxlength="30"
                     required
                   ></input>
                   <label>Teléfono</label>
@@ -414,6 +412,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese la dirección"
                     {...register("direccion")}
+                    maxlength="30"
                     required
                   ></input>
                   <label>Dirección</label>
@@ -425,6 +424,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese la Obra Social"
                     {...register("obrasocial")}
+                    maxlength="30"
                     required
                   ></input>
                   <label>Obra Social</label>
@@ -436,6 +436,7 @@ const Pacientes = () => {
                     className="form-control"
                     placeholder="Ingrese el DNI"
                     {...register("dni")}
+                    min="1" max="99999999999"
                     required
                   ></input>
                   <label>DNI</label>

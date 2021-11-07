@@ -141,7 +141,7 @@ const Profesionales = () => {
     }
     else {
       return (
-        <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" id="fotoUser" className="rounded-circle" width="150"></img>
+        <img src="https://www.dermacity.com.mx/wp-content/uploads/doctor_homme_coth.png" alt="Admin" id="fotoUser" className="rounded-circle" width="150"></img>
       )
     }
   }

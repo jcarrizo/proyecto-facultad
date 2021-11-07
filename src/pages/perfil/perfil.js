@@ -85,7 +85,7 @@ const Perfil = () => {
     }
     else {
       return (
-        <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt="Admin" id="fotoUser" className="rounded-circle" width="150"></img>
+        <img src="https://www.dermacity.com.mx/wp-content/uploads/doctor_homme_coth.png" alt="Admin" id="fotoUser" className="rounded-circle" width="150"></img>
       )
     }
   }
@@ -206,51 +206,50 @@ const Perfil = () => {
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">Editar Perfil</h5>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
 
                           <form className="text-grey" >
                             <div className="mb-3 form-floating">
                               <input type="text" className="form-control" placeholder="Ingrese el nombre" id="nombre"
-                                name="nombre" defaultValue={datoss.nombre}
+                                name="nombre" defaultValue={datoss.nombre} maxlength="30"
                                 required></input>
                               <label>Nombre</label>
                             </div>
 
                             <div className="mb-3 form-floating">
                               <input type="text" className="form-control" placeholder="Ingrese el apellido" id="apellido"
-                                name="apellido" defaultValue={datoss.apellido} required></input>
+                                name="apellido" defaultValue={datoss.apellido} maxlength="30" required></input>
                               <label>Apellido</label>
                             </div>
 
                             <div className="mb-3 form-floating">
                               <input type="email" className="form-control" placeholder="Ingrese el email" id="profesion"
-                                name="profesion" defaultValue={datoss.profesion} required></input>
+                                name="profesion" defaultValue={datoss.profesion} maxlength="30" required></input>
                               <label>Profesion</label>
                             </div>
 
                             <div className="mb-3 form-floating">
                               <input type="email" className="form-control" placeholder="Ingrese el email" id="email"
-                                name="email" defaultValue={datoss.email} required></input>
+                                name="email" defaultValue={datoss.email} maxlength="30" required></input>
                               <label>Email</label>
                             </div>
 
                             <div className="mb-3 form-floating">
                               <input type="tel" className="form-control" placeholder="Ingrese el teléfono" id="telefono"
-                                name="telefono" defaultValue={datoss.telefono} required></input>
+                                name="telefono" defaultValue={datoss.telefono} maxlength="30" required></input>
                               <label>Teléfono</label>
                             </div>
 
                             <div className="mb-3 form-floating">
                               <input type="text" className="form-control" placeholder="Ingrese el dirección" id="direccion"
-                                name="direccion" defaultValue={datoss.direccion} required></input>
+                                name="direccion" defaultValue={datoss.direccion} maxlength="30" required></input>
                               <label>Dirección</label>
                             </div>
 
                             <div className="mb-3 form-floating">
                               <input type="number" className="form-control" placeholder="Ingrese el dirección" id="dni"
-                                name="dni" defaultValue={datoss.dni} required></input>
+                                name="dni" defaultValue={datoss.dni} min="1" max="99999999999" required></input>
                               <label>DNI</label>
                             </div>
 
