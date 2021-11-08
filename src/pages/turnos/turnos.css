@@ -3,6 +3,14 @@
   cursor: auto;
 }
 
+.calendar{
+  z-index: 1;
+}
+
+.DatePicker{
+  z-index: 3;
+}
+
 
 @media (max-width: 700px){
   .responsive-agregar-turno {

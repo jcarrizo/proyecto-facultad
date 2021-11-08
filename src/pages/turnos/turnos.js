@@ -3,12 +3,9 @@ import SideBar from "../../components/side-bar/SideBar";
 import "./turnos.css";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import { useForm } from "react-hook-form";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TextInput from "react-autocomplete-input";
-import "react-autocomplete-input/dist/bundle.css";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
 
@@ -16,72 +13,65 @@ require("moment/locale/es.js");
 const localizer = momentLocalizer(moment);
 
 const Turnos = () => {
-
-
-
     let rolUsuario = localStorage.getItem("rolUser");
-    let IdUsuario = localStorage.getItem("dataD");
     let turnosProfesional = [];
     const [startDate, setStartDate] = useState(new Date());
-
     const [turnos, setTurnos] = useState([]);
     const [pacientes, setPacientes] = useState([]);
     const [medicos, setMedicos] = useState([]);
 
-    const [nombreSelectorPaciente, setnombreSelectorPaciente] = useState("");
-    const [nombreSelectorMedico, setnombreSelectorMedico] = useState("");
 
-    const {
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const onSubmit = () => {
+        var pacienteSelect = document.getElementById("pacientesSelect");
+        var medicoSelect = document.getElementById("MedicoSelect");
 
-    let nombrePaciente = [];
-    for (let i = 0; i < pacientes.length; i++) {
-        nombrePaciente.push(pacientes[i].nombre + " " + pacientes[i].apellido);
-    }
-    let opcionesPacientes = nombrePaciente;
-
-
-    let nombreMedico = [];
-    for (let i = 0; i < medicos.length; i++) {
-        nombreMedico.push(medicos[i].nombre + " " + medicos[i].apellido);
-    }
-    let opcionesMedicos = nombreMedico;
-
-    const onSubmit = (data) => {
-        if (nombreSelectorPaciente != "") {
+        if (rolUsuario === "1") {
+            let flag = false
             pacientes.map((datapaciente) => {
-                if ((datapaciente.nombre + " " + datapaciente.apellido + " ") === nombreSelectorPaciente) {
-                    if (rolUsuario === "medico" || nombreSelectorMedico !== "") {
-                        let nuevoTurno = {
-                            title: nombreSelectorPaciente,
-                            start: String(startDate),
-                            end: String(startDate),
-                            pacienteId: datapaciente.id,
-                            profesionalId: localStorage.getItem("dataD"),
-                        };
-                        if (rolUsuario !== "medico") {
-                            for (let i = 0; i < medicos.length; i++) {
-                                if (medicos[i].nombre + " " + medicos[i].apellido + " " === nombreSelectorMedico) {
-                                    nuevoTurno.profesionalId = medicos[i].id;
-                                }
-                            }
-                        }
-                        db.collection("turnos").doc().set(nuevoTurno);
-                        setnombreSelectorPaciente("");
-                        toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
-                    } else {
-                        toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
-                    }
+                if ((datapaciente.nombre + " " + datapaciente.apellido) === pacienteSelect.value) {
+                    let nuevoTurno = {
+                        title: pacienteSelect.value,
+                        start: String(startDate),
+                        end: String(startDate),
+                        pacienteId: datapaciente.id,
+                        profesionalId: localStorage.getItem("dataD"),
+                    };
+                    flag = true
+                    db.collection("turnos").doc().set(nuevoTurno);
+                    toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
                 }
             })
+            if (flag == false) {
+                toast("Debe elegir un paciente y medico valido", { type: 'default', autoClose: 3000 });
+            }
+        }
+        else {
+            let flag = false
+            pacientes.map((datapaciente) => {
+                if ((datapaciente.nombre + " " + datapaciente.apellido) === pacienteSelect.value) {
 
+                    medicos.map((datamedico) => {
+                        if ((datamedico.nombre + " " + datamedico.apellido) === medicoSelect.value) {
 
+                            let nuevoTurno = {
+                                title: pacienteSelect.value,
+                                start: String(startDate),
+                                end: String(startDate),
+                                pacienteId: datapaciente.id,
+                                profesionalId: datamedico.id,
+                            };
+                            flag = true
+                            db.collection("turnos").doc().set(nuevoTurno);
+                            toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
+                        }
+                    })
+                }
+            })
+            if (flag == false) {
+                toast("Debe elegir un paciente y medico valido", { type: 'default', autoClose: 3000 });
+            }
         }
     };
-
-
 
     const filterPassedTime = (time) => {
         const currentDate = new Date();
@@ -96,27 +86,25 @@ const Turnos = () => {
             querySnapshot.forEach((doc) => {
                 turnos.push({ ...doc.data(), id: doc.id });
             });
-            for (let i = 0; i < turnos.length; i++) {
-                turnos[i].start = new Date(turnos[i].start);
-                turnos[i].end = new Date(turnos[i].end);
-            }
+            // for (let i = 0; i < turnos.length; i++) {
+            //     turnos[i].start = new Date(turnos[i].start);
+            //     turnos[i].end = new Date(turnos[i].end);
+            // }
 
             if (rolUsuario === "2" || rolUsuario === "3") {
                 setTurnos(turnos);
             }
-            else {
-                turnosProfesional = [];
-                turnos.map((data) => {
+            if (rolUsuario === "1") {
+                turnosProfesional = []
+                turnos.map((dataturnosmedico) => {
 
-                    if (data.profesionalId === IdUsuario) {
-                        console.log(data)
-                        turnosProfesional.push(data);
+                    if (dataturnosmedico.profesionalId === localStorage.getItem("dataD")) {
+                        turnosProfesional.push(dataturnosmedico)
                     }
-                });
 
+                })
                 setTurnos(turnosProfesional);
             }
-
         });
 
 
@@ -134,7 +122,6 @@ const Turnos = () => {
             }
             setMedicos(medicosArray)
             medicosArray.map((data) => {
-
                 var option = document.createElement("option"); //Creamos la opcion
                 option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
                 document.getElementById("MedicoSelect").appendChild(option); //Metemos la opción en el select
@@ -152,19 +139,30 @@ const Turnos = () => {
             });
             setPacientes(pacientes);
             pacientes.map((data) => {
-
                 var option = document.createElement("option"); //Creamos la opcion
                 option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
                 document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
             })
         });
-
     }, [])
 
-    const datoSeleccionado = () => {
-        var e = document.getElementById("pacientesSelect");
 
-        console.log(e.value)
+    const SelectMedicoBloquear = () => {
+        if (rolUsuario === "1") {
+            return (
+                <select class="form-select" aria-label="Default select example" id="MedicoSelect" disabled
+                >
+                    <option selected>Seleccione un Medico</option>
+                </select>
+            )
+        }
+        else {
+            return (
+                <select class="form-select" aria-label="Default select example" id="MedicoSelect"
+                >
+                    <option selected>Seleccione un Medico</option>
+                </select>)
+        }
     }
 
     return (
@@ -173,55 +171,30 @@ const Turnos = () => {
                 <div className="col-md-2">
                     <SideBar></SideBar>
                 </div>
-
                 <div className="col-md-10 pt-5 pr-5 pb-5">
                     <h2 className="tituloPerfil padding-responsive text-muted">Turnos</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form>
                         <div className="row ml-4">
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Paciente
                                 </label>
-
                                 <select class="form-select" aria-label="Default select example" id="pacientesSelect"
-                                    onChange={() => datoSeleccionado()}>
+                                >
                                     <option selected>Seleccione un Paciente</option>
-
                                 </select>
-                                {/* <TextInput
-                                    trigger={[""]}
-                                    className="form-control fixed"
-                                    options={opcionesPacientes}
-                                    onSelect={(datoss) => {
-                                        setnombreSelectorPaciente(datoss);
-                                    }}
-                                /> */}
                             </div>
-
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Médico
                                 </label>
-                                <select class="form-select" aria-label="Default select example" id="MedicoSelect"
-                                    onChange={() => datoSeleccionado()}>
-                                    <option selected>Seleccione un Medico</option>
-
-                                </select>
-                                {/* <TextInput
-                                    trigger={[""]}
-                                    className="form-control fixed"
-                                    options={opcionesMedicos}
-                                    onSelect={(datoss) => {
-                                        setnombreSelectorMedico(datoss);
-                                    }}
-                                /> */}
+                                {SelectMedicoBloquear()}
                             </div>
-
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Fecha
                                 </label>
-                                <DatePicker className="form-control text-center"
+                                <DatePicker className="form-control text-center DatePicker"
                                     showTimeSelect
                                     selected={startDate}
                                     onChange={(date) => setStartDate(date)}
@@ -229,13 +202,11 @@ const Turnos = () => {
                                     filterTime={filterPassedTime}
                                 />
                             </div>
-
-
                             <div className="col-md-3">
                                 <label>&nbsp;</label>
                                 <br></br>
                                 <div className="row responsive-agregar-turno">
-                                    <button type="submit" className="btn btn-primary">
+                                    <button type="button" className="btn btn-primary" onClick={() => onSubmit()}>
                                         Agregar Turno
                                     </button>
                                 </div>
