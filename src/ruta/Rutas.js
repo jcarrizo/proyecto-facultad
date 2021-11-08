@@ -12,8 +12,8 @@ const Rutas = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login">
-          <Login />
+        <Route path="/login" component={Login}>
+
         </Route>
         <Route path="/signUp">
           <Signup />
@@ -21,8 +21,8 @@ const Rutas = () => {
         <Route path="/perfil">
           <Perfil />
         </Route>
-        <Route path="/pacientes">
-          <Pacientes />
+        <Route path="/pacientes" component={Pacientes}>
+
         </Route>
         <Route path="/turnos">
           <Turnos />
