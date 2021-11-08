@@ -27,7 +27,7 @@ const SideBar = () => {
     if (rolUsuario === "3" || rolUsuario === "2") {
       return (
         <div className="mt-4">
-          <a href="/profesionales">
+          <Link to="/profesionales">
             <button variant="outline-primary" className="btn pointer">
               <p className="text-grey">
                 <span>
@@ -36,7 +36,7 @@ const SideBar = () => {
                 <span className="ml-3">Profesionales</span>
               </p>
             </button>
-          </a>
+          </Link>
         </div>
       );
     }
