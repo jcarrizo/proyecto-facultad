@@ -88,9 +88,7 @@ const SideBar = () => {
                     </button>
                   </a>
                 </div>
-
                 <div className="mt-4">
-
                   <a href="/pacientes">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
@@ -101,10 +99,7 @@ const SideBar = () => {
                       </p>
                     </button>
                   </a>
-
-
                 </div>
-
                 <div className="mt-4">
                   <a href="/turnos">
                     <button variant="outline-primary" className="btn pointer">
