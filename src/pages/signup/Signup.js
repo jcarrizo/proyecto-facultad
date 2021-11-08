@@ -4,6 +4,7 @@ import imgSignUp from "../../images/signup.png";
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -65,7 +66,7 @@ const Signup = () => {
           localStorage.setItem("emailUser", info.email);
           localStorage.setItem("nameUser", info.nombre);
           localStorage.setItem('rolUser', info.rol);
-          window.location = "/";
+          window.location = "/#/perfil";
         }, 1000);
       }
 
@@ -152,7 +153,7 @@ const Signup = () => {
                     }}
                   ></input>
                   <div className="row">
-                    <a className="center" href="/login">¿Ya tienes cuenta?</a>
+                    <Link className="center" to="/login">¿Ya tienes cuenta?</Link>
                   </div>
                 </form>
 
