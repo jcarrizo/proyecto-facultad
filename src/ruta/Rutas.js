@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Pacientes from "../pages/pacientes/pacientes";
@@ -10,8 +10,7 @@ import Turnos from "../pages/turnos/turnos";
 
 const Rutas = () => {
   return (
-    <Router>
-
+    <BrowserRouter>
       <Switch>
         <Route path="/login">
           <Login />
@@ -35,8 +34,7 @@ const Rutas = () => {
           <Perfil></Perfil>
         </Route>
       </Switch>
-
-    </Router>
+    </BrowserRouter>
   );
 };
 
