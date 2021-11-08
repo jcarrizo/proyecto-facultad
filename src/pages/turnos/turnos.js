@@ -34,6 +34,7 @@ const Turnos = () => {
                         start: String(startDate),
                         end: String(startDate),
                         pacienteId: datapaciente.id,
+                        medicoNombre: medicoSelect.value,
                         profesionalId: localStorage.getItem("dataD"),
                     };
                     flag = true
@@ -59,6 +60,7 @@ const Turnos = () => {
                                 end: String(startDate),
                                 pacienteId: datapaciente.id,
                                 profesionalId: datamedico.id,
+                                medicoNombre: medicoSelect.value,
                             };
                             flag = true
                             db.collection("turnos").doc().set(nuevoTurno);
@@ -138,11 +140,24 @@ const Turnos = () => {
                 pacientes.push({ ...doc.data(), id: doc.id });
             });
             setPacientes(pacientes);
-            pacientes.map((data) => {
-                var option = document.createElement("option"); //Creamos la opcion
-                option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
-            })
+            let arrayPacientes = [];
+            if (rolUsuario === "1") {
+
+                pacientes.map((data) => {
+                    if (data.profesionalId === localStorage.getItem("dataD")) {
+                        var option = document.createElement("option"); //Creamos la opcion
+                        option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                        document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                    }
+                })
+            }
+            else {
+                pacientes.map((data) => {
+                    var option = document.createElement("option"); //Creamos la opcion
+                    option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                    document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                })
+            }
         });
     }, [])
 
