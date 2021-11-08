@@ -16,6 +16,10 @@ require("moment/locale/es.js");
 const localizer = momentLocalizer(moment);
 
 const Turnos = () => {
+
+    let rolUsuario = localStorage.getItem("rolUser");
+    let IdUsuario = localStorage.getItem("dataD");
+    let turnosProfesional = [];
     const [startDate, setStartDate] = useState(new Date());
 
     const [turnos, setTurnos] = useState([]);
@@ -45,32 +49,47 @@ const Turnos = () => {
 
     const onSubmit = (data) => {
         if (nombreSelectorPaciente != "") {
-            if (rolUsuario === "medico" || nombreSelectorMedico !== "") {
-                let nuevoTurno = {
-                    title: nombreSelectorPaciente,
-                    start: String(startDate),
-                    end: String(startDate),
-                    profesionalId: localStorage.getItem("dataD"),
-                };
-                if (rolUsuario !== "medico") {
-                    for (let i = 0; i < medicos.length; i++) {
-                        if (medicos[i].nombre + " " + medicos[i].apellido + " " === nombreSelectorMedico) {
-                            nuevoTurno.profesionalId = medicos[i].id;
+
+            pacientes.map((datapaciente) => {
+
+                if ((datapaciente.nombre + " " + datapaciente.apellido + " ") === nombreSelectorPaciente) {
+
+
+
+                    if (rolUsuario === "medico" || nombreSelectorMedico !== "") {
+                        let nuevoTurno = {
+                            title: nombreSelectorPaciente,
+                            start: String(startDate),
+                            end: String(startDate),
+                            pacienteId: datapaciente.id,
+                            profesionalId: localStorage.getItem("dataD"),
+                        };
+                        if (rolUsuario !== "medico") {
+                            for (let i = 0; i < medicos.length; i++) {
+                                if (medicos[i].nombre + " " + medicos[i].apellido + " " === nombreSelectorMedico) {
+                                    nuevoTurno.profesionalId = medicos[i].id;
+                                }
+                            }
                         }
+                        db.collection("turnos").doc().set(nuevoTurno);
+                        setnombreSelectorPaciente("");
+                        toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
+                    } else {
+                        toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
                     }
                 }
-                db.collection("turnos").doc().set(nuevoTurno);
-                setnombreSelectorPaciente("");
-                toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
-            } else {
-                toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
-            }
+
+
+
+
+
+            })
+
+
         }
     };
 
-    let rolUsuario = localStorage.getItem("rolUser");
-    let IdUsuario = localStorage.getItem("dataD");
-    let turnosProfesional = [];
+
 
     const filterPassedTime = (time) => {
         const currentDate = new Date();
@@ -93,15 +112,19 @@ const Turnos = () => {
             if (rolUsuario === "2" || rolUsuario === "3") {
                 setTurnos(turnos);
             }
-            if (rolUsuario === "1") {
+            else {
                 turnosProfesional = [];
                 turnos.map((data) => {
+
                     if (data.profesionalId === IdUsuario) {
+                        console.log(data)
                         turnosProfesional.push(data);
                     }
                 });
+
                 setTurnos(turnosProfesional);
             }
+
         });
 
         db.collection("pacientes").onSnapshot((querySnapshot) => {
