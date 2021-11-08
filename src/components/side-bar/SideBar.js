@@ -90,18 +90,18 @@ const SideBar = () => {
                 </div>
 
                 <div className="mt-4">
-                  <Router>
-                    <Route href="/pacientes">
-                      <button variant="outline-primary" className="btn pointer">
-                        <p className="text-grey">
-                          <span>
-                            <i className="bi bi-people-fill" />
-                          </span>
-                          <span className="ml-3">Pacientes</span>
-                        </p>
-                      </button>
-                    </Route>
-                  </Router>
+
+                  <a href="/pacientes">
+                    <button variant="outline-primary" className="btn pointer">
+                      <p className="text-grey">
+                        <span>
+                          <i className="bi bi-people-fill" />
+                        </span>
+                        <span className="ml-3">Pacientes</span>
+                      </p>
+                    </button>
+                  </a>
+
 
                 </div>
 
