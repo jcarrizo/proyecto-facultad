@@ -77,7 +77,7 @@ const Login = () => {
                   <input className="btn btn-block login-btn2 mb-4" type="submit"
                     value="Ingresar"></input>
                   <div className="row">
-                    <a href="#/Signup" className="center">¿No tienes cuenta? Registrate!</a>
+                    <a href="#/signUp" className="center">¿No tienes cuenta? Registrate!</a>
                   </div>
                 </form>
 
