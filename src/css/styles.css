@@ -19,9 +19,11 @@ body
     --success: #23C76F;
     --light-success: #D1FFCE;
     --blue: #3e83d1;
-    --blue-trans: rgba(62, 131, 209, 0.76);
+    --dark-blue: #2a5c94;
+    --blue-trans: #3e83d1c2;
     --light-blue:#5fb8ff;
     --yellow: #ffc107;
+    --turques: #00adba;
   }
 
   .btn-primary
