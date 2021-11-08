@@ -10,7 +10,7 @@ import Turnos from "../pages/turnos/turnos";
 
 const Rutas = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/proyecto-facultad">
       <Switch>
         <Route path="/login" component={Login}>
 
