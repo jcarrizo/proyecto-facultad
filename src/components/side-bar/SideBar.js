@@ -90,7 +90,7 @@ const SideBar = () => {
                   </Link>
                 </div>
                 <div className="mt-4">
-                  <a href="/pacientes">
+                  <Link to="/#/pacientes">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -99,10 +99,10 @@ const SideBar = () => {
                         <span className="ml-3">Pacientes</span>
                       </p>
                     </button>
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-4">
-                  <a href="/turnos">
+                  <Link to="/#/turnos">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -111,7 +111,7 @@ const SideBar = () => {
                         <span className="ml-3">Turnos</span>
                       </p>
                     </button>
-                  </a>
+                  </Link>
                 </div>
                 {vistaProfesional()}
               </div>
