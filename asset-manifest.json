@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/proyecto-facultad/static/css/main.19e29b06.chunk.css",
-    "main.js": "/proyecto-facultad/static/js/main.e86b150c.chunk.js",
-    "main.js.map": "/proyecto-facultad/static/js/main.e86b150c.chunk.js.map",
+    "main.css": "/proyecto-facultad/static/css/main.f8da24b1.chunk.css",
+    "main.js": "/proyecto-facultad/static/js/main.ec72ce30.chunk.js",
+    "main.js.map": "/proyecto-facultad/static/js/main.ec72ce30.chunk.js.map",
     "runtime-main.js": "/proyecto-facultad/static/js/runtime-main.e603fb6c.js",
     "runtime-main.js.map": "/proyecto-facultad/static/js/runtime-main.e603fb6c.js.map",
-    "static/css/2.e34067b8.chunk.css": "/proyecto-facultad/static/css/2.e34067b8.chunk.css",
-    "static/js/2.d8d4ac1b.chunk.js": "/proyecto-facultad/static/js/2.d8d4ac1b.chunk.js",
-    "static/js/2.d8d4ac1b.chunk.js.map": "/proyecto-facultad/static/js/2.d8d4ac1b.chunk.js.map",
+    "static/css/2.1ef97c9c.chunk.css": "/proyecto-facultad/static/css/2.1ef97c9c.chunk.css",
+    "static/js/2.284bdee1.chunk.js": "/proyecto-facultad/static/js/2.284bdee1.chunk.js",
+    "static/js/2.284bdee1.chunk.js.map": "/proyecto-facultad/static/js/2.284bdee1.chunk.js.map",
     "index.html": "/proyecto-facultad/index.html",
-    "static/css/2.e34067b8.chunk.css.map": "/proyecto-facultad/static/css/2.e34067b8.chunk.css.map",
-    "static/css/main.19e29b06.chunk.css.map": "/proyecto-facultad/static/css/main.19e29b06.chunk.css.map",
-    "static/js/2.d8d4ac1b.chunk.js.LICENSE.txt": "/proyecto-facultad/static/js/2.d8d4ac1b.chunk.js.LICENSE.txt",
+    "static/css/2.1ef97c9c.chunk.css.map": "/proyecto-facultad/static/css/2.1ef97c9c.chunk.css.map",
+    "static/css/main.f8da24b1.chunk.css.map": "/proyecto-facultad/static/css/main.f8da24b1.chunk.css.map",
+    "static/js/2.284bdee1.chunk.js.LICENSE.txt": "/proyecto-facultad/static/js/2.284bdee1.chunk.js.LICENSE.txt",
     "static/media/bannerodonto.82eddd42.png": "/proyecto-facultad/static/media/bannerodonto.82eddd42.png",
-    "static/media/login.994e2d6f.jpg": "/proyecto-facultad/static/media/login.994e2d6f.jpg",
-    "static/media/login3.6a331ead.jpg": "/proyecto-facultad/static/media/login3.6a331ead.jpg"
+    "static/media/login.5084050b.jpg": "/proyecto-facultad/static/media/login.5084050b.jpg",
+    "static/media/signup.5dd01b21.png": "/proyecto-facultad/static/media/signup.5dd01b21.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e603fb6c.js",
-    "static/css/2.e34067b8.chunk.css",
-    "static/js/2.d8d4ac1b.chunk.js",
-    "static/css/main.19e29b06.chunk.css",
-    "static/js/main.e86b150c.chunk.js"
+    "static/css/2.1ef97c9c.chunk.css",
+    "static/js/2.284bdee1.chunk.js",
+    "static/css/main.f8da24b1.chunk.css",
+    "static/js/main.ec72ce30.chunk.js"
   ]
 }
