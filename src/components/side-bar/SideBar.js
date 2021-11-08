@@ -18,7 +18,7 @@ const SideBar = () => {
     localStorage.setItem('rolUser', "");
 
     if (window.confirm("¿confirma que deasea desloguearse?")) {
-      window.location.href = "/#/login";
+      window.location.href = "/proyecto-facultad/#/login";
     }
   };
 
@@ -45,7 +45,7 @@ const SideBar = () => {
   const vistaProfesionalResponsive = () => {
     if (rolUsuario === "3" || rolUsuario === "2") {
       return (
-        <a href="/profesionales"><li>Profesionales</li></a>
+        <a href="proyecto-facultad/#/profesionales"><li>Profesionales</li></a>
       );
     }
   }
