@@ -45,6 +45,24 @@ const SideBar = () => {
     }
   }
 
+  const CargarImagen = () => {
+    let urlimagen = localStorage.getItem("fotoUser")
+    var image = new Image()
+    image.src = urlimagen;
+    if (urlimagen != "" && urlimagen != undefined) {
+      return (
+        <img src={image.src} alt="Admin" id="fotoUser" className="rounded-circle" width="50" height="50"></img>
+      )
+    }
+    else {
+      return (
+        <img src="https://www.dermacity.com.mx/wp-content/uploads/doctor_homme_coth.png" alt="Admin" id="fotoUser" className="rounded-circle" width="50" height="50"></img>
+      )
+    }
+  }
+
+
+
   return (
     <div>
       <div className="desktop">
@@ -100,7 +118,7 @@ const SideBar = () => {
               <hr></hr>
               <div className="btn-group dropup row">
                 <div className="col-auto text-center dropup">
-                  <i className="bi-person-circle text-blue img-profile" />
+                  {CargarImagen()}
                 </div>
                 <div
                   type="button"

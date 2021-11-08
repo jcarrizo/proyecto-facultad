@@ -37,6 +37,7 @@ const Login = () => {
         localStorage.setItem('dataD', datoss.id);
         localStorage.setItem('nameUser', datoss.nombre);
         localStorage.setItem('rolUser', datoss.rol);
+        localStorage.setItem('fotoUser', datoss.fotoUser);
 
         window.location = "/"
 

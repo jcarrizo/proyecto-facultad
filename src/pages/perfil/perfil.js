@@ -33,7 +33,7 @@ const Perfil = () => {
       }
 
       const resp = db.collection("users").doc(usuarioId).update(_data)
-
+      localStorage.setItem('fotoUser', reader.result);
       toast("Se cargo la imagen correctamente", {
         type: 'success', autoClose: 2000
       })
