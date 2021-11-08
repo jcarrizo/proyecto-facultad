@@ -2,6 +2,7 @@ import React from "react";
 import "../side-bar/sidebar.css";
 import {
   BrowserRouter as Router,
+  Link,
   Route
 } from "react-router-dom";
 import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS file uses this image
@@ -77,7 +78,7 @@ const SideBar = () => {
             <div className="row mt-4">
               <div className="col">
                 <div className="mt-4">
-                  <a href="/perfil">
+                  <Link to="/perfil">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -86,7 +87,7 @@ const SideBar = () => {
                         <span className="ml-3">Mi perfil</span>
                       </p>
                     </button>
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-4">
                   <a href="/pacientes">
