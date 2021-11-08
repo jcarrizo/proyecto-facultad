@@ -78,7 +78,7 @@ const SideBar = () => {
             <div className="row mt-4">
               <div className="col">
                 <div className="mt-4">
-                  <Link to="/#/perfil">
+                  <Link to="/perfil">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -90,7 +90,7 @@ const SideBar = () => {
                   </Link>
                 </div>
                 <div className="mt-4">
-                  <Link to="/#/pacientes">
+                  <Link to="/pacientes">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -102,7 +102,7 @@ const SideBar = () => {
                   </Link>
                 </div>
                 <div className="mt-4">
-                  <Link to="/#/turnos">
+                  <Link to="/turnos">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>

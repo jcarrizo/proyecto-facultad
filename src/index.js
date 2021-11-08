@@ -6,7 +6,8 @@ import Rutas from './ruta/Rutas';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Rutas></Rutas>
+    <Rutas>
+    </Rutas>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
