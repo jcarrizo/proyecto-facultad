@@ -58,6 +58,12 @@ table
   }
 }
 
-
+@media (max-width: 700px){
+  .responsive-buscar
+  {
+    padding: 6px 3px !important;
+    margin: 0px !important;
+  }
+}
 
 

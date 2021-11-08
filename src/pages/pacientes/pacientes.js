@@ -63,7 +63,6 @@ const Pacientes = () => {
     let idSeleccionadoPaciente = paciente.id;
 
 
-
     let nombre = document.getElementById("nombre").value
     let apellido = document.getElementById("apellido").value
     let email = document.getElementById("email").value
@@ -106,7 +105,6 @@ const Pacientes = () => {
   };
 
 
-
   const buttoneditar = () => {
 
     if (paciente.id !== undefined) {
@@ -124,7 +122,6 @@ const Pacientes = () => {
     }
 
   }
-
 
 
   return (
@@ -161,7 +158,7 @@ const Pacientes = () => {
                       <div className="col-2">
                         <button
                           type="button"
-                          className="btn btn-primary ml-3"
+                          className="btn btn-primary ml-3 responsive-buscar"
                         >
                           <b>Buscar</b>
                         </button>
