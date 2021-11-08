@@ -1,13 +1,6 @@
 import React from "react";
 import "../side-bar/sidebar.css";
-import banner from "./../../images/bannerodonto.png";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  BrowserRouter
-} from "react-router-dom"; // Tell webpack this JS file uses this image
+import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS file uses this image
 
 const SideBar = () => {
   let nameUser = localStorage.getItem("nameUser");
@@ -20,7 +13,7 @@ const SideBar = () => {
     localStorage.setItem('rolUser', "");
 
     if (window.confirm("¿confirma que deasea desloguearse?")) {
-      window.location.href = "/Login";
+      window.location.href = "login";
     }
   };
 
@@ -79,49 +72,44 @@ const SideBar = () => {
 
             <div className="row mt-4">
               <div className="col">
-                <BrowserRouter>
-                  <Switch>
-                    <div className="mt-4">
-                      <Route to="/Perfil">
-                        <button variant="outline-primary" className="btn pointer">
-                          <p className="text-grey">
-                            <span>
-                              <i className="bi bi-person-lines-fill" />
-                            </span>
-                            <span className="ml-3">Mi perfil</span>
-                          </p>
-                        </button>
-                      </Route>
-                    </div>
+                <div className="mt-4">
+                  <a href="/perfil">
+                    <button variant="outline-primary" className="btn pointer">
+                      <p className="text-grey">
+                        <span>
+                          <i className="bi bi-person-lines-fill" />
+                        </span>
+                        <span className="ml-3">Mi perfil</span>
+                      </p>
+                    </button>
+                  </a>
+                </div>
 
-                    <div className="mt-4">
-                      <Route to="/Pacientes">
-                        <button variant="outline-primary" className="btn pointer">
-                          <p className="text-grey">
-                            <span>
-                              <i className="bi bi-people-fill" />
-                            </span>
-                            <span className="ml-3">Pacientes</span>
-                          </p>
-                        </button>
-                      </Route>
-                    </div>
+                <div className="mt-4">
+                  <a href="/pacientes">
+                    <button variant="outline-primary" className="btn pointer">
+                      <p className="text-grey">
+                        <span>
+                          <i className="bi bi-people-fill" />
+                        </span>
+                        <span className="ml-3">Pacientes</span>
+                      </p>
+                    </button>
+                  </a>
+                </div>
 
-                    <div className="mt-4">
-                      <Route to="/Turnos">
-                        <button variant="outline-primary" className="btn pointer">
-                          <p className="text-grey">
-                            <span>
-                              <i className="bi bi-calendar-event" />
-                            </span>
-                            <span className="ml-3">Turnos</span>
-                          </p>
-                        </button>
-                      </Route>
-                    </div>
-                  </Switch>
-                </BrowserRouter>
-
+                <div className="mt-4">
+                  <a href="/turnos">
+                    <button variant="outline-primary" className="btn pointer">
+                      <p className="text-grey">
+                        <span>
+                          <i className="bi bi-calendar-event" />
+                        </span>
+                        <span className="ml-3">Turnos</span>
+                      </p>
+                    </button>
+                  </a>
+                </div>
                 {vistaProfesional()}
               </div>
             </div>
