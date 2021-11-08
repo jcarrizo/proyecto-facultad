@@ -30,7 +30,7 @@ const Rutas = () => {
         <Route path="/#/profesionales">
           <Profesionales />
         </Route>
-        <Route path="/#/">
+        <Route path="/">
           <Perfil></Perfil>
         </Route>
       </Switch>
