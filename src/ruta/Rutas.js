@@ -14,23 +14,17 @@ const Rutas = () => {
       <Switch>
         <Route path="/login" component={Login}>
         </Route>
-        <Route path="/signUp">
-          <Signup />
+        <Route path="/signUp" component={Signup}>
         </Route>
-        <Route path="/perfil">
-          <Perfil />
+        <Route path="/perfil" component={Perfil}>
         </Route>
         <Route path="/pacientes" component={Pacientes}>
-
         </Route>
-        <Route path="/turnos">
-          <Turnos />
+        <Route path="/turnos" component={Turnos}>
         </Route>
-        <Route path="/profesionales">
-          <Profesionales />
+        <Route path="/profesionales" component={Profesionales}>
         </Route>
-        <Route path="/">
-          <Perfil></Perfil>
+        <Route path="/" component={Login}>
         </Route>
       </Switch>
     </HashRouter>
