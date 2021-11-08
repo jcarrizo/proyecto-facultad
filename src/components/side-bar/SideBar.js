@@ -155,9 +155,9 @@ const SideBar = () => {
             <span></span>
 
             <ul id="menu">
-              <a href="/perfil"><li>Mi perfil</li></a>
-              <a href="/pacientes"><li>Pacientes</li></a>
-              <a href="/turnos"><li>Turnos</li></a>
+              <Link to="/perfil"><li>Mi perfil</li></Link>
+              <Link to="/pacientes"><li>Pacientes</li></Link>
+              <Link to="/turnos"><li>Turnos</li></Link>
               {vistaProfesionalResponsive()}
               <a href="#" onClick={LogOut}><li>Salir</li></a>
             </ul>
