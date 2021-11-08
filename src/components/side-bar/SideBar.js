@@ -19,7 +19,7 @@ const SideBar = () => {
     localStorage.setItem('rolUser', "");
 
     if (window.confirm("¿confirma que deasea desloguearse?")) {
-      window.location.href = "login";
+      window.location.href = "/Login";
     }
   };
 
@@ -79,7 +79,7 @@ const SideBar = () => {
             <div className="row mt-4">
               <div className="col">
                 <div className="mt-4">
-                  <a href="/perfil">
+                  <Route href="/perfil">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -88,11 +88,11 @@ const SideBar = () => {
                         <span className="ml-3">Mi perfil</span>
                       </p>
                     </button>
-                  </a>
+                  </Route>
                 </div>
 
                 <div className="mt-4">
-                  <a href="/pacientes">
+                  <Route href="/pacientes">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -101,11 +101,11 @@ const SideBar = () => {
                         <span className="ml-3">Pacientes</span>
                       </p>
                     </button>
-                  </a>
+                  </Route>
                 </div>
 
                 <div className="mt-4">
-                  <Route to="/Pacientes">
+                  <Route to="/Turnos">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
