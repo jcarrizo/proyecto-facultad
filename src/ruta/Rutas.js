@@ -18,7 +18,7 @@ const Rutas = () => {
         <Route path="/signUp">
           <Signup />
         </Route>
-        <Route path="/perfil">
+        <Route path="/#/perfil">
           <Perfil />
         </Route>
         <Route path="/pacientes" component={Pacientes}>
