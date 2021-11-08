@@ -11,31 +11,31 @@ import Turnos from "../pages/turnos/turnos";
 const Rutas = () => {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signUp">
-            <Signup />
-          </Route>
-          <Route path="/perfil">
-            <Perfil />
-          </Route>
-          <Route path="/pacientes">
-            <Pacientes />
-          </Route>
-          <Route path="/turnos">
-            <Turnos />
-          </Route>
-          <Route path="/profesionales">
-            <Profesionales />
-          </Route>
-          <Route path="/">
-            <Perfil></Perfil>
-          </Route>
-        </Switch>
-      </div>
+
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signUp">
+          <Signup />
+        </Route>
+        <Route path="/perfil">
+          <Perfil />
+        </Route>
+        <Route path="/pacientes">
+          <Pacientes />
+        </Route>
+        <Route path="/turnos">
+          <Turnos />
+        </Route>
+        <Route path="/profesionales">
+          <Profesionales />
+        </Route>
+        <Route path="/">
+          <Perfil></Perfil>
+        </Route>
+      </Switch>
+
     </Router>
   );
 };
