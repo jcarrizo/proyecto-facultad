@@ -4,6 +4,7 @@ import imgLogin from '../../images/login.jpg'
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -39,7 +40,7 @@ const Login = () => {
         localStorage.setItem('rolUser', datoss.rol);
         localStorage.setItem('fotoUser', datoss.fotoUser);
 
-        window.location = "/#/perfil"
+        window.location = "/proyecto-facultad/#/perfil"
 
       }
     })
@@ -77,7 +78,7 @@ const Login = () => {
                   <input className="btn btn-block login-btn2 mb-4" type="submit"
                     value="Ingresar"></input>
                   <div className="row">
-                    <a href="/#/signUp" className="center">¿No tienes cuenta? Registrate!</a>
+                    <Link to="/signUp" className="center">¿No tienes cuenta? Registrate!</Link>
                   </div>
                 </form>
 
