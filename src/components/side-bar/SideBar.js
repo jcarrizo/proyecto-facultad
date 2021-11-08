@@ -1,5 +1,9 @@
 import React from "react";
 import "../side-bar/sidebar.css";
+import {
+  BrowserRouter as Router,
+  Route
+} from "react-router-dom";
 import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS file uses this image
 
 const SideBar = () => {
@@ -86,16 +90,19 @@ const SideBar = () => {
                 </div>
 
                 <div className="mt-4">
-                  <a href="/pacientes">
-                    <button variant="outline-primary" className="btn pointer">
-                      <p className="text-grey">
-                        <span>
-                          <i className="bi bi-people-fill" />
-                        </span>
-                        <span className="ml-3">Pacientes</span>
-                      </p>
-                    </button>
-                  </a>
+                  <Router>
+                    <Route href="/pacientes">
+                      <button variant="outline-primary" className="btn pointer">
+                        <p className="text-grey">
+                          <span>
+                            <i className="bi bi-people-fill" />
+                          </span>
+                          <span className="ml-3">Pacientes</span>
+                        </p>
+                      </button>
+                    </Route>
+                  </Router>
+
                 </div>
 
                 <div className="mt-4">
