@@ -10,7 +10,7 @@ import Turnos from "../pages/turnos/turnos";
 
 const Rutas = () => {
   return (
-    <HashRouter basename="/proyecto-facultad">
+    <HashRouter >
       <Switch>
         <Route path="/login" component={Login}>
         </Route>
