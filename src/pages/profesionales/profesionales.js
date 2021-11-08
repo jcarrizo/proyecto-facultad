@@ -7,6 +7,7 @@ import "./profesionales.css";
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
+  const [datosTurnos, setDatosTurnos] = useState([]);
   const [profesional, setProfesional] = useState([]);
   const { register, handleSubmit } = useForm();
 
@@ -79,6 +80,15 @@ const Profesionales = () => {
       });
       setDatos(docs);
     });
+
+
+    db.collection("turnos").onSnapshot((querySnapshot) => {
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setDatosTurnos(docs);
+    });
   }, []);
 
 
@@ -133,7 +143,6 @@ const Profesionales = () => {
   const CargarImagen = (urlimagen) => {
     var image = new Image()
     image.src = urlimagen;
-    console.log(urlimagen)
     if (urlimagen != "" && urlimagen != undefined) {
       return (
         <img src={image.src} alt="Admin" id="fotoUser" className="rounded-circle" width="150" height="150"></img>
@@ -303,6 +312,44 @@ const Profesionales = () => {
                       {buttoneditar()}
 
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <h2 className="tituloPerfil text-left text-muted mt-4">Turnos Medico Seleccionado</h2>
+          <div className="row gutters-sm">
+            <div className="col-md-12">
+              <div className="card shadow mb-5">
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
+                    <table className="table table-hover pointer my-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Paciente</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          datosTurnos.map((turnos) => {
+                            if (profesional.id === turnos.profesionalId) {
+                              var date = new Date(turnos.start)
+                              return (
+                                <tr>
+                                  <td>
+                                    {date.toLocaleString()}
+                                  </td>
+                                  <td>{turnos.title}</td>
+                                </tr>
+                              );
+                            }
+                          })
+                        }
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
