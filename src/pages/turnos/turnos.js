@@ -17,6 +17,8 @@ const localizer = momentLocalizer(moment);
 
 const Turnos = () => {
 
+
+
     let rolUsuario = localStorage.getItem("rolUser");
     let IdUsuario = localStorage.getItem("dataD");
     let turnosProfesional = [];
@@ -49,13 +51,8 @@ const Turnos = () => {
 
     const onSubmit = (data) => {
         if (nombreSelectorPaciente != "") {
-
             pacientes.map((datapaciente) => {
-
                 if ((datapaciente.nombre + " " + datapaciente.apellido + " ") === nombreSelectorPaciente) {
-
-
-
                     if (rolUsuario === "medico" || nombreSelectorMedico !== "") {
                         let nuevoTurno = {
                             title: nombreSelectorPaciente,
@@ -78,11 +75,6 @@ const Turnos = () => {
                         toast("No se pueden ingresar campos vacios", { type: 'default', autoClose: 3000 });
                     }
                 }
-
-
-
-
-
             })
 
 
@@ -127,13 +119,6 @@ const Turnos = () => {
 
         });
 
-        db.collection("pacientes").onSnapshot((querySnapshot) => {
-            const pacientes = [];
-            querySnapshot.forEach((doc) => {
-                pacientes.push({ ...doc.data(), id: doc.id });
-            });
-            setPacientes(pacientes);
-        });
 
         db.collection("users").onSnapshot((querySnapshot) => {
             let medicos = [];
@@ -148,10 +133,39 @@ const Turnos = () => {
                 }
             }
             setMedicos(medicosArray)
+            medicosArray.map((data) => {
+
+                var option = document.createElement("option"); //Creamos la opcion
+                option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                document.getElementById("MedicoSelect").appendChild(option); //Metemos la opción en el select
+            })
         }
         );
     },
         []);
+
+    useEffect(() => {
+        db.collection("pacientes").onSnapshot((querySnapshot) => {
+            const pacientes = [];
+            querySnapshot.forEach((doc) => {
+                pacientes.push({ ...doc.data(), id: doc.id });
+            });
+            setPacientes(pacientes);
+            pacientes.map((data) => {
+
+                var option = document.createElement("option"); //Creamos la opcion
+                option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+            })
+        });
+
+    }, [])
+
+    const datoSeleccionado = () => {
+        var e = document.getElementById("pacientesSelect");
+
+        console.log(e.value)
+    }
 
     return (
         <div>
@@ -168,28 +182,39 @@ const Turnos = () => {
                                 <label for="exampleInputEmail1" className="form-label">
                                     Paciente
                                 </label>
-                                <TextInput
+
+                                <select class="form-select" aria-label="Default select example" id="pacientesSelect"
+                                    onChange={() => datoSeleccionado()}>
+                                    <option selected>Seleccione un Paciente</option>
+
+                                </select>
+                                {/* <TextInput
                                     trigger={[""]}
                                     className="form-control fixed"
                                     options={opcionesPacientes}
                                     onSelect={(datoss) => {
                                         setnombreSelectorPaciente(datoss);
                                     }}
-                                />
+                                /> */}
                             </div>
 
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Médico
                                 </label>
-                                <TextInput
+                                <select class="form-select" aria-label="Default select example" id="MedicoSelect"
+                                    onChange={() => datoSeleccionado()}>
+                                    <option selected>Seleccione un Medico</option>
+
+                                </select>
+                                {/* <TextInput
                                     trigger={[""]}
                                     className="form-control fixed"
                                     options={opcionesMedicos}
                                     onSelect={(datoss) => {
                                         setnombreSelectorMedico(datoss);
                                     }}
-                                />
+                                /> */}
                             </div>
 
                             <div className="col-md-3">
