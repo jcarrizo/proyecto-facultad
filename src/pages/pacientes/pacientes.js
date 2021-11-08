@@ -158,8 +158,7 @@ const Pacientes = () => {
                       <div className="col-2">
                         <button
                           type="button"
-                          className="btn btn-primary ml-3 responsive-buscar"
-                        >
+                          className="btn btn-primary ml-3 responsive-buscar">
                           <b>Buscar</b>
                         </button>
                       </div>
