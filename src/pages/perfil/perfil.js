@@ -118,11 +118,10 @@ const Perfil = () => {
                               <p className="text-secondary mb-1">{datoss.profesion}</p>
 
                               <div className="mt-4">
-                                <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarFoto">Reemplazar Foto</button>
+                                <button className="btn btn-primary responsive-btn" data-bs-toggle="modal" data-bs-target="#editarFoto">Reemplazar Foto</button>
                                 <br></br>
-                                <button className="btn btn-outline-danger mt-4">Cambiar Contraseña</button>
+                                <button className="btn btn-outline-danger mt-4 responsive-btn">Cambiar Contraseña</button>
                               </div>
-
 
                             </div>
                           </div>

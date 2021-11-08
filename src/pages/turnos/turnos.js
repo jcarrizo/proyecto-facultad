@@ -201,7 +201,7 @@ const Turnos = () => {
                         events={turnos}
                         startAccessor="start"
                         endAccessor="end"
-                        style={{ height: 700, margin: "35px" }}
+                        style={{ height: 600, margin: "36px" }}
                         messages={{
                             next: "sig",
                             previous: "ant",
