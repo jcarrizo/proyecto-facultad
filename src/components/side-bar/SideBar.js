@@ -78,7 +78,7 @@ const SideBar = () => {
             <div className="row mt-4">
               <div className="col">
                 <div className="mt-4">
-                  <Link to="/perfil">
+                  <Link to="/#/perfil">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
