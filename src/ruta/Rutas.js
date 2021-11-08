@@ -12,22 +12,22 @@ const Rutas = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login" component={Login}>
+        <Route path="/#/login" component={Login}>
 
         </Route>
-        <Route path="/signUp">
+        <Route path="/#/signUp">
           <Signup />
         </Route>
-        <Route path="/perfil">
+        <Route path="/#/perfil">
           <Perfil />
         </Route>
-        <Route path="/pacientes" component={Pacientes}>
+        <Route path="/#/pacientes" component={Pacientes}>
 
         </Route>
-        <Route path="/turnos">
+        <Route path="/#/turnos">
           <Turnos />
         </Route>
-        <Route path="/profesionales">
+        <Route path="/#/profesionales">
           <Profesionales />
         </Route>
         <Route path="/">
