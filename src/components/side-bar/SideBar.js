@@ -18,7 +18,7 @@ const SideBar = () => {
     localStorage.setItem('rolUser', "");
 
     if (window.confirm("¿confirma que deasea desloguearse?")) {
-      window.location.href = "login";
+      window.location.href = "/login";
     }
   };
 
