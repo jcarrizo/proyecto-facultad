@@ -105,7 +105,7 @@ const SideBar = () => {
                 </div>
 
                 <div className="mt-4">
-                  <Link to="/Pacientes">
+                  <Route to="/Pacientes">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -114,7 +114,7 @@ const SideBar = () => {
                         <span className="ml-3">Turnos</span>
                       </p>
                     </button>
-                  </Link>
+                  </Route>
                 </div>
                 {vistaProfesional()}
               </div>
