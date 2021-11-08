@@ -1,6 +1,12 @@
 import React from "react";
 import "../side-bar/sidebar.css";
-import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS file uses this image
+import banner from "./../../images/bannerodonto.png";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"; // Tell webpack this JS file uses this image
 
 const SideBar = () => {
   let nameUser = localStorage.getItem("nameUser");
@@ -99,7 +105,7 @@ const SideBar = () => {
                 </div>
 
                 <div className="mt-4">
-                  <a href="/turnos">
+                  <Link to="/Pacientes">
                     <button variant="outline-primary" className="btn pointer">
                       <p className="text-grey">
                         <span>
@@ -108,7 +114,7 @@ const SideBar = () => {
                         <span className="ml-3">Turnos</span>
                       </p>
                     </button>
-                  </a>
+                  </Link>
                 </div>
                 {vistaProfesional()}
               </div>
