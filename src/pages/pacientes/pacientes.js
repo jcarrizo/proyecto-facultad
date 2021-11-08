@@ -85,9 +85,6 @@ const Pacientes = () => {
       type: "success",
       autoClose: 2000,
     });
-
-
-
   };
 
 
@@ -183,7 +180,7 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datos2) => {
-                            if (datos2.eliminado === false) {
+                            if ((rolUsuario === "2" || rolUsuario === "3") && datos2.eliminado == false) {
                               return (
                                 <tr onClick={() => { setPaciente(datos2) }}>
                                   <td>
@@ -196,6 +193,27 @@ const Pacientes = () => {
                                 </tr>
                               );
                             }
+                            else {
+                              console.log(datos2.profesionalId)
+                              if ((datos2.profesionalId === IdUsuario) && datos2.eliminado === false) {
+
+                                return (
+                                  <tr onClick={() => { setPaciente(datos2) }}>
+                                    <td>
+                                      {datos2.nombre + " " + datos2.apellido}
+                                    </td>
+                                    <td>{datos2.dni}</td>
+                                    <td>{datos2.email}</td>
+                                    <td>{datos2.telefono}</td>
+                                    <td>{datos2.obrasocial}</td>
+                                  </tr>
+                                );
+
+                              }
+                            }
+
+
+
 
                           })}
                         </tbody>
@@ -274,6 +292,65 @@ const Pacientes = () => {
                     <div className="col-sm-12">
                       {buttoneditar()}
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 className="tituloPerfil text-left text-muted">Turnos Paciente Seleccionado</h2>
+          <div className="row gutters-sm">
+            <div className="col-md-12">
+              <div className="card shadow mb-5">
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
+                    <table className="table table-hover pointer my-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Profesional</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {/* {datos.map((datos2) => {
+                            if ((rolUsuario === "2" || rolUsuario === "3") && datos2.eliminado == false) {
+                              return (
+                                <tr onClick={() => { setPaciente(datos2) }}>
+                                  <td>
+                                    {datos2.nombre + " " + datos2.apellido}
+                                  </td>
+                                  <td>{datos2.dni}</td>
+                                  <td>{datos2.email}</td>
+                                  <td>{datos2.telefono}</td>
+                                  <td>{datos2.obrasocial}</td>
+                                </tr>
+                              );
+                            }
+                            else {
+                              console.log(datos2.profesionalId)
+                              if ((datos2.profesionalId === IdUsuario) && datos2.eliminado === false) {
+
+                                return (
+                                  <tr onClick={() => { setPaciente(datos2) }}>
+                                    <td>
+                                      {datos2.nombre + " " + datos2.apellido}
+                                    </td>
+                                    <td>{datos2.dni}</td>
+                                    <td>{datos2.email}</td>
+                                    <td>{datos2.telefono}</td>
+                                    <td>{datos2.obrasocial}</td>
+                                  </tr>
+                                );
+
+                              }
+                            }
+
+
+
+
+                          })} */}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
