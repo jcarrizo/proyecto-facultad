@@ -1,3 +1,1 @@
 # Clinicas Aparicio
-
-that
