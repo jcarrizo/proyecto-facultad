@@ -5,7 +5,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  BrowserRouter
 } from "react-router-dom"; // Tell webpack this JS file uses this image
 
 const SideBar = () => {
@@ -78,44 +79,49 @@ const SideBar = () => {
 
             <div className="row mt-4">
               <div className="col">
-                <div className="mt-4">
-                  <Route to="/Perfil">
-                    <button variant="outline-primary" className="btn pointer">
-                      <p className="text-grey">
-                        <span>
-                          <i className="bi bi-person-lines-fill" />
-                        </span>
-                        <span className="ml-3">Mi perfil</span>
-                      </p>
-                    </button>
-                  </Route>
-                </div>
+                <BrowserRouter>
+                  <Switch>
+                    <div className="mt-4">
+                      <Route to="/Perfil">
+                        <button variant="outline-primary" className="btn pointer">
+                          <p className="text-grey">
+                            <span>
+                              <i className="bi bi-person-lines-fill" />
+                            </span>
+                            <span className="ml-3">Mi perfil</span>
+                          </p>
+                        </button>
+                      </Route>
+                    </div>
 
-                <div className="mt-4">
-                  <Route to="/Pacientes">
-                    <button variant="outline-primary" className="btn pointer">
-                      <p className="text-grey">
-                        <span>
-                          <i className="bi bi-people-fill" />
-                        </span>
-                        <span className="ml-3">Pacientes</span>
-                      </p>
-                    </button>
-                  </Route>
-                </div>
+                    <div className="mt-4">
+                      <Route to="/Pacientes">
+                        <button variant="outline-primary" className="btn pointer">
+                          <p className="text-grey">
+                            <span>
+                              <i className="bi bi-people-fill" />
+                            </span>
+                            <span className="ml-3">Pacientes</span>
+                          </p>
+                        </button>
+                      </Route>
+                    </div>
 
-                <div className="mt-4">
-                  <Route to="/Turnos">
-                    <button variant="outline-primary" className="btn pointer">
-                      <p className="text-grey">
-                        <span>
-                          <i className="bi bi-calendar-event" />
-                        </span>
-                        <span className="ml-3">Turnos</span>
-                      </p>
-                    </button>
-                  </Route>
-                </div>
+                    <div className="mt-4">
+                      <Route to="/Turnos">
+                        <button variant="outline-primary" className="btn pointer">
+                          <p className="text-grey">
+                            <span>
+                              <i className="bi bi-calendar-event" />
+                            </span>
+                            <span className="ml-3">Turnos</span>
+                          </p>
+                        </button>
+                      </Route>
+                    </div>
+                  </Switch>
+                </BrowserRouter>
+
                 {vistaProfesional()}
               </div>
             </div>
