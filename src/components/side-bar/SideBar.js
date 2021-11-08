@@ -45,7 +45,7 @@ const SideBar = () => {
   const vistaProfesionalResponsive = () => {
     if (rolUsuario === "3" || rolUsuario === "2") {
       return (
-        <a href="/proyecto-facultad/#/profesionales"><li>Profesionales</li></a>
+        <Link to="/profesionales"><li>Profesionales</li></Link>
       );
     }
   }
