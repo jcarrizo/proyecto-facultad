@@ -39,7 +39,7 @@ const Login = () => {
         localStorage.setItem('rolUser', datoss.rol);
         localStorage.setItem('fotoUser', datoss.fotoUser);
 
-        window.location = "/"
+        window.location = "#/perfil"
 
       }
     })
