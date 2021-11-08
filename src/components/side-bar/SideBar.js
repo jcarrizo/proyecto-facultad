@@ -8,6 +8,7 @@ import {
 import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS file uses this image
 
 const SideBar = () => {
+
   let nameUser = localStorage.getItem("nameUser");
   let rolUsuario = localStorage.getItem('rolUser');
 
