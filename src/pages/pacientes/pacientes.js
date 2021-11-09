@@ -7,6 +7,7 @@ import "./pacientes.css";
 
 const Pacientes = () => {
   const [datos, setDatos] = useState([]);
+  const [BuscarPacientedato, setBuscarPaciente] = useState();
   const [datosTurnos, setDatosTurnos] = useState([]);
   const { register, reset, handleSubmit } = useForm();
   const [paciente, setPaciente] = useState([]);
@@ -48,7 +49,7 @@ const Pacientes = () => {
       profesionalId: localStorage.getItem("dataD"),
     };
 
-    console.log(newPatient);
+
 
     db.collection("pacientes").doc().set(newPatient);
     setPaciente(datoVacio);
@@ -88,7 +89,7 @@ const Pacientes = () => {
       direccion: direccion,
       dni: dni,
     };
-    console.log(profileEditar)
+
     const resp = db.collection("pacientes").doc(idSeleccionadoPaciente).update(profileEditar);
     toast("Se editó el perfil correctamente", {
       type: "success",
@@ -133,6 +134,24 @@ const Pacientes = () => {
 
   }
 
+  const BuscarPaciente = () => {
+
+    let nombrePaciente = document.getElementById("textPaciente").value;
+
+    datos.map((datapaciente) => {
+
+      if (datapaciente.nombre === nombrePaciente || datapaciente.apellido === nombrePaciente || datapaciente.dni === nombrePaciente || datapaciente.email === nombrePaciente) {
+
+      }
+      if (nombrePaciente === undefined || nombrePaciente) {
+
+      }
+    })
+
+
+
+  }
+
 
   return (
     <div>
@@ -168,7 +187,7 @@ const Pacientes = () => {
                       <div className="col-2">
                         <button
                           type="button"
-                          className="btn btn-primary ml-3 responsive-buscar">
+                          className="btn btn-primary ml-3 responsive-buscar" onClick={() => setBuscarPaciente(document.getElementById("textPaciente").value)}>
                           <b>Buscar</b>
                         </button>
                       </div>
@@ -187,22 +206,7 @@ const Pacientes = () => {
                         <tbody>
                           {datos.map((datos2) => {
                             if ((rolUsuario === "2" || rolUsuario === "3") && datos2.eliminado == false) {
-                              return (
-                                <tr onClick={() => { setPaciente(datos2) }}>
-                                  <td>
-                                    {datos2.nombre + " " + datos2.apellido}
-                                  </td>
-                                  <td>{datos2.dni}</td>
-                                  <td>{datos2.email}</td>
-                                  <td>{datos2.telefono}</td>
-                                  <td>{datos2.obrasocial}</td>
-                                </tr>
-                              );
-                            }
-                            else {
-                              console.log(datos2.profesionalId)
-                              if ((datos2.profesionalId === IdUsuario) && datos2.eliminado === false) {
-
+                              if (datos2.nombre === BuscarPacientedato || datos2.apellido === BuscarPacientedato || datos2.dni === BuscarPacientedato || datos2.email === BuscarPacientedato) {
                                 return (
                                   <tr onClick={() => { setPaciente(datos2) }}>
                                     <td>
@@ -214,13 +218,37 @@ const Pacientes = () => {
                                     <td>{datos2.obrasocial}</td>
                                   </tr>
                                 );
+                              }
+                              else {
+                                return (
+                                  <tr onClick={() => { setPaciente(datos2) }}>
+                                    <td>
+                                      {datos2.nombre + " " + datos2.apellido}
+                                    </td>
+                                    <td>{datos2.dni}</td>
+                                    <td>{datos2.email}</td>
+                                    <td>{datos2.telefono}</td>
+                                    <td>{datos2.obrasocial}</td>
+                                  </tr>
+                                );
+                              }
 
+                            }
+                            else {
+                              if ((datos2.profesionalId === IdUsuario) && datos2.eliminado === false) {
+                                return (
+                                  <tr onClick={() => { setPaciente(datos2) }}>
+                                    <td>
+                                      {datos2.nombre + " " + datos2.apellido}
+                                    </td>
+                                    <td>{datos2.dni}</td>
+                                    <td>{datos2.email}</td>
+                                    <td>{datos2.telefono}</td>
+                                    <td>{datos2.obrasocial}</td>
+                                  </tr>
+                                );
                               }
                             }
-
-
-
-
                           })}
                         </tbody>
                       </table>
