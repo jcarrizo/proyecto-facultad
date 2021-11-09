@@ -47,6 +47,7 @@ ________________________________________________________________________________
 * Funcion del buscador de pacientes
 
 --ISSUES--
+* Tiene que traer todos los pacientes
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
@@ -64,6 +65,7 @@ ________________________________________________________________________________
 
 --ISSUES--
 * Seleccionar fecha con z index y oscuro 
+* Semana con turnos se rompe
 
 
 --NICE TO HAVE--
