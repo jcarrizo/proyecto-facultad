@@ -65,6 +65,7 @@ ________________________________________________________________________________
 
 --ISSUES--
 * Seleccionar fecha con z index y oscuro 
+* Semana con turnos se rompe
 
 
 --NICE TO HAVE--
