@@ -391,7 +391,7 @@ const Pacientes = () => {
 
                 <div className="modal-footer">
                   <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
-                  <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmitEditar()}>Editar Paciente</button>
+                  <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmitEditar()}>Guardar</button>
                 </div>
 
               </form>
