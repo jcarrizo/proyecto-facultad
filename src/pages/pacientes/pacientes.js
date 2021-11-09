@@ -134,23 +134,23 @@ const Pacientes = () => {
 
   }
 
-  const BuscarPaciente = () => {
+  // const BuscarPaciente = () => {
 
-    let nombrePaciente = document.getElementById("textPaciente").value;
+  //   let nombrePaciente = document.getElementById("textPaciente").value;
 
-    datos.map((datapaciente) => {
+  //   datos.map((datapaciente) => {
 
-      if (datapaciente.nombre === nombrePaciente || datapaciente.apellido === nombrePaciente || datapaciente.dni === nombrePaciente || datapaciente.email === nombrePaciente) {
+  //     if (datapaciente.nombre === nombrePaciente || datapaciente.apellido === nombrePaciente || datapaciente.dni === nombrePaciente || datapaciente.email === nombrePaciente) {
 
-      }
-      if (nombrePaciente === undefined || nombrePaciente) {
+  //     }
+  //     if (nombrePaciente === undefined || nombrePaciente) {
 
-      }
-    })
+  //     }
+  //   })
 
 
 
-  }
+  // }
 
 
   return (
@@ -219,7 +219,7 @@ const Pacientes = () => {
                                   </tr>
                                 );
                               }
-                              else {
+                              if (BuscarPacientedato === undefined || BuscarPacientedato === "") {
                                 return (
                                   <tr onClick={() => { setPaciente(datos2) }}>
                                     <td>
@@ -236,17 +236,32 @@ const Pacientes = () => {
                             }
                             else {
                               if ((datos2.profesionalId === IdUsuario) && datos2.eliminado === false) {
-                                return (
-                                  <tr onClick={() => { setPaciente(datos2) }}>
-                                    <td>
-                                      {datos2.nombre + " " + datos2.apellido}
-                                    </td>
-                                    <td>{datos2.dni}</td>
-                                    <td>{datos2.email}</td>
-                                    <td>{datos2.telefono}</td>
-                                    <td>{datos2.obrasocial}</td>
-                                  </tr>
-                                );
+                                if (datos2.nombre === BuscarPacientedato || datos2.apellido === BuscarPacientedato || datos2.dni === BuscarPacientedato || datos2.email === BuscarPacientedato) {
+                                  return (
+                                    <tr onClick={() => { setPaciente(datos2) }}>
+                                      <td>
+                                        {datos2.nombre + " " + datos2.apellido}
+                                      </td>
+                                      <td>{datos2.dni}</td>
+                                      <td>{datos2.email}</td>
+                                      <td>{datos2.telefono}</td>
+                                      <td>{datos2.obrasocial}</td>
+                                    </tr>
+                                  );
+                                }
+                                if (BuscarPacientedato === undefined || BuscarPacientedato === "") {
+                                  return (
+                                    <tr onClick={() => { setPaciente(datos2) }}>
+                                      <td>
+                                        {datos2.nombre + " " + datos2.apellido}
+                                      </td>
+                                      <td>{datos2.dni}</td>
+                                      <td>{datos2.email}</td>
+                                      <td>{datos2.telefono}</td>
+                                      <td>{datos2.obrasocial}</td>
+                                    </tr>
+                                  );
+                                }
                               }
                             }
                           })}
@@ -419,7 +434,7 @@ const Pacientes = () => {
 
                 <div className="modal-footer">
                   <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
-                  <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmitEditar()}>Guardar</button>
+                  <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmitEditar()}>Editar Paciente</button>
                 </div>
 
               </form>
