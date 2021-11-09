@@ -30,11 +30,9 @@ ________________________________________________________________________________
 
                                                  MI PERFIL
 --FALTA--
-* Editar Foto
 * Cambiar password
 
 --ISSUES--
-* Editar no te deja editar un solo campo, tiene q ser todos o se pudre
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
@@ -49,7 +47,6 @@ ________________________________________________________________________________
 * Funcion del buscador de pacientes
 
 --ISSUES--
-* Agregar paciente guarda info sin verificar, raro
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
@@ -61,8 +58,7 @@ ________________________________________________________________________________
 
                                                   TURNOS
 --FALTA--
-* Hay q ver de que la secretaria primero filtre los turnos 
-  x medico y que pueda pedir un turno para ese medico-paciente
+* Hay q ver de que la secretaria primero filtre los turnos x medico
 * borrar turno
 
 
@@ -92,13 +88,12 @@ ________________________________________________________________________________
 
                                              MIS PROFESIONALES
 --FALTA--
-* Funcion eliminar profesional
-* Agregar horario del trabajo del Profesional
 
 --ISSUES--
-* Al editar se pudre xd
+* Funcion eliminar profesional te sigue dejando loguearte
 
 --NICE TO HAVE--
+* Agregar horario del trabajo del Profesional
 ________________________________________________________________________________________________________
 
 
@@ -108,8 +103,7 @@ ________________________________________________________________________________
 
                                                   GENERAL
 --FALTA--
-* Mobile + APK
-* Deploy
+* APK
 
 --ISSUES--
 
