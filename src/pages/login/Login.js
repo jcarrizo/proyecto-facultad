@@ -64,7 +64,7 @@ const Login = () => {
             <div className="col-md-7">
               <div className="card-body-login">
 
-                <h3 className="login-card-description-login">Loguearse</h3>
+                <h3 className="login-card-description-login">Ingresar</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input type="email" name="email" className="form-control"
