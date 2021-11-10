@@ -135,9 +135,13 @@ const Turnos = () => {
             setMedicos(medicosArray)
             medicosArray.map((data) => {
                 if (data.eliminado !== true && data.rol === 1) {
+
                     var option = document.createElement("option"); //Creamos la opcion
                     option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                    document.getElementById("MedicoSelect").appendChild(option); //Metemos la opción en el select
+                    if (document.getElementById("MedicoSelect") !== null) {
+                        document.getElementById("MedicoSelect").appendChild(option);  //Metemos la opción en el select   
+                    }
+
                 }
 
             })
@@ -160,7 +164,9 @@ const Turnos = () => {
                     if (data.profesionalId === localStorage.getItem("dataD")) {
                         var option = document.createElement("option"); //Creamos la opcion
                         option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                        document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                        if (document.getElementById("pacientesSelect") !== null) {
+                            document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                        }
                     }
                 })
             }
@@ -168,7 +174,9 @@ const Turnos = () => {
                 pacientes.map((data) => {
                     var option = document.createElement("option"); //Creamos la opcion
                     option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                    document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                    if (document.getElementById("pacientesSelect") !== null) {
+                        document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                    }
                 })
             }
         });
