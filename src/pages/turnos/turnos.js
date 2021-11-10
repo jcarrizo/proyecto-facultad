@@ -88,10 +88,10 @@ const Turnos = () => {
             querySnapshot.forEach((doc) => {
                 turnos.push({ ...doc.data(), id: doc.id });
             });
-            // for (let i = 0; i < turnos.length; i++) {
-            //     turnos[i].start = new Date(turnos[i].start);
-            //     turnos[i].end = new Date(turnos[i].end);
-            // }
+            for (let i = 0; i < turnos.length; i++) {
+                turnos[i].start = new Date(turnos[i].start);
+                turnos[i].end = new Date(turnos[i].end);
+            }
 
             if (rolUsuario === "2" || rolUsuario === "3") {
                 setTurnos(turnos);

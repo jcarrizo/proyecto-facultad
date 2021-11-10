@@ -46,6 +46,7 @@ ________________________________________________________________________________
 --FALTA--
 * Funcion del buscador de pacientes
 
+
 --ISSUES--
 * Tiene que traer todos los pacientes
 
@@ -108,6 +109,10 @@ ________________________________________________________________________________
 * APK
 
 --ISSUES--
+*se cierra el modal aun con error
+*boton limpiar buscador pacientes
+*que busque en miniscula pacientes
+*tipo number telefono
 
 --NICE TO HAVE--
 * Tablet support
