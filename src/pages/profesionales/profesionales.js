@@ -172,6 +172,25 @@ const Profesionales = () => {
   }
 
 
+  const eliminarTurno = (data) => {
+    console.log(data)
+    if (window.confirm("¿Está seguro que desea eliminar el turno?")) {
+      const turnoEdit = {
+        eliminado: true,
+      };
+
+      const resp = db
+        .collection("turnos")
+        .doc(data)
+        .update(turnoEdit);
+      toast("Se eliminó el turno correctamente", {
+        type: "success",
+        autoClose: 2000,
+      });
+    }
+  };
+
+
 
 
   return (
@@ -330,12 +349,13 @@ const Profesionales = () => {
                         <tr>
                           <th scope="col">Fecha</th>
                           <th scope="col">Paciente</th>
+                          <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
                         {
                           datosTurnos.map((turnos) => {
-                            if (profesional.id === turnos.profesionalId) {
+                            if (profesional.id === turnos.profesionalId && turnos.eliminado !== true) {
                               var date = new Date(turnos.start)
                               return (
                                 <tr>
@@ -343,6 +363,7 @@ const Profesionales = () => {
                                     {date.toLocaleString()}
                                   </td>
                                   <td>{turnos.title}</td>
+                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
                                 </tr>
                               );
                             }

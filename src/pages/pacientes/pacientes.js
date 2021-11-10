@@ -134,23 +134,29 @@ const Pacientes = () => {
 
   }
 
-  // const BuscarPaciente = () => {
+  const habilitarbutton = () => {
+    const button = document.getElementById('buttoneliminar')
+    button.disabled = false;
+  }
 
-  //   let nombrePaciente = document.getElementById("textPaciente").value;
+  const eliminarTurno = (data) => {
+    console.log(data)
+    if (window.confirm("¿Está seguro que desea eliminar el turno?")) {
+      const turnoEdit = {
+        eliminado: true,
+      };
 
-  //   datos.map((datapaciente) => {
+      const resp = db
+        .collection("turnos")
+        .doc(data)
+        .update(turnoEdit);
+      toast("Se eliminó el turno correctamente", {
+        type: "success",
+        autoClose: 2000,
+      });
+    }
+  };
 
-  //     if (datapaciente.nombre === nombrePaciente || datapaciente.apellido === nombrePaciente || datapaciente.dni === nombrePaciente || datapaciente.email === nombrePaciente) {
-
-  //     }
-  //     if (nombrePaciente === undefined || nombrePaciente) {
-
-  //     }
-  //   })
-
-
-
-  // }
 
 
   return (
@@ -358,12 +364,13 @@ const Pacientes = () => {
                         <tr>
                           <th scope="col">Fecha</th>
                           <th scope="col">Profesional</th>
+                          <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
                         {
                           datosTurnos.map((turnos) => {
-                            if (paciente.id === turnos.pacienteId) {
+                            if (paciente.id === turnos.pacienteId && turnos.eliminado !== true) {
                               var date = new Date(turnos.start)
                               return (
                                 <tr>
@@ -371,6 +378,7 @@ const Pacientes = () => {
                                     {date.toLocaleString()}
                                   </td>
                                   <td>{turnos.medicoNombre}</td>
+                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
                                 </tr>
                               );
                             }

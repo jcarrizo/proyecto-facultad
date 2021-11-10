@@ -61,6 +61,7 @@ const Turnos = () => {
                                 pacienteId: datapaciente.id,
                                 profesionalId: datamedico.id,
                                 medicoNombre: medicoSelect.value,
+                                eliminado: false,
                             };
                             flag = true
                             db.collection("turnos").doc().set(nuevoTurno);
@@ -94,13 +95,22 @@ const Turnos = () => {
             }
 
             if (rolUsuario === "2" || rolUsuario === "3") {
-                setTurnos(turnos);
+                turnosProfesional = []
+                turnos.map((dataturnosmedico) => {
+
+                    if (dataturnosmedico.eliminado !== true) {
+                        turnosProfesional.push(dataturnosmedico)
+                    }
+
+                })
+                setTurnos(turnosProfesional);
+
             }
             if (rolUsuario === "1") {
                 turnosProfesional = []
                 turnos.map((dataturnosmedico) => {
 
-                    if (dataturnosmedico.profesionalId === localStorage.getItem("dataD")) {
+                    if ((dataturnosmedico.profesionalId === localStorage.getItem("dataD")) && dataturnosmedico.eliminado !== true) {
                         turnosProfesional.push(dataturnosmedico)
                     }
 
@@ -124,9 +134,12 @@ const Turnos = () => {
             }
             setMedicos(medicosArray)
             medicosArray.map((data) => {
-                var option = document.createElement("option"); //Creamos la opcion
-                option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                document.getElementById("MedicoSelect").appendChild(option); //Metemos la opción en el select
+                if (data.eliminado !== true && data.rol === 1) {
+                    var option = document.createElement("option"); //Creamos la opcion
+                    option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                    document.getElementById("MedicoSelect").appendChild(option); //Metemos la opción en el select
+                }
+
             })
         }
         );

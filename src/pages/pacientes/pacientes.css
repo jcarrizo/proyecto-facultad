@@ -2,6 +2,9 @@ thead{
   color:white;
   background-color: var(--blue-trans);
 }
+tr .btn{
+background-color: red; 
+}
 tr{
   border: 1px solid var(--light-grey);
 }
