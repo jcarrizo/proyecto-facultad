@@ -4,6 +4,8 @@ import { db } from "../../DB/firebase";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "./pacientes.css";
+import * as XLSX from 'xlsx';
+
 
 const Pacientes = () => {
   const [datos, setDatos] = useState([]);
@@ -14,6 +16,7 @@ const Pacientes = () => {
   let rolUsuario = localStorage.getItem("rolUser");
   let IdUsuario = localStorage.getItem("dataD");
   let datoVacio = [];
+  let wb;
 
   useEffect(() => {
     db.collection("pacientes").onSnapshot((querySnapshot) => {
@@ -157,6 +160,33 @@ const Pacientes = () => {
     }
   };
 
+  const exportExcel = () => {
+    wb = XLSX.utils.book_new();
+
+    const array = [[
+      "Nombre", "DNI", "Email", "Teléfono", "Obra Social"
+    ]]
+
+
+    for (const paciente of datos) {
+      array.push([
+        paciente.nombre + " " + paciente.apellido,
+        paciente.dni,
+        paciente.email,
+        paciente.telefono,
+        paciente.obrasocial
+      ])
+    }
+
+
+    const ws = XLSX.utils.aoa_to_sheet(array);
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Informe');
+
+    /**  save to file */
+    XLSX.writeFile(wb, "pacientes.xlsx");
+  }
+
 
 
   return (
@@ -248,6 +278,8 @@ const Pacientes = () => {
               </div>
             </div>
           </div>
+
+          <button type="button" className="btn btn-primary" onClick={() => exportExcel()}>Excel</button>
 
           <h2 className="tituloPerfil text-left text-muted margin">Turnos del Paciente seleccionado</h2>
           <div className="row gutters-sm">
