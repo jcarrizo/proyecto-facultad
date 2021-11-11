@@ -34,7 +34,7 @@ const Turnos = () => {
                         start: String(startDate),
                         end: String(startDate),
                         pacienteId: datapaciente.id,
-                        medicoNombre: medicoSelect.value,
+                        medicoNombre: localStorage.getItem("nameUser") + " " + localStorage.getItem("apellidoUser"),
                         profesionalId: localStorage.getItem("dataD"),
                     };
                     flag = true
@@ -173,8 +173,7 @@ const Turnos = () => {
     const SelectMedicoBloquear = () => {
         if (rolUsuario === "1") {
             return (
-                <select class="form-select" aria-label="Default select example" id="MedicoSelect" disabled
-                >
+                <select class="form-select" aria-label="Default select example" id="MedicoSelect" disabled>
                     <option selected>Seleccione un Medico</option>
                 </select>
             )
