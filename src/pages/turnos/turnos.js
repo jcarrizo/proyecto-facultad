@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
+import * as XLSX from 'xlsx';
 
 require("moment/locale/es.js");
 const localizer = momentLocalizer(moment);
@@ -19,6 +20,7 @@ const Turnos = () => {
     const [turnos, setTurnos] = useState([]);
     const [pacientes, setPacientes] = useState([]);
     const [medicos, setMedicos] = useState([]);
+    let wb;
 
 
     const onSubmit = () => {
@@ -188,6 +190,31 @@ const Turnos = () => {
         }
     }
 
+    const exportExcel = () => {
+        wb = XLSX.utils.book_new();
+
+        const array = [[
+            "Fecha", "Paciente", "Profesional"
+        ]]
+
+
+        for (const turno of turnos) {
+            array.push([
+                turno.start.toLocaleString(),
+                turno.title,
+                turno.medicoNombre,
+            ])
+        }
+
+
+        const ws = XLSX.utils.aoa_to_sheet(array);
+
+        XLSX.utils.book_append_sheet(wb, ws, 'Informe');
+
+        /**  save to file */
+        XLSX.writeFile(wb, "turnos.xlsx");
+    }
+
     return (
         <div>
             <div className="row">
@@ -195,7 +222,12 @@ const Turnos = () => {
                     <SideBar></SideBar>
                 </div>
                 <div className="col-md-10 pt-5 pr-5 pb-5">
-                    <h2 className="tituloPerfil padding-responsive text-muted">Turnos</h2>
+                    <div className="row">
+                        <h2 className="tituloPerfil padding-responsive text-muted col-1">Turnos</h2>
+                        <div className="col text-left responsive">
+                            <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
+                        </div>
+                    </div>
                     <form>
                         <div className="row ml-4">
                             <div className="col-md-3">

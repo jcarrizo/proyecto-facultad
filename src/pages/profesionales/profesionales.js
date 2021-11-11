@@ -4,12 +4,14 @@ import { db } from "../../DB/firebase";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "./profesionales.css";
+import * as XLSX from 'xlsx';
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
   const [datosTurnos, setDatosTurnos] = useState([]);
   const [profesional, setProfesional] = useState([]);
   const { register, handleSubmit } = useForm();
+  let wb;
 
 
   const profileEdit = {
@@ -190,6 +192,31 @@ const Profesionales = () => {
     }
   };
 
+  const exportExcel = () => {
+    wb = XLSX.utils.book_new();
+
+    const array = [[
+      "Profesional", "Email", "Teléfono", "Profesión"
+    ]]
+
+
+    for (const paciente of datos) {
+      array.push([
+        paciente.nombre + " " + paciente.apellido,
+        paciente.email,
+        paciente.telefono,
+        paciente.profesion
+      ])
+    }
+
+
+    const ws = XLSX.utils.aoa_to_sheet(array);
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Informe');
+
+    /**  save to file */
+    XLSX.writeFile(wb, "profesionales.xlsx");
+  }
 
 
 
@@ -203,7 +230,12 @@ const Profesionales = () => {
         {/*                                                             Lista de profesionales                                   */}
         <div className="col-md-5 text-muted">
           <div className="container mt-5">
-            <h2 className="tituloPerfil">Profesionales</h2>
+            <div className="row">
+              <h2 className="tituloPerfil col-4">Profesionales</h2>
+              <div className="col-3 text-left responsive">
+                <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
+              </div>
+            </div>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 tabla">
                 <div className="card shadow">

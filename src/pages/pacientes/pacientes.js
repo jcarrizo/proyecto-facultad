@@ -164,7 +164,7 @@ const Pacientes = () => {
     wb = XLSX.utils.book_new();
 
     const array = [[
-      "Nombre", "DNI", "Email", "Teléfono", "Obra Social"
+      "Paciente", "DNI", "Email", "Teléfono", "Obra Social"
     ]]
 
 
@@ -200,10 +200,16 @@ const Pacientes = () => {
           <div className="container mt-5">
             <div className="row">
               <h2 className="tituloPerfil col-3 mt-1 text-muted">Pacientes</h2>
-              <div className="col responsive">
+
+              <div className="col-2 responsive">
                 <i className="btn btn-primary plus bi bi-person-plus-fill pointer" data-toggle="tooltip" data-placement="right" data-bs-toggle="modal"
                   data-bs-target="#agregarPaciente" title="Nuevo Paciente" />
               </div>
+
+              <div className="col text-left responsive">
+                <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
+              </div>
+
             </div>
             <div className="row gutters-sm">
               <div className="col-md-4 mb-3 ancho">
@@ -279,7 +285,6 @@ const Pacientes = () => {
             </div>
           </div>
 
-          <button type="button" className="btn btn-primary" onClick={() => exportExcel()}>Excel</button>
 
           <h2 className="tituloPerfil text-left text-muted margin">Turnos del Paciente seleccionado</h2>
           <div className="row gutters-sm">
