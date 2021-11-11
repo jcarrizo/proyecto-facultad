@@ -30,7 +30,7 @@ ________________________________________________________________________________
 
                                                  MI PERFIL
 --FALTA--
-* Cambiar contraseña
+
 
 
 --ISSUES--
@@ -92,7 +92,7 @@ ________________________________________________________________________________
 * Boton limpiar buscador
 
 --ISSUES--
-* Funcion eliminar profesional te sigue dejando loguearte
+
 
 --NICE TO HAVE--
 * Agregar horario del trabajo del Profesional
