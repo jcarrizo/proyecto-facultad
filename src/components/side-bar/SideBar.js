@@ -135,7 +135,7 @@ const SideBar = () => {
                 </div>
 
                 <ul className="dropdown-menu pointer">
-                  <li className="dropdown-item" onClick={LogOut}>
+                  <li className="dropdown-item" onClick={() => { LogOut() }}>
                     Salir
                   </li>
                 </ul>
