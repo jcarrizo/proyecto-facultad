@@ -242,6 +242,44 @@ const Profesionales = () => {
               </div>
             </div>
           </div>
+          <h2 className="tituloPerfil text-left text-muted mt-4 margin">Turnos Medico Seleccionado</h2>
+          <div className="row gutters-sm">
+            <div className="col-md-12">
+              <div className="card shadow mb-5">
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
+                    <table className="table table-hover pointer my-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Paciente</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          datosTurnos.map((turnos) => {
+                            if (profesional.id === turnos.profesionalId && turnos.eliminado !== true) {
+                              var date = new Date(turnos.start)
+                              return (
+                                <tr>
+                                  <td>
+                                    {date.toLocaleString()}
+                                  </td>
+                                  <td>{turnos.title}</td>
+                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
+                                </tr>
+                              );
+                            }
+                          })
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/*                                                      Seleccionable                       */}
@@ -338,44 +376,6 @@ const Profesionales = () => {
           </div>
 
 
-          <h2 className="tituloPerfil text-left text-muted mt-4">Turnos Medico Seleccionado</h2>
-          <div className="row gutters-sm">
-            <div className="col-md-12">
-              <div className="card shadow mb-5">
-                <div className="card-body">
-                  <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
-                    <table className="table table-hover pointer my-table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Fecha</th>
-                          <th scope="col">Paciente</th>
-                          <th scope="col"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {
-                          datosTurnos.map((turnos) => {
-                            if (profesional.id === turnos.profesionalId && turnos.eliminado !== true) {
-                              var date = new Date(turnos.start)
-                              return (
-                                <tr>
-                                  <td>
-                                    {date.toLocaleString()}
-                                  </td>
-                                  <td>{turnos.title}</td>
-                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
-                                </tr>
-                              );
-                            }
-                          })
-                        }
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* MODAL EDITAR PERFIL */}
           <div
