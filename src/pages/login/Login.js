@@ -31,7 +31,7 @@ const Login = () => {
 
       console.log(datoss)
 
-      if (datoss.email === data.email && datoss.password === data.password) {
+      if ((datoss.email === data.email && datoss.password === data.password) && datoss.eliminado !== true) {
 
         flag = true;
         localStorage.setItem('emailUser', datoss.email);
