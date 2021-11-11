@@ -158,27 +158,14 @@ const Turnos = () => {
             });
             setPacientes(pacientes);
             let arrayPacientes = [];
-            if (rolUsuario === "1") {
+            pacientes.map((data) => {
+                var option = document.createElement("option"); //Creamos la opcion
+                option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                if (document.getElementById("pacientesSelect") !== null) {
+                    document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                }
+            })
 
-                pacientes.map((data) => {
-                    if (data.profesionalId === localStorage.getItem("dataD")) {
-                        var option = document.createElement("option"); //Creamos la opcion
-                        option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                        if (document.getElementById("pacientesSelect") !== null) {
-                            document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
-                        }
-                    }
-                })
-            }
-            else {
-                pacientes.map((data) => {
-                    var option = document.createElement("option"); //Creamos la opcion
-                    option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                    if (document.getElementById("pacientesSelect") !== null) {
-                        document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
-                    }
-                })
-            }
         });
     }, [])
 

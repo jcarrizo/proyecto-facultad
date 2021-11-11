@@ -241,7 +241,7 @@ const Pacientes = () => {
                         </thead>
                         <tbody>
                           {datos.map((datos2) => {
-                            if ((rolUsuario === "2" || rolUsuario === "3") && datos2.eliminado == false) {
+                            if (datos2.eliminado === false) {
                               if (datos2.nombre === BuscarPacientedato || datos2.apellido === BuscarPacientedato || datos2.dni === BuscarPacientedato || datos2.email === BuscarPacientedato) {
                                 return (
                                   <tr onClick={() => { setPaciente(datos2) }}>
@@ -267,37 +267,6 @@ const Pacientes = () => {
                                     <td>{datos2.obrasocial}</td>
                                   </tr>
                                 );
-                              }
-
-                            }
-                            else {
-                              if ((datos2.profesionalId === IdUsuario) && datos2.eliminado === false) {
-                                if (datos2.nombre === BuscarPacientedato || datos2.apellido === BuscarPacientedato || datos2.dni === BuscarPacientedato || datos2.email === BuscarPacientedato) {
-                                  return (
-                                    <tr onClick={() => { setPaciente(datos2) }}>
-                                      <td>
-                                        {datos2.nombre + " " + datos2.apellido}
-                                      </td>
-                                      <td>{datos2.dni}</td>
-                                      <td>{datos2.email}</td>
-                                      <td>{datos2.telefono}</td>
-                                      <td>{datos2.obrasocial}</td>
-                                    </tr>
-                                  );
-                                }
-                                if (BuscarPacientedato === undefined || BuscarPacientedato === "") {
-                                  return (
-                                    <tr onClick={() => { setPaciente(datos2) }}>
-                                      <td>
-                                        {datos2.nombre + " " + datos2.apellido}
-                                      </td>
-                                      <td>{datos2.dni}</td>
-                                      <td>{datos2.email}</td>
-                                      <td>{datos2.telefono}</td>
-                                      <td>{datos2.obrasocial}</td>
-                                    </tr>
-                                  );
-                                }
                               }
                             }
                           })}
@@ -423,7 +392,6 @@ const Pacientes = () => {
               </div>
             </div>
           </div>
-
 
         </div>
       </div>
