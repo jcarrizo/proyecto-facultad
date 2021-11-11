@@ -279,6 +279,45 @@ const Pacientes = () => {
               </div>
             </div>
           </div>
+
+          <h2 className="tituloPerfil text-left text-muted margin">Turnos del Paciente seleccionado</h2>
+          <div className="row gutters-sm">
+            <div className="col-md-12">
+              <div className="card shadow mb-5">
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
+                    <table className="table table-hover pointer my-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Profesional</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          datosTurnos.map((turnos) => {
+                            if (paciente.id === turnos.pacienteId && turnos.eliminado !== true) {
+                              var date = new Date(turnos.start)
+                              return (
+                                <tr>
+                                  <td>
+                                    {date.toLocaleString()}
+                                  </td>
+                                  <td>{turnos.medicoNombre}</td>
+                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
+                                </tr>
+                              );
+                            }
+                          })
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
 
@@ -353,44 +392,7 @@ const Pacientes = () => {
             </div>
           </div>
 
-          <h2 className="tituloPerfil text-left text-muted">Turnos Paciente Seleccionado</h2>
-          <div className="row gutters-sm">
-            <div className="col-md-12">
-              <div className="card shadow mb-5">
-                <div className="card-body">
-                  <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
-                    <table className="table table-hover pointer my-table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Fecha</th>
-                          <th scope="col">Profesional</th>
-                          <th scope="col"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {
-                          datosTurnos.map((turnos) => {
-                            if (paciente.id === turnos.pacienteId && turnos.eliminado !== true) {
-                              var date = new Date(turnos.start)
-                              return (
-                                <tr>
-                                  <td>
-                                    {date.toLocaleString()}
-                                  </td>
-                                  <td>{turnos.medicoNombre}</td>
-                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
-                                </tr>
-                              );
-                            }
-                          })
-                        }
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
       {/* MODAL EDITAR PERFIL */}
