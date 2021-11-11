@@ -30,7 +30,8 @@ ________________________________________________________________________________
 
                                                  MI PERFIL
 --FALTA--
-* Cambiar password
+* Cambiar contraseña
+
 
 --ISSUES--
 
@@ -44,11 +45,10 @@ ________________________________________________________________________________
 
                                                MIS PACIENTES
 --FALTA--
-* Funcion del buscador de pacientes
+* Boton limpiar buscador
 
 
 --ISSUES--
-* Tiene que traer todos los pacientes
 
 --NICE TO HAVE--
 ________________________________________________________________________________________________________
@@ -61,12 +61,10 @@ ________________________________________________________________________________
                                                   TURNOS
 --FALTA--
 * Hay q ver de que la secretaria primero filtre los turnos x medico
-* borrar turno
 
 
 --ISSUES--
 * Seleccionar fecha con z index y oscuro 
-* Semana con turnos se rompe
 
 
 --NICE TO HAVE--
@@ -91,6 +89,7 @@ ________________________________________________________________________________
 
                                              MIS PROFESIONALES
 --FALTA--
+* Boton limpiar buscador
 
 --ISSUES--
 * Funcion eliminar profesional te sigue dejando loguearte
@@ -106,16 +105,14 @@ ________________________________________________________________________________
 
                                                   GENERAL
 --FALTA--
-* APK
 
 --ISSUES--
-*se cierra el modal aun con error
-*boton limpiar buscador pacientes
-*que busque en miniscula pacientes
-*tipo number telefono
-*boton enter cierra modal sin submit
-*Secretaria no pueda eliminar Profesional
-*avisar si sacas turno para el mismo horario
+* se cierra el modal aun con error
+* que busque en miniscula pacientes
+* tipo number telefono
+* boton enter cierra modal sin submit
+* Secretaria no pueda eliminar Profesional
+* avisar si sacas turno para el mismo horario
 
 --NICE TO HAVE--
 * Tablet support
