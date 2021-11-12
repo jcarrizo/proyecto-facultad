@@ -17,11 +17,8 @@ const SideBar = () => {
     localStorage.setItem("nameUser", "");
     localStorage.setItem('dataD', "");
     localStorage.setItem('rolUser', "");
-
-    if (window.confirm("¿confirma que deasea desloguearse?")) {
-      window.location.href = "/proyecto-facultad/#/login";
-    }
-  };
+    window.location.href = "/proyecto-facultad/#/login";
+  }
 
 
   const vistaProfesional = () => {
@@ -66,7 +63,6 @@ const SideBar = () => {
       )
     }
   }
-
 
 
   return (
@@ -125,21 +121,39 @@ const SideBar = () => {
                   {CargarImagen()}
                 </div>
                 <div
-                  type="button"
-                  className="btn dropdown-toggle col-auto mt-2 max-length"
-                  data-bs-toggle="dropdown"
+                  className="col-auto mt-2 max-length"
                   aria-expanded="false"
                   length="10"
                 >
                   {nameUser}
                 </div>
 
-                <ul className="dropdown-menu pointer">
-                  <li className="dropdown-item" onClick={() => { LogOut() }}>
-                    Salir
-                  </li>
-                </ul>
+
+                {/* < !--Button Cerrar Sesión --> */}
+                <button type="button" class="btn btn-primary mt-3 ml-2 mr-2" data-bs-toggle="modal" data-bs-target="#cerrarSesion">
+                  Cerrar Sesión
+                </button>
+
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <!-- Modal Cerrar Sesión --> */}
+      <div class="modal fade" id="cerrarSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ¿Esta seguro que desea cerrar la sesión?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" onClick={() => { LogOut() }} data-bs-dismiss="modal">Cerrar Sesión</button>
             </div>
           </div>
         </div>
@@ -164,6 +178,7 @@ const SideBar = () => {
           </div>
         </nav>
       </div>
+
     </div>
   );
 };
