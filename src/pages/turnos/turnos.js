@@ -21,7 +21,7 @@ const Turnos = () => {
     const [pacientes, setPacientes] = useState([]);
     const [medicos, setMedicos] = useState([]);
     let wb;
-
+    let datamediconame;
 
     const onSubmit = () => {
         var pacienteSelect = document.getElementById("pacientesSelect");
@@ -85,6 +85,7 @@ const Turnos = () => {
         return currentDate.getTime() < selectedDate.getTime();
     };
 
+
     useEffect(() => {
         db.collection("turnos").onSnapshot((querySnapshot) => {
             const turnos = [];
@@ -98,13 +99,14 @@ const Turnos = () => {
 
             if (rolUsuario === "2" || rolUsuario === "3") {
                 turnosProfesional = []
+                document.getElementById("MedicoSelect").addEventListener('change', function () {
+                    console.log(this.value)
+                })
                 turnos.map((dataturnosmedico) => {
 
                     if (dataturnosmedico.eliminado !== true) {
-
                         turnosProfesional.push(dataturnosmedico)
                     }
-
                 })
                 setTurnos(turnosProfesional);
 
@@ -138,7 +140,6 @@ const Turnos = () => {
             setMedicos(medicosArray)
             medicosArray.map((data) => {
                 if (data.eliminado !== true && data.rol === 1) {
-
                     var option = document.createElement("option"); //Creamos la opcion
                     option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
                     if (document.getElementById("MedicoSelect") !== null) {
@@ -171,6 +172,9 @@ const Turnos = () => {
 
         });
     }, [])
+
+
+
 
 
     const SelectMedicoBloquear = () => {
@@ -244,6 +248,13 @@ const Turnos = () => {
                                     Elegir Médico
                                 </label>
                                 {SelectMedicoBloquear()}
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault"></input>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
