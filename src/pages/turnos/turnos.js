@@ -101,6 +101,7 @@ const Turnos = () => {
                 turnos.map((dataturnosmedico) => {
 
                     if (dataturnosmedico.eliminado !== true) {
+
                         turnosProfesional.push(dataturnosmedico)
                     }
 
@@ -231,7 +232,7 @@ const Turnos = () => {
                         <div className="row ml-4">
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Paciente
+                                    Elegir Paciente
                                 </label>
                                 <select class="form-select" aria-label="Default select example" id="pacientesSelect"
                                 >
@@ -240,13 +241,13 @@ const Turnos = () => {
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Médico
+                                    Elegir Médico
                                 </label>
                                 {SelectMedicoBloquear()}
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Fecha
+                                    Elegir Fecha
                                 </label>
                                 <DatePicker className="form-control text-center DatePicker"
                                     showTimeSelect
