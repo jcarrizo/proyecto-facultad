@@ -24,10 +24,7 @@ const Profesionales = () => {
   };
 
   const handleForm = () => {
-
-
     let idSeleccionado = profesional.id;
-
     let nombre = document.getElementById("nombre").value
     let apellido = document.getElementById("apellido").value
     let profesion = document.getElementById("profesion").value
@@ -51,11 +48,7 @@ const Profesionales = () => {
       type: "success",
       autoClose: 2000,
     });
-
-
-
   }
-
 
   const eliminarProfesional = () => {
     if (window.confirm("¿Está seguro que desea eliminar el profesional?")) {
@@ -161,11 +154,9 @@ const Profesionales = () => {
   const NombreTexto = (dataNombre, dataApellido) => {
 
     if (dataNombre != undefined && dataNombre != "") {
-
       return (<td>
         <h4>{dataNombre + " " + dataApellido}</h4>
       </td>)
-
     }
 
     else {
