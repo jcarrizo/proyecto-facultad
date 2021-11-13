@@ -52,6 +52,7 @@ const Profesionales = () => {
 
   const limpiar = () => {
     document.getElementById("textProfesional").value = "";
+    setBuscarProfesional("");
   }
 
   const eliminarProfesional = () => {
