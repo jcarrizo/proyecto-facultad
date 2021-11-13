@@ -138,6 +138,7 @@ const Pacientes = () => {
 
   const limpiar = () => {
     document.getElementById("textPaciente").value = "";
+    setBuscarPaciente("");
   }
 
   const habilitarbutton = () => {
