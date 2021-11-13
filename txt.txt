@@ -43,8 +43,6 @@ ________________________________________________________________________________
 
                                                MIS PACIENTES
 --FALTA--
-* Boton limpiar buscador
-
 
 --ISSUES--
 
@@ -56,7 +54,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________________
 
-                                                  TURNOS
+                                                   TURNOS
 --FALTA--
 * Hay q ver de que la secretaria primero filtre los turnos x medico
 
@@ -87,10 +85,8 @@ ________________________________________________________________________________
 
                                              MIS PROFESIONALES
 --FALTA--
-* Boton limpiar buscador
 
 --ISSUES--
-
 
 --NICE TO HAVE--
 * Agregar horario del trabajo del Profesional
