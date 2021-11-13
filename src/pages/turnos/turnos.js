@@ -247,13 +247,6 @@ const Turnos = () => {
                                     Elegir Médico
                                 </label>
                                 {SelectMedicoBloquear()}
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault"></input>
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Default checkbox
-                                    </label>
-                                </div>
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
