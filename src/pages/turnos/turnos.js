@@ -100,9 +100,7 @@ const Turnos = () => {
 
             if (rolUsuario === "2" || rolUsuario === "3") {
                 turnosProfesional = []
-                document.getElementById("MedicoSelect").addEventListener('change', function () {
-                    console.log(this.value)
-                })
+
                 turnos.map((dataturnosmedico) => {
 
                     if (dataturnosmedico.eliminado !== true) {
