@@ -211,7 +211,7 @@ const Pacientes = () => {
               </div>
 
               <div className="col text-left responsive">
-                <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
+                <button type="button" className="btn btn-success responsive-buscar" onClick={() => exportExcel()}>Exportar a Excel</button>
               </div>
 
             </div>
@@ -231,12 +231,12 @@ const Pacientes = () => {
                         ></input>
                       </div>
                       <div className="col-2">
-                        <button className="btn btn-secondary" onClick={() => limpiar()}>Limpiar</button>
+                        <button className="btn btn-secondary responsive-buscar" onClick={() => limpiar()}>Limpiar</button>
                       </div>
                       <div className="col-2">
                         <button
                           type="button"
-                          className="btn btn-primary ml-3 responsive-buscar" onClick={() => setBuscarPaciente(document.getElementById("textPaciente").value)}>
+                          className="btn btn-primary responsive-buscar" onClick={() => setBuscarPaciente(document.getElementById("textPaciente").value)}>
                           <b>Buscar</b>
                         </button>
                       </div>

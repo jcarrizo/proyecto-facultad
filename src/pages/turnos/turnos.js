@@ -226,9 +226,9 @@ const Turnos = () => {
                 </div>
                 <div className="col-md-10 pt-5 pr-5 pb-5">
                     <div className="row">
-                        <h2 className="tituloPerfil padding-responsive text-muted col-1">Turnos</h2>
+                        <h2 className="tituloPerfil padding-responsive text-muted col-1 mr-3">Turnos</h2>
                         <div className="col text-left responsive">
-                            <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
+                            <button type="button" className="btn btn-success responsive-buscar" onClick={() => exportExcel()}>Exportar a Excel</button>
                         </div>
                     </div>
                     <form>

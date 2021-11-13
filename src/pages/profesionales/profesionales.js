@@ -229,7 +229,7 @@ const Profesionales = () => {
             <div className="row">
               <h2 className="tituloPerfil col-4">Profesionales</h2>
               <div className="col-3 text-left responsive">
-                <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
+                <button type="button" className="btn btn-success responsive-buscar" onClick={() => exportExcel()}>Exportar a Excel</button>
               </div>
             </div>
             <div className="row gutters-sm">
@@ -248,7 +248,7 @@ const Profesionales = () => {
                         ></input>
                       </div>
                       <div className="col-2">
-                        <button className="btn btn-secondary" onClick={() => limpiar()}>Limpiar</button>
+                        <button className="btn btn-secondary responsive-buscar" onClick={() => limpiar()}>Limpiar</button>
                       </div>
                       <div className="col-2">
                         <button

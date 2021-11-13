@@ -37,6 +37,19 @@ table
     color: var(--white) !important;
 }
 
+.margin{
+  margin: 0px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+.chico
+{
+  background-color: transparent !important;
+  color: var(--danger) !important;
+}
+
+
+
 @media (max-width: 700px){
   .flex-column {
     flex-direction: row !important;
@@ -66,18 +79,8 @@ table
   {
     padding: 6px 3px !important;
     margin: 0px !important;
+    font-size: small;
   }
-}
-
-.margin{
-  margin: 0px !important;
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
-}
-.chico
-{
-  background-color: transparent !important;
-  color: var(--danger) !important;
 }
 
 
