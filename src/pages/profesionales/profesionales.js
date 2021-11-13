@@ -273,8 +273,22 @@ const Profesionales = () => {
                         <tbody>
                           {datos.map((datoss) => {
                             if (datoss.eliminado === false) {
+                              if (datoss.nombre === Buscarprofesional || datoss.apellido === Buscarprofesional || datoss.email === Buscarprofesional || datoss.profesion === Buscarprofesional) {
+                                return (
+                                  <tr onClick={() => setProfesional(datoss)}>
+                                    <td>
+                                      {datoss.nombre + " " + datoss.apellido}
+                                    </td>
+                                    <td>{datoss.email}</td>
+                                    <td>{datoss.telefono}</td>
+                                    <td>{datoss.profesion}</td>
+                                  </tr>
+                                );
+                              }
+                            }
+                            if (Buscarprofesional === undefined || Buscarprofesional === "") {
                               return (
-                                <tr onClick={() => setProfesional(datoss)}>
+                                <tr onClick={() => { setProfesional(datoss) }}>
                                   <td>
                                     {datoss.nombre + " " + datoss.apellido}
                                   </td>
