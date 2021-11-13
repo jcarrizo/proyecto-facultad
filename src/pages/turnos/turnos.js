@@ -32,12 +32,13 @@ const Turnos = () => {
             pacientes.map((datapaciente) => {
                 if ((datapaciente.nombre + " " + datapaciente.apellido) === pacienteSelect.value) {
                     let nuevoTurno = {
-                        title: pacienteSelect.value,
+                        title: pacienteSelect.value + " + " + localStorage.getItem("nameUser") + " " + localStorage.getItem("apellidoUser"),
                         start: String(startDate),
                         end: String(startDate),
                         pacienteId: datapaciente.id,
                         medicoNombre: localStorage.getItem("nameUser") + " " + localStorage.getItem("apellidoUser"),
                         profesionalId: localStorage.getItem("dataD"),
+                        eliminado: false,
                     };
                     flag = true
                     db.collection("turnos").doc().set(nuevoTurno);
@@ -57,7 +58,7 @@ const Turnos = () => {
                         if ((datamedico.nombre + " " + datamedico.apellido) === medicoSelect.value) {
 
                             let nuevoTurno = {
-                                title: pacienteSelect.value,
+                                title: pacienteSelect.value + " + " + medicoSelect.value,
                                 start: String(startDate),
                                 end: String(startDate),
                                 pacienteId: datapaciente.id,

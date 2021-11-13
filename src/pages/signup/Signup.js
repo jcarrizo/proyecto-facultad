@@ -66,7 +66,7 @@ const Signup = () => {
           localStorage.setItem("emailUser", info.email);
           localStorage.setItem("nameUser", info.nombre);
           localStorage.setItem('rolUser', info.rol);
-          window.location = "/proyecto-facultad/#/perfil";
+          window.location = "/proyecto-facultad/#/login";
         }, 1000);
       }
 

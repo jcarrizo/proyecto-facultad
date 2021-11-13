@@ -303,7 +303,19 @@ const Pacientes = () => {
                       <tbody>
                         {
                           datosTurnos.map((turnos) => {
-                            if (paciente.id === turnos.pacienteId && turnos.eliminado !== true) {
+                            if (paciente.id === turnos.pacienteId && turnos.eliminado !== true && (rolUsuario === "2" || rolUsuario === "3")) {
+                              var date = new Date(turnos.start)
+                              return (
+                                <tr>
+                                  <td>
+                                    {date.toLocaleString()}
+                                  </td>
+                                  <td>{turnos.medicoNombre}</td>
+                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
+                                </tr>
+                              );
+                            }
+                            if (paciente.id === turnos.pacienteId && turnos.eliminado !== true && (rolUsuario === "1") && turnos.profesionalId === IdUsuario) {
                               var date = new Date(turnos.start)
                               return (
                                 <tr>
