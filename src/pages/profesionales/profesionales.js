@@ -10,6 +10,7 @@ const Profesionales = () => {
   const [datos, setDatos] = useState([]);
   const [datosTurnos, setDatosTurnos] = useState([]);
   const [profesional, setProfesional] = useState([]);
+  const [Buscarprofesional, setBuscarProfesional] = useState();
   const { register, handleSubmit } = useForm();
   let wb;
 
@@ -252,7 +253,7 @@ const Profesionales = () => {
                       <div className="col-2">
                         <button
                           type="button"
-                          className="btn btn-primary ml-3 responsive-buscar" onClick={() => setProfesional(document.getElementById("textProfesional").value)}>
+                          className="btn btn-primary ml-3 responsive-buscar" onClick={() => setBuscarProfesional(document.getElementById("textProfesional").value)}>
                           <b>Buscar</b>
                         </button>
                       </div>
