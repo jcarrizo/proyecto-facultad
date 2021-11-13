@@ -76,7 +76,6 @@ const Pacientes = () => {
 
     let idSeleccionadoPaciente = paciente.id;
 
-
     let nombre = document.getElementById("nombre").value
     let apellido = document.getElementById("apellido").value
     let email = document.getElementById("email").value
@@ -135,6 +134,10 @@ const Pacientes = () => {
       </div>)
     }
 
+  }
+
+  const limpiar = () => {
+    document.getElementById("textPaciente").value = "";
   }
 
   const habilitarbutton = () => {
@@ -216,7 +219,7 @@ const Pacientes = () => {
                 <div className="card shadow">
                   <div className="card-body">
                     <form className="mb-3 row d-flex align-items-end ">
-                      <div className="col-10">
+                      <div className="col-8">
                         <label for="textPaciente" className="form-label">
                           Buscar Pacientes
                         </label>
@@ -225,6 +228,9 @@ const Pacientes = () => {
                           className="form-control"
                           id="textPaciente"
                         ></input>
+                      </div>
+                      <div className="col-2">
+                        <button className="btn btn-secondary" onClick={() => limpiar()}>Limpiar</button>
                       </div>
                       <div className="col-2">
                         <button

@@ -56,6 +56,9 @@ const Profesionales = () => {
 
   }
 
+  const limpiar = () => {
+    document.getElementById("textProfesional").value = "";
+  }
 
   const eliminarProfesional = () => {
     if (window.confirm("¿Está seguro que desea eliminar el profesional?")) {
@@ -240,6 +243,28 @@ const Profesionales = () => {
               <div className="col-md-4 mb-3 tabla">
                 <div className="card shadow">
                   <div className="card-body">
+                    <form className="mb-3 row d-flex align-items-end ">
+                      <div className="col-8">
+                        <label for="textProfesional" className="form-label">
+                          Buscar Profesionales
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="textProfesional"
+                        ></input>
+                      </div>
+                      <div className="col-2">
+                        <button className="btn btn-secondary" onClick={() => limpiar()}>Limpiar</button>
+                      </div>
+                      <div className="col-2">
+                        <button
+                          type="button"
+                          className="btn btn-primary ml-3 responsive-buscar" onClick={() => setProfesional(document.getElementById("textProfesional").value)}>
+                          <b>Buscar</b>
+                        </button>
+                      </div>
+                    </form>
                     <form className="mb-3 row d-flex align-items-end "></form>
                     <div className="d-flex flex-column align-items-center text-center horizontal-scroll">
                       <table className="table table-hover pointer my-table">
