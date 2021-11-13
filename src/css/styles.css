@@ -7,7 +7,7 @@ body
 
 :root {
     --black: #161616;
-    --danger: #FF0000;
+    --danger: #dc3545;;
     --light-danger: #FFCECE;
     --orange: #ff5b01;
     --light-orange: #FFB088;
@@ -35,7 +35,11 @@ body
   {
     background-color: var(--light-blue);
   }
-
+  .btn-danger
+  {
+    background-color: var(--danger);
+    border: white; 
+  }
   .text-blue{
       color: var(--blue);
   }

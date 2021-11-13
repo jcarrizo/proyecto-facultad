@@ -172,7 +172,6 @@ const Profesionales = () => {
 
 
   const eliminarTurno = (data) => {
-    console.log(data)
     if (window.confirm("¿Está seguro que desea eliminar el turno?")) {
       const turnoEdit = {
         eliminado: true,
@@ -332,7 +331,7 @@ const Profesionales = () => {
                                     {date.toLocaleString()}
                                   </td>
                                   <td>{turnos.title}</td>
-                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
+                                  <button className="btn btn-danger ml-5 chico d-flex justify-content-center" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
                                 </tr>
                               );
                             }

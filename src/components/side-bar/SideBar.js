@@ -12,7 +12,7 @@ const SideBar = () => {
   let nameUser = localStorage.getItem("nameUser");
   let rolUsuario = localStorage.getItem('rolUser');
 
-  const LogOut = () => {
+  const cerrarSesion = () => {
     localStorage.setItem("emailUser", "");
     localStorage.setItem("nameUser", "");
     localStorage.setItem('dataD', "");
@@ -153,7 +153,7 @@ const SideBar = () => {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" onClick={() => { LogOut() }} data-bs-dismiss="modal">Cerrar Sesión</button>
+              <button type="button" class="btn btn-primary" onClick={() => { cerrarSesion() }} data-bs-dismiss="modal">Cerrar Sesión</button>
             </div>
           </div>
         </div>
@@ -169,11 +169,11 @@ const SideBar = () => {
             <span></span>
 
             <ul id="menu">
-              <Link to="/perfil"><li>Mi perfil</li></Link>
+              <Link to="/perfil"><li>Mi Perfil</li></Link>
               <Link to="/pacientes"><li>Pacientes</li></Link>
               <Link to="/turnos"><li>Turnos</li></Link>
               {vistaProfesionalResponsive()}
-              <a href="#" onClick={LogOut}><li>Salir</li></a>
+              <li data-bs-toggle="modal" data-bs-target="#cerrarSesion">Cerrar Sesión</li>
             </ul>
           </div>
         </nav>

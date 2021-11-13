@@ -141,7 +141,7 @@ const Pacientes = () => {
     setBuscarPaciente("");
   }
 
-  const habilitarbutton = () => {
+  const habilitarbutton = () => { //TODO: eliminar?
     const button = document.getElementById('buttoneliminar')
     button.disabled = false;
   }
@@ -293,8 +293,8 @@ const Pacientes = () => {
           </div>
 
 
-          <h2 className="tituloPerfil text-left text-muted margin">Turnos del Paciente seleccionado</h2>
-          <div className="row gutters-sm">
+          <h2 className="tituloPerfil text-left text-muted margin container">Turnos del Paciente seleccionado</h2>
+          <div className="row gutters-sm container">
             <div className="col-md-12">
               <div className="card shadow mb-5">
                 <div className="card-body">
@@ -318,7 +318,7 @@ const Pacientes = () => {
                                     {date.toLocaleString()}
                                   </td>
                                   <td>{turnos.medicoNombre}</td>
-                                  <button className="btn btn-danger ml-5" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }} >Eliminar</button>
+                                  <button className="btn btn-danger ml-5 chico d-flex justify-content-center" id="buttoneliminar" onClick={() => { eliminarTurno(turnos.id) }}>Eliminar</button>
                                 </tr>
                               );
                             }
@@ -416,9 +416,9 @@ const Pacientes = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
+
       {/* MODAL EDITAR PERFIL */}
       <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
         <div className="modal-dialog">
