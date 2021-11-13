@@ -120,13 +120,13 @@ const SideBar = () => {
                 <div className="col-auto text-center dropup">
                   {CargarImagen()}
                 </div>
-                <div
+                <h5
                   className="col-auto mt-2 max-length"
                   aria-expanded="false"
                   length="10"
                 >
                   {nameUser}
-                </div>
+                </h5>
 
 
                 {/* < !--Button Cerrar Sesión --> */}

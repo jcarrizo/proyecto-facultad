@@ -3,13 +3,11 @@
   cursor: auto;
 }
 
-.calendar{
-  z-index: 1;
-}
 
-.DatePicker{
-  z-index: 3;
-}
+.rbc-row-content
+{
+z-index:  0 !important;
+}; 
 
 
 @media (max-width: 700px){
@@ -44,3 +42,5 @@
     }
   }
 }
+
+
