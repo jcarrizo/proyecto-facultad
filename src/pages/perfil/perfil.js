@@ -273,9 +273,9 @@ const Perfil = () => {
                         <div className="modal-body">
 
                           <form className="text-grey" >
-                            <div class="mb-3">
-                              <label for="formFile" class="form-label">Selecciona la Imagen</label>
-                              <input class="form-control" type="file" id="formImagen" accept="image/png, image/jpeg"></input>
+                            <div className="mb-3">
+                              <label for="formFile" className="form-label">Selecciona la Imagen</label>
+                              <input className="form-control" type="file" id="formImagen" accept="image/png, image/jpeg"></input>
                             </div>
                             <div className="modal-footer">
                               <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
