@@ -101,6 +101,8 @@ ________________________________________________________________________________
 --FALTA--
 
 --ISSUES--
+*Editar logo que dice dentista y poner logo en login
+*falta simbolo de exclamacion
 * se cierra el modal aun con error
 * que busque en miniscula pacientes
 * tipo number telefono
