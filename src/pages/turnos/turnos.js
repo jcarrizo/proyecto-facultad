@@ -179,14 +179,14 @@ const Turnos = () => {
     const SelectMedicoBloquear = () => {
         if (rolUsuario === "1") {
             return (
-                <select class="form-select" aria-label="Default select example" id="MedicoSelect" disabled>
+                <select className="form-select" aria-label="Default select example" id="MedicoSelect" disabled>
                     <option selected>Seleccione un Medico</option>
                 </select>
             )
         }
         else {
             return (
-                <select class="form-select" aria-label="Default select example" id="MedicoSelect"
+                <select className="form-select" aria-label="Default select example" id="MedicoSelect"
                 >
                     <option selected>Seleccione un Medico</option>
                 </select>)
@@ -237,7 +237,7 @@ const Turnos = () => {
                                 <label for="exampleInputEmail1" className="form-label">
                                     Elegir Paciente
                                 </label>
-                                <select class="form-select" aria-label="Default select example" id="pacientesSelect"
+                                <select className="form-select" aria-label="Default select example" id="pacientesSelect"
                                 >
                                     <option selected>Seleccione un Paciente</option>
                                 </select>
