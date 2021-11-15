@@ -30,8 +30,6 @@ const Login = () => {
 
     datos.map(datoss => {
 
-      console.log(datoss)
-
       if ((datoss.email === data.email && datoss.password === data.password) && datoss.eliminado !== true) {
 
         flag = true;
