@@ -288,13 +288,13 @@ const Turnos = () => {
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Elegir Médico
+                                    Elegir Médico y filtrar
                                 </label>
                                 {SelectMedicoBloquear()}
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Elegir Fecha
+                                    Elegir Fecha y Hora
                                 </label>
                                 <DatePicker className="form-control text-center DatePicker"
                                     showTimeSelect
