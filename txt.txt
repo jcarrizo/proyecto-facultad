@@ -105,7 +105,6 @@ ________________________________________________________________________________
 * que busque en miniscula pacientes
 * tipo number telefono
 * boton enter cierra modal sin submit
-* Secretaria no pueda eliminar Profesional
 * avisar si sacas turno para el mismo horario
 
 --NICE TO HAVE--
