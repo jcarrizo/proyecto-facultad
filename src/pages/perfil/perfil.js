@@ -252,7 +252,7 @@ const Perfil = () => {
 
                             <div className="modal-footer">
                               <button type="reset" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmit()}>Editar Perfil</button>
+                              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => onSubmit()}>Guardar Cambios</button>
                             </div>
 
                           </form>

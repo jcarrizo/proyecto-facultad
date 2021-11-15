@@ -285,7 +285,7 @@ const Profesionales = () => {
                                 );
                               }
                             }
-                            if (Buscarprofesional === undefined || Buscarprofesional === "") {
+                            if ((Buscarprofesional === undefined || Buscarprofesional === "") && datoss.eliminado === false) {
                               return (
                                 <tr onClick={() => { setProfesional(datoss) }}>
                                   <td>
