@@ -147,7 +147,6 @@ const Pacientes = () => {
   }
 
   const eliminarTurno = (data) => {
-    console.log(data)
     if (window.confirm("¿Está seguro que desea eliminar el turno?")) {
       const turnoEdit = {
         eliminado: true,
