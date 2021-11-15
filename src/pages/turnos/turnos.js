@@ -161,9 +161,7 @@ const Turnos = () => {
                     if (document.getElementById("MedicoSelect") !== null) {
                         document.getElementById("MedicoSelect").appendChild(option);  //Metemos la opción en el select   
                     }
-
                 }
-
             })
         }
         );
@@ -186,9 +184,7 @@ const Turnos = () => {
                         document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
                     }
                 }
-
             })
-
         });
     }, [])
 
