@@ -31,6 +31,7 @@ const Turnos = () => {
             let flag = false
             pacientes.map((datapaciente) => {
                 if ((datapaciente.nombre + " " + datapaciente.apellido) === pacienteSelect.value) {
+
                     let nuevoTurno = {
                         title: pacienteSelect.value + " + " + localStorage.getItem("nameUser") + " " + localStorage.getItem("apellidoUser"),
                         start: String(startDate),
@@ -43,6 +44,13 @@ const Turnos = () => {
                     flag = true
                     db.collection("turnos").doc().set(nuevoTurno);
                     toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
+                    for (const turnosinfo of turnos) {
+                        if (turnosinfo.start == String(startDate)) {
+                            toast('Se pidió un sobre turno', { type: 'info', autoClose: 3000 })
+                            break
+                        }
+                    }
+
                 }
             })
             if (flag == false) {
@@ -55,6 +63,7 @@ const Turnos = () => {
                 if ((datapaciente.nombre + " " + datapaciente.apellido) === pacienteSelect.value) {
 
                     medicos.map((datamedico) => {
+
                         if ((datamedico.nombre + " " + datamedico.apellido) === medicoSelect.value) {
 
                             let nuevoTurno = {
@@ -69,6 +78,14 @@ const Turnos = () => {
                             flag = true
                             db.collection("turnos").doc().set(nuevoTurno);
                             toast('Se agregó el turno correctamente', { type: 'success', autoClose: 3000 })
+
+                            for (const turnosinfo of turnos) {
+                                if (turnosinfo.start == String(startDate)) {
+                                    toast('Se pidió un sobre turno', { type: 'info', autoClose: 3000 })
+                                    break
+                                }
+                            }
+
                         }
                     })
                 }
