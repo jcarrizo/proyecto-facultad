@@ -56,11 +56,11 @@ ________________________________________________________________________________
 
                                                    TURNOS
 --FALTA--
-* Hay q ver de que la secretaria primero filtre los turnos x medico
+
 
 
 --ISSUES--
-* Seleccionar fecha con z index y oscuro 
+
 
 
 --NICE TO HAVE--
