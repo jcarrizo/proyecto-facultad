@@ -76,6 +76,12 @@
   color: #0d2366;
   margin-bottom: 60px;
 }
+
+.logo{
+  height: 45px;
+  width: 110px;
+}
+
 @media (max-width: 767px) {
   .login-card-footer-text {
     margin-bottom: 24px;

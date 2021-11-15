@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../login/login.css'
 import imgLogin from '../../images/login.jpg'
+import logoClinica from '../../images/bannerodonto.png'
 import { useForm } from "react-hook-form";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
@@ -60,12 +61,19 @@ const Login = () => {
         <div className="card shadow login-card">
           <div className="row no-gutters">
             <div className="col-md-5">
-              <img src={imgLogin} alt="login" className="login-card-img-login"></img>
+              <img src={imgLogin} alt="Imagen de fondo" className="login-card-img-login"></img>
             </div>
             <div className="col-md-7">
               <div className="card-body-login">
 
-                <h3 className="login-card-description-login">Ingresar</h3>
+                <div className="row mb-3">
+                  <div className="col-6">
+                    <h3 className="login-card-description-login">Ingresar</h3>
+                  </div>
+                  <div className="col-6">
+                    <img src={logoClinica} alt="Logo de Clínica Aparicio" className="logo"></img>
+                  </div>
+                </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input type="email" name="email" className="form-control"
@@ -79,7 +87,7 @@ const Login = () => {
                   <input className="btn btn-block login-btn2 mb-4" type="submit"
                     value="Ingresar"></input>
                   <div className="row">
-                    <Link to="/signUp" className="center">¿No tienes cuenta? Registrate!</Link>
+                    <Link to="/signUp" className="center">¿No tienes cuenta? ¡Registrate!</Link>
                   </div>
                 </form>
 
