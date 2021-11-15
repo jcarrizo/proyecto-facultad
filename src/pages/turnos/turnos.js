@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { db } from "../../DB/firebase";
 import { toast } from 'react-toastify'
 import * as XLSX from 'xlsx';
+import { tr } from "date-fns/locale";
 
 require("moment/locale/es.js");
 const localizer = momentLocalizer(moment);
@@ -179,10 +180,13 @@ const Turnos = () => {
             let arrayPacientes = [];
             pacientes.map((data) => {
                 var option = document.createElement("option"); //Creamos la opcion
-                option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
-                if (document.getElementById("pacientesSelect") !== null) {
-                    document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                if (data.eliminado !== true) {
+                    option.innerHTML = data.nombre + " " + data.apellido; //Metemos el texto en la opción
+                    if (document.getElementById("pacientesSelect") !== null) {
+                        document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
+                    }
                 }
+
             })
 
         });
