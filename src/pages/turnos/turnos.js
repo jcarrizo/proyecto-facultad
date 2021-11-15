@@ -173,8 +173,46 @@ const Turnos = () => {
 
 
     useEffect(() => {
+
         document.getElementById('MedicoSelect').addEventListener('change', function () {
-            console.log('You selected: ', this.value);
+            db.collection("turnos").onSnapshot((querySnapshot) => {
+                const turnos = [];
+                querySnapshot.forEach((doc) => {
+                    turnos.push({ ...doc.data(), id: doc.id });
+                });
+                for (let i = 0; i < turnos.length; i++) {
+                    turnos[i].start = new Date(turnos[i].start);
+                    turnos[i].end = new Date(turnos[i].end);
+                }
+
+                if (this.value === "Seleccione un Medico") {
+
+                    turnosProfesional = []
+
+                    turnos.map((dataturnosmedico) => {
+
+                        if (dataturnosmedico.eliminado !== true) {
+                            turnosProfesional.push(dataturnosmedico)
+                        }
+                    })
+                    setTurnos(turnosProfesional);
+
+                }
+                else {
+                    turnosProfesional = []
+                    turnos.map((dataturnosmedico) => {
+
+                        if ((dataturnosmedico.medicoNombre === this.value) && dataturnosmedico.eliminado !== true) {
+                            turnosProfesional.push(dataturnosmedico)
+                        }
+
+                    })
+                    setTurnos(turnosProfesional);
+                }
+            });
+
+
+
         });
     }, [])
 
