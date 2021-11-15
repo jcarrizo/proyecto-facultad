@@ -123,7 +123,6 @@ const Turnos = () => {
             }
         });
 
-
         db.collection("users").onSnapshot((querySnapshot) => {
             let medicos = [];
             querySnapshot.forEach((doc) => {
@@ -168,6 +167,51 @@ const Turnos = () => {
                     document.getElementById("pacientesSelect").appendChild(option); //Metemos la opción en el select
                 }
             })
+
+        });
+    }, [])
+
+
+    useEffect(() => {
+
+        document.getElementById('MedicoSelect').addEventListener('change', function () {
+            db.collection("turnos").onSnapshot((querySnapshot) => {
+                const turnos = [];
+                querySnapshot.forEach((doc) => {
+                    turnos.push({ ...doc.data(), id: doc.id });
+                });
+                for (let i = 0; i < turnos.length; i++) {
+                    turnos[i].start = new Date(turnos[i].start);
+                    turnos[i].end = new Date(turnos[i].end);
+                }
+
+                if (this.value === "Seleccione un Medico") {
+
+                    turnosProfesional = []
+
+                    turnos.map((dataturnosmedico) => {
+
+                        if (dataturnosmedico.eliminado !== true) {
+                            turnosProfesional.push(dataturnosmedico)
+                        }
+                    })
+                    setTurnos(turnosProfesional);
+
+                }
+                else {
+                    turnosProfesional = []
+                    turnos.map((dataturnosmedico) => {
+
+                        if ((dataturnosmedico.medicoNombre === this.value) && dataturnosmedico.eliminado !== true) {
+                            turnosProfesional.push(dataturnosmedico)
+                        }
+
+                    })
+                    setTurnos(turnosProfesional);
+                }
+            });
+
+
 
         });
     }, [])
@@ -244,13 +288,13 @@ const Turnos = () => {
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Elegir Médico
+                                    Elegir Médico y filtrar
                                 </label>
                                 {SelectMedicoBloquear()}
                             </div>
                             <div className="col-md-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Elegir Fecha
+                                    Elegir Fecha y Hora
                                 </label>
                                 <DatePicker className="form-control text-center DatePicker"
                                     showTimeSelect
