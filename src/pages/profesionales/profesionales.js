@@ -229,7 +229,7 @@ const Profesionales = () => {
             <div className="row">
               <h2 className="tituloPerfil col-4">Profesionales</h2>
               <div className="col-3 text-left responsive">
-                <button type="button" className="btn btn-success responsive-buscar" onClick={() => exportExcel()}>Exportar a Excel</button>
+                <button type="button" className="btn btn-success responsive-excel" onClick={() => exportExcel()}>Exportar a Excel</button>
               </div>
             </div>
             <div className="row gutters-sm">
@@ -306,8 +306,8 @@ const Profesionales = () => {
               </div>
             </div>
           </div>
-          <h2 className="tituloPerfil text-left text-muted mt-4 margin">Turnos Medico Seleccionado</h2>
-          <div className="row gutters-sm">
+          <h2 className="tituloPerfil text-left text-muted mt-4 margin container">Turnos del Médico seleccionado</h2>
+          <div className="row gutters-sm container">
             <div className="col-md-12">
               <div className="card shadow mb-5">
                 <div className="card-body">

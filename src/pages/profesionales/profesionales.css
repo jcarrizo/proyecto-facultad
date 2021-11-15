@@ -27,9 +27,14 @@ thead{
   .my-table {
     min-width: 100%;
   }
-  
+
   @media (max-width: 700px){
     .flex-column {
       flex-direction: row !important;
+   }
+   .responsive-excel
+   {
+     max-height: 40px;
+     width: 150px;
    }
   }

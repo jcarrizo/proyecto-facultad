@@ -294,22 +294,22 @@ const Turnos = () => {
                     </div>
                     <form>
                         <div className="row ml-4">
-                            <div className="col-md-3">
+                            <div className="col-md-3 font-weight-bold">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Elegir Paciente
                                 </label>
-                                <select className="form-select" aria-label="Default select example" id="pacientesSelect"
+                                <select className="form-select " aria-label="Default select example" id="pacientesSelect"
                                 >
                                     <option selected>Seleccione un Paciente</option>
                                 </select>
                             </div>
-                            <div className="col-md-3">
+                            <div className="col-md-3 responsive-turno-p font-weight-bold">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Elegir Médico y filtrar
                                 </label>
                                 {SelectMedicoBloquear()}
                             </div>
-                            <div className="col-md-3">
+                            <div className="col-md-3 responsive-turno-p font-weight-bold">
                                 <label for="exampleInputEmail1" className="form-label">
                                     Elegir Fecha y Hora
                                 </label>

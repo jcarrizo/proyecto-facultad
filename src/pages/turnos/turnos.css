@@ -15,26 +15,28 @@ z-index:  0 !important;
       margin: 0 1px;
   }
 }
-
   @media (min-width: 701px){
     .responsive-agregar-turno {
       margin-left: 5px;
       margin-right: 40px;
     }
   }
-
-
-
   @media (max-width: 700px){
     .rbc-toolbar { 
       margin-bottom: 30px!important;
   }
 
-  @media (max-width: 700px){
+  @media (max-width: 400px){
     .rbc-month-view {
       width: 305px !important;
   }
  }
+ @media (min-width: 401px) and (max-width: 700px){
+  .rbc-month-view {
+    width: 345px !important;
+}
+
+}
 
  @media (max-width: 700px){
   .padding-responsive { 
@@ -42,5 +44,14 @@ z-index:  0 !important;
     }
   }
 }
+@media (max-width: 700px){
+  .responsive-turno-p { 
+    margin-top: 25px!important;
+}
+}
+
+
+
+
 
 

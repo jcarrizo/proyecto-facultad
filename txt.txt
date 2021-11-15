@@ -109,11 +109,6 @@ ________________________________________________________________________________
 
 *Eliminar hacerlo modal
 *agregar paciente en mobile no anda
-*desapretar agregar turno mobile
-*ensanchar turno
-*titulo select paceinte y medico negrita - TURNOS
-+dejar mas lindo el boton excell
-*paddin en turnos medico seleccionado y editar texto
 
 
 --NICE TO HAVE--
