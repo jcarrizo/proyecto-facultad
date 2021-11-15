@@ -123,7 +123,6 @@ const Turnos = () => {
             }
         });
 
-
         db.collection("users").onSnapshot((querySnapshot) => {
             let medicos = [];
             querySnapshot.forEach((doc) => {
@@ -169,6 +168,13 @@ const Turnos = () => {
                 }
             })
 
+        });
+    }, [])
+
+
+    useEffect(() => {
+        document.getElementById('MedicoSelect').addEventListener('change', function () {
+            console.log('You selected: ', this.value);
         });
     }, [])
 
