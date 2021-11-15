@@ -13,6 +13,7 @@ const Profesionales = () => {
   const [Buscarprofesional, setBuscarProfesional] = useState();
   const { register, handleSubmit } = useForm();
   let wb;
+  let rolUsuario = localStorage.getItem("rolUser");
 
 
   const profileEdit = {
@@ -96,7 +97,7 @@ const Profesionales = () => {
 
   const buttoneditar = () => {
 
-    if (profesional.id !== undefined) {
+    if (profesional.id !== undefined && rolUsuario != 2) {
       return (<div>
         <button
           className="btn btn-warning"
@@ -137,7 +138,6 @@ const Profesionales = () => {
         </button>
       </div>)
     }
-
   }
 
 
