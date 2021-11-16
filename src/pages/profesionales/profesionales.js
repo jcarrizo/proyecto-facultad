@@ -305,7 +305,7 @@ const Profesionales = () => {
                         <tbody>
                           {datos.map((datoss) => {
                             if (datoss.eliminado === false) {
-                              if (datoss.nombre === Buscarprofesional || datoss.apellido === Buscarprofesional || datoss.email === Buscarprofesional || datoss.profesion === Buscarprofesional) {
+                              if (datoss.nombre.includes(Buscarprofesional) || datoss.apellido.includes(Buscarprofesional) || datoss.email.includes(Buscarprofesional) || datoss.profesion.includes(Buscarprofesional)) {
                                 return (
                                   <tr onClick={() => setProfesional(datoss)}>
                                     <td>

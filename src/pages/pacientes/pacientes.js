@@ -257,7 +257,7 @@ const Pacientes = () => {
                         <tbody>
                           {datos.map((datos2) => {
                             if (datos2.eliminado === false) {
-                              if (datos2.nombre === BuscarPacientedato || datos2.apellido === BuscarPacientedato || datos2.dni === BuscarPacientedato || datos2.email === BuscarPacientedato) {
+                              if (datos2.nombre.includes(BuscarPacientedato) || datos2.apellido.includes(BuscarPacientedato) || datos2.dni.includes(BuscarPacientedato) || datos2.email.includes(BuscarPacientedato)) {
                                 return (
                                   <tr onClick={() => { setPaciente(datos2) }}>
                                     <td>
