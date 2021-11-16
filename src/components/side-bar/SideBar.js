@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../side-bar/sidebar.css";
 import {
   BrowserRouter as Router,
@@ -7,10 +7,18 @@ import {
 } from "react-router-dom";
 import banner from "./../../images/bannerodonto.png"; // Tell webpack this JS file uses this image
 
+
 const SideBar = () => {
 
   let nameUser = localStorage.getItem("nameUser");
   let rolUsuario = localStorage.getItem('rolUser');
+  let usuarioId = localStorage.getItem("dataD")
+
+  if (usuarioId === null || usuarioId === "" || usuarioId === undefined) {
+
+    window.location = '/login';
+    console.log("hola")
+  }
 
   const cerrarSesion = () => {
     localStorage.setItem("emailUser", "");

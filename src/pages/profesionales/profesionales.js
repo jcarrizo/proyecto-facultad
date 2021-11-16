@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "./profesionales.css";
 import * as XLSX from 'xlsx';
 import { el } from "date-fns/locale";
+import { Link } from "react-router-dom";
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
@@ -74,7 +75,7 @@ const Profesionales = () => {
         autoClose: 3000,
       });
 
-
+      setProfesional([])
 
 
     }
@@ -222,6 +223,7 @@ const Profesionales = () => {
 
 
     }
+
   };
 
   const exportExcel = () => {

@@ -115,6 +115,8 @@ const Pacientes = () => {
         autoClose: 3000,
       });
     }
+
+    setPaciente([])
   };
 
 
