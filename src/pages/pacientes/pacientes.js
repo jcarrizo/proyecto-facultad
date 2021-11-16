@@ -213,7 +213,7 @@ const Pacientes = () => {
               </div>
 
               <div className="col text-left responsive">
-                <button type="button" className="btn btn-success responsive-buscar" onClick={() => exportExcel()}>Exportar a Excel</button>
+                <button type="button" className="btn btn-success" onClick={() => exportExcel()}>Exportar a Excel</button>
               </div>
 
             </div>
