@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "./profesionales.css";
 import * as XLSX from 'xlsx';
+import { el } from "date-fns/locale";
 
 const Profesionales = () => {
   const [datos, setDatos] = useState([]);
@@ -14,6 +15,7 @@ const Profesionales = () => {
   const { register, handleSubmit } = useForm();
   let wb;
   let rolUsuario = localStorage.getItem("rolUser");
+  let usuarioId = localStorage.getItem("dataD")
 
 
   const profileEdit = {
@@ -98,26 +100,52 @@ const Profesionales = () => {
   const buttoneditar = () => {
 
     if (profesional.id !== undefined && rolUsuario != 2) {
-      return (<div>
-        <button
-          className="btn btn-warning"
-          href=""
-          data-bs-toggle="modal"
-          data-bs-target="#editarPerfil"
-        >
-          Editar
-        </button>
 
+      if (usuarioId === profesional.id) {
+        return (<div>
+          <button
+            className="btn btn-warning"
+            href=""
+            data-bs-toggle="modal"
+            data-bs-target="#editarPerfil"
+          >
+            Editar
+          </button>
 
-        <button
-          className="btn btn-danger ml-5"
-          href=""
-          onClick={() => eliminarProfesional()}
-        >
-          Eliminar
-        </button>
-      </div>
-      )
+          <button
+            className="btn btn-danger ml-5"
+            href=""
+            onClick={() => eliminarProfesional()}
+            disabled
+          >
+            Eliminar
+          </button>
+        </div>
+        )
+
+      }
+      else {
+        return (<div>
+          <button
+            className="btn btn-warning"
+            href=""
+            data-bs-toggle="modal"
+            data-bs-target="#editarPerfil"
+          >
+            Editar
+          </button>
+
+          <button
+            className="btn btn-danger ml-5"
+            href=""
+            onClick={() => eliminarProfesional()}
+          >
+            Eliminar
+          </button>
+        </div>
+        )
+      }
+
     }
     else {
       return (<div>
