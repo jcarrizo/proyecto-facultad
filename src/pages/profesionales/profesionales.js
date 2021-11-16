@@ -73,6 +73,10 @@ const Profesionales = () => {
         type: "success",
         autoClose: 3000,
       });
+
+
+
+
     }
   };
 
@@ -215,6 +219,8 @@ const Profesionales = () => {
         type: "success",
         autoClose: 3000,
       });
+
+
     }
   };
 
