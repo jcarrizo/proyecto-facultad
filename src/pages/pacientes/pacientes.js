@@ -81,6 +81,7 @@ const Pacientes = () => {
     let email = document.getElementById("email").value
     let telefono = document.getElementById("telefono").value
     let direccion = document.getElementById("direccion").value
+    let obraSocial = document.getElementById("ObraSocial").value
     let dni = document.getElementById("dni").value
 
     const profileEditar = {
@@ -89,6 +90,7 @@ const Pacientes = () => {
       email: email,
       telefono: telefono,
       direccion: direccion,
+      obrasocial: obraSocial,
       dni: dni,
     };
 
@@ -462,6 +464,12 @@ const Pacientes = () => {
                   <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.direccion} id="direccion"
                     name="direccion" maxlength="30" required></input>
                   <label>Dirección</label>
+                </div>
+
+                <div className="mb-3 form-floating">
+                  <input type="text" className="form-control" placeholder="Ingrese el dirección" defaultValue={paciente.obrasocial} id="ObraSocial"
+                    name="direccion" maxlength="30" required></input>
+                  <label>Obra Social</label>
                 </div>
 
                 <div className="mb-3 form-floating">

@@ -609,7 +609,7 @@ const Profesionales = () => {
                         data-bs-dismiss="modal"
                         onClick={() => handleForm()}
                       >
-                        Editar Paciente
+                        Guardar Cambios
                       </button>
                     </div>
                   </form>

@@ -67,6 +67,7 @@ const Perfil = () => {
     const resp = db.collection("users").doc(usuarioId).update(profileEdit)
     localStorage.setItem('emailUser', email)
     localStorage.setItem('nameUser', nombre)
+    localStorage.setItem('apellidoUser', apellido);
 
     toast("Se editó el perfil correctamente", {
       type: 'success', autoClose: 3000
