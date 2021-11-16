@@ -107,6 +107,8 @@ const Profesionales = () => {
         >
           Editar
         </button>
+
+
         <button
           className="btn btn-danger ml-5"
           href=""
