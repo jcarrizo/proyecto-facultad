@@ -48,7 +48,7 @@ const Profesionales = () => {
     const resp = db.collection("users").doc(idSeleccionado).update(profileEdit);
     toast("Se editó el perfil correctamente", {
       type: "success",
-      autoClose: 2000,
+      autoClose: 3000,
     });
   }
 
@@ -69,7 +69,7 @@ const Profesionales = () => {
         .update(profileEdit);
       toast("Se eliminó el perfil correctamente", {
         type: "success",
-        autoClose: 2000,
+        autoClose: 3000,
       });
     }
   };
@@ -185,7 +185,7 @@ const Profesionales = () => {
         .update(turnoEdit);
       toast("Se eliminó el turno correctamente", {
         type: "success",
-        autoClose: 2000,
+        autoClose: 3000,
       });
     }
   };
@@ -197,8 +197,11 @@ const Profesionales = () => {
       "Profesional", "Email", "Teléfono", "Profesión"
     ]]
 
+    let profesionalesFiltrados = datos.filter(datos => {
+      return datos.eliminado === false
+    })
 
-    for (const paciente of datos) {
+    for (const paciente of profesionalesFiltrados) {
       array.push([
         paciente.nombre + " " + paciente.apellido,
         paciente.email,

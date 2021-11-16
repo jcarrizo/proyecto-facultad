@@ -109,13 +109,10 @@ ________________________________________________________________________________
 *exportar excel no deberia exportar si esta vacio
 
 *Eliminar hacerlo modal
-*agregar paciente en mobile no anda
 *no revisa que el usuario este logueado si vuelvo atras
 *Eliminarce a si mismo
 *Que no se cierre el moda si hay un error de input
-*alargar toast
 *al eliminar un profesional reset a su info seleccionada (revisar paciente
-*excell cargar eliminados)
 +e.preventDefault
 
 --NICE TO HAVE--
