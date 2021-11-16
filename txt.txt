@@ -105,8 +105,8 @@ ________________________________________________________________________________
 * que busque en miniscula pacientes
 * tipo number telefono
 * boton enter cierra modal sin submit
-*centrar modal mobile como cerrar session
-*exportar excel no deberia exportar si esta vacio
+* centrar modal mobile como cerrar session
+* exportar excel no deberia exportar si esta vacio
 
 *Eliminar hacerlo modal
 *no revisa que el usuario este logueado si vuelvo atras

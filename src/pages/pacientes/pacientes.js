@@ -423,7 +423,7 @@ const Pacientes = () => {
 
       {/* MODAL EDITAR PERFIL */}
       <div className="modal fade" id="editarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel1">Editar Paciente</h5>
@@ -488,7 +488,7 @@ const Pacientes = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
