@@ -59,7 +59,7 @@ const Pacientes = () => {
 
     toast("Se creó el paciente correctamente", {
       type: "success",
-      autoClose: 2000,
+      autoClose: 3000,
     });
   };
 
@@ -95,7 +95,7 @@ const Pacientes = () => {
     const resp = db.collection("pacientes").doc(idSeleccionadoPaciente).update(profileEditar);
     toast("Se editó el perfil correctamente", {
       type: "success",
-      autoClose: 2000,
+      autoClose: 3000,
     });
   };
 
@@ -112,7 +112,7 @@ const Pacientes = () => {
         .update(profileEdit);
       toast("Se eliminó el paciente correctamente", {
         type: "success",
-        autoClose: 2000,
+        autoClose: 3000,
       });
     }
   };
@@ -158,7 +158,7 @@ const Pacientes = () => {
         .update(turnoEdit);
       toast("Se eliminó el turno correctamente", {
         type: "success",
-        autoClose: 2000,
+        autoClose: 3000,
       });
     }
   };
@@ -170,8 +170,11 @@ const Pacientes = () => {
       "Paciente", "DNI", "Email", "Teléfono", "Obra Social"
     ]]
 
+    let pacientesFiltrados = datos.filter(datos => {
+      return datos.eliminado === false
+    })
 
-    for (const paciente of datos) {
+    for (const paciente of pacientesFiltrados) {
       array.push([
         paciente.nombre + " " + paciente.apellido,
         paciente.dni,

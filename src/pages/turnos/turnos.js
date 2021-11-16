@@ -261,8 +261,11 @@ const Turnos = () => {
             "Fecha", "Paciente", "Profesional"
         ]]
 
+        let turnosFiltrados = turnos.filter(turnos => {
+            return turnos.eliminado === false
+        })
 
-        for (const turno of turnos) {
+        for (const turno of turnosFiltrados) {
             array.push([
                 turno.start.toLocaleString(),
                 turno.title,
